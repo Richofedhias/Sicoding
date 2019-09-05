@@ -16,5 +16,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO : mengerjakan fitur 3
         //TODO : Mengerjakan fitur 4
         //TODO : Mengerjakan fitur 5
+        //TODO : Mengerjakan fitur 6
+        //TODO : Mengerjakan fitur 7
     }
 }
