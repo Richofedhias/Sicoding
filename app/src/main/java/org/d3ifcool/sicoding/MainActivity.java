@@ -12,5 +12,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //TODO: mengerjakan fitur 1
+        //TODO : mengerjakan fitur 2
     }
 }
