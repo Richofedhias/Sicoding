@@ -11,7 +11,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        
+
         // langsung pindah ke MainActivity
         // begitu memasuki splash screen ini
         Intent intent = new Intent(this, MainActivity.class);
