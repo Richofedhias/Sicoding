@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CFCFCF"
-    tools:context=".RegisterActivity">
+    tools:context=".register.RegisterActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,33 +37,33 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/registerName"
+                android:id="@+id/tV_nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
-                android:hint="Fullname"
+                android:hint="@string/nama_regist"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/registerUsername"
+                android:id="@+id/tV_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="@string/email_regist"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/registerPassword"
+                android:id="@+id/tV_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/password_regist"
                 android:inputType="textPassword" />
 
             <RelativeLayout
@@ -73,7 +73,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/userRegister"
+                    android:id="@+id/btn_Regist"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

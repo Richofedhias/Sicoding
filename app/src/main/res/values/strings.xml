@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Sicoding</string>
+    <string name="nama_regist">Nama</string>
+    <string name="email_regist">Email</string>
+    <string name="password_regist">Password</string>
 </resources>

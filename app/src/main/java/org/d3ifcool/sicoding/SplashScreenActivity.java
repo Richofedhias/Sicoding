@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import org.d3ifcool.sicoding.login.LoginActivity;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -14,7 +16,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         // langsung pindah ke MainActivity
         // begitu memasuki splash screen ini
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
 
