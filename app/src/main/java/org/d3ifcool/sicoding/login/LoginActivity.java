@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import org.d3ifcool.sicoding.R;
+import org.d3ifcool.sicoding.beranda.BerandaActivity;
 import org.d3ifcool.sicoding.register.RegisterActivity;
 
 
 
 public class LoginActivity extends AppCompatActivity {
-    private Button registrasi;
+    private Button registrasi, login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
-
+            }
+        });
+        login = findViewById(R.id.btn_Login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
+                startActivity(intent);
             }
         });
     }
