@@ -3,4 +3,6 @@
     <string name="nama_regist">Nama</string>
     <string name="email_regist">Email</string>
     <string name="password_regist">Password</string>
+    <string name="hello_menu_materi">Hello, User</string>
+    <string name="text_menu_materi">Android Proggramer</string>
 </resources>

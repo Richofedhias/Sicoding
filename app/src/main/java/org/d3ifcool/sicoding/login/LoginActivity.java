@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.d3ifcool.sicoding.MenuMateri;
+import org.d3ifcool.sicoding.MenuMateriActivity;
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.beranda.BerandaActivity;
 import org.d3ifcool.sicoding.register.RegisterActivity;
