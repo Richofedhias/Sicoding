@@ -42,7 +42,7 @@ public class MenuMateriAdapter extends RecyclerView.Adapter<MenuMateriAdapter.my
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            judul = itemView.findViewById(R.id.tV_judul_materi);
+            judul = itemView.findViewById(R.id.tV_judulMateri);
 
         }
     }
