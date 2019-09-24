@@ -23,15 +23,7 @@ public class MenuMateriActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_materi);
 
-        rV_list = findViewById(R.id.rV_menuMateri);
-        tV_namaUser = findViewById(R.id.tV_namaUser);
-        tV_namaLang = findViewById(R.id.tV_namaLang);
 
-        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
-        rV_list.setLayoutManager(lm);
-
-        adapter = new MenuMateriAdapter(menuMateriList);
-        rV_list.setAdapter(adapter);
     }
 
     public void JudulMateri() {
