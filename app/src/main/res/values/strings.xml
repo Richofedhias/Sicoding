@@ -10,6 +10,13 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+
+<!--    Pengguna di Profile-->
+    <string name="title_about">About</string>
+    <string name="title_hobby">Hobby</string>
+    <string name="title_user">Nama User</string>
+    <string name="Lorem_ipsum">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

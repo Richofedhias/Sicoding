@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import org.d3ifcool.sicoding.login.LoginActivity;
-
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
