@@ -1,5 +1,7 @@
 package org.d3ifcool.sicoding.beranda;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.d3ifcool.sicoding.ListMateriActivity;
 import org.d3ifcool.sicoding.R;
 
 import java.util.ArrayList;
 
 public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.myViewHolder> {
 
-    ArrayList<IsiBeranda> isiBerandalist;
+    Context context;
+    ArrayList<BerandaList> isiBerandalist;
 
-    public BerandaAdapter(ArrayList<IsiBeranda> isiBerandalist) {
+    public BerandaAdapter(ArrayList<BerandaList> isiBerandalist, Context context) {
         this.isiBerandalist = isiBerandalist;
+        this.context = context;
     }
 
     @NonNull
@@ -30,9 +35,23 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.myViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull myViewHolder holder, final int position) {
         holder.nama.setText(isiBerandalist.get(position).getNamaLanguage());
         holder.logo.setImageResource(isiBerandalist.get(position).getLogoLanguage());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                if (position == 0) {
+                    intent = new Intent(view.getContext(), ListMateriActivity.class);
+                    view.getContext().startActivity(intent);
+                } else if (position == 1) {
+                    intent = new Intent(view.getContext(), ListMateriActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

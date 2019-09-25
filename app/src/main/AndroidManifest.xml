@@ -11,12 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".kuisWeb.ResultKuisWebActivity"></activity>
+        <activity android:name=".ListMateriActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".kuisWeb.ResultKuisWebActivity" />
         <activity android:name=".kuisWeb.KuisWebActivity" />
         <activity android:name=".kuisWeb.KategoriKuisWeb" />
         <activity android:name=".KategoriKuisActivity" />
-        <activity android:name=".MenuMateriActivity" />
-        <activity android:name=".beranda.BerandaActivity" />
+        <activity android:name=".beranda.BerandaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".WalkthroughActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>

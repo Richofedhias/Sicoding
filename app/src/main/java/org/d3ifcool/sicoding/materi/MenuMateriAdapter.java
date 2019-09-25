@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding;
+package org.d3ifcool.sicoding.materi;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.d3ifcool.sicoding.R;
 
 public class MenuMateriAdapter extends RecyclerView.Adapter<MenuMateriAdapter.myViewHolder> {
 

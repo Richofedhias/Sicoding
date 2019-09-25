@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding;
+package org.d3ifcool.sicoding.materi;
 
 public class MenuMateri {
 

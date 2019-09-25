@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void SendUserToBerandaActivity() {
-        Intent mainIntent = new Intent(LoginActivity.this, KategoriKuisActivity.class);
+        Intent mainIntent = new Intent(LoginActivity.this, BerandaActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();

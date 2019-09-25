@@ -1,10 +1,10 @@
 package org.d3ifcool.sicoding.beranda;
 
-public class IsiBeranda {
+public class BerandaList {
     String namaLanguage;
     int logoLanguage;
 
-    public IsiBeranda(String namaLanguage, int logoLanguage) {
+    public BerandaList(String namaLanguage, int logoLanguage) {
         this.namaLanguage = namaLanguage;
         this.logoLanguage = logoLanguage;
     }

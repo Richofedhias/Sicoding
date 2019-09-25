@@ -1,55 +1,65 @@
 package org.d3ifcool.sicoding.beranda;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ViewFlipper;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
+import org.d3ifcool.sicoding.ProfileActivity;
 import org.d3ifcool.sicoding.R;
 
-import java.util.ArrayList;
-
 public class BerandaActivity extends AppCompatActivity {
-    BottomNavigationView navView;
-
-    BerandaAdapter adapter;
-    ArrayList<IsiBeranda> list = new ArrayList<>();
+    FloatingActionButton floatingActionButton;
+    BottomAppBar bottomAppBar;
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda);
-        navView = findViewById(R.id.bottom_nav);
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupWithNavController(navView, navController);
 
+        viewPager = (ViewPager) findViewById(R.id.vP_beranda);
+        IsiBerandaAdapter utangAdapter = new IsiBerandaAdapter(BerandaActivity.this, getSupportFragmentManager());
+        viewPager.setAdapter(utangAdapter);
 
+        // Kodingan Untuk Mengatur Tabs Layout
+//        tabLayout = (TabLayout) findViewById(R.id.tabs_hutang);
+//        tabLayout.setupWithViewPager(viewPager);
 
-        //Button Bahasa Pemrograman
+        //Bottom Navigation View
+        bottomAppBar = findViewById(R.id.bottom_app_bar);
+        bottomAppBar.replaceMenu(R.menu.bottom_nav_menu);
+        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_profile:
+                        Intent intent = new Intent(BerandaActivity.this, ProfileActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(BerandaActivity.this, "Berhasil ke Halaman Profil", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });
 
-
+        bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(BerandaActivity.this, "Berhasil Beranda", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
+    private void holdFloatingActionButton() {
 
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
-//        return true;
-//    }
+    }
 }

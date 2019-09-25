@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding.beranda;
+package org.d3ifcool.sicoding.materi;
 
 
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import org.d3ifcool.sicoding.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ContohFragment extends Fragment {
 
 
-    public ProfileFragment() {
+    public ContohFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.fragment_contoh, container, false);
     }
 
 }
