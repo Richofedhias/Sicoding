@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "344078894295",
+    "firebase_url": "https://sicoding.firebaseio.com",
+    "project_id": "sicoding",
+    "storage_bucket": "sicoding.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344078894295:android:4347d8795e072fed37dc92",
+        "android_client_info": {
+          "package_name": "org.d3ifcool.sicoding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344078894295-2sdf4qkh7fm87l0a16hc4ahfmm6jfv3a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.d3ifcool.sicoding",
+            "certificate_hash": "b8891bfeab70c55ed28971b799d543009e487ab7"
+          }
+        },
+        {
+          "client_id": "344078894295-3rgl3hvc3hkuqi7mug4fhaon89cm9p0m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW0UpLZwmVUrB2-Ij56HFJWjB2RCb7Cn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344078894295-3rgl3hvc3hkuqi7mug4fhaon89cm9p0m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
