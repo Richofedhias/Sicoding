@@ -17,6 +17,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import org.d3ifcool.sicoding.login.LoginActivity;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +42,14 @@ public class WalkthroughActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_walkthrough);
+        try {
+            InputStream inputStream = WalkthroughActivity.this.openFileInput("confirm.txt");
+            Intent intent = new Intent(WalkthroughActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found, showing tutorial");
+        }
 
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_intro_anim);
         btn_getStarted = findViewById(R.id.btn_getStarted);

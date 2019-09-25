@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding;
+package org.d3ifcool.sicoding.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import org.d3ifcool.sicoding.KategoriKuisActivity;
+import org.d3ifcool.sicoding.R;
+import org.d3ifcool.sicoding.register.RegisterActivity;
 import org.d3ifcool.sicoding.beranda.BerandaActivity;
 
 
@@ -64,30 +68,29 @@ public class LoginActivity extends AppCompatActivity {
                     password.setError("Masukan Password");
                     return;
                 } else {
-                    firebaseAuth.signInWithEmailAndPassword(email_user,password_user)
-                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.signInWithEmailAndPassword(email_user,password_user).
+                            addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    // If sign in fails, display a message to the user. If sign in succeeds
-                                    // the auth state listener will be notified and logic to handle the
-                                    // signed in user can be handled in the listener.
-                                    mLoading.dismiss();
-                                    if (!task.isSuccessful()) {
-                                        // there was an error
-                                        if (password_user.length() <= 8) {
-                                            password.setError("Masukan Password minimal 8");
-                                        } else {
-                                            Toast.makeText(LoginActivity.this, "Gagal", Toast.LENGTH_LONG).show();
-                                        }
+                                    if (task.isSuccessful()) {
+                                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                                        SendUserToBerandaActivity();
+                                        Toast.makeText(LoginActivity.this, "Kamu Berhasil Login", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
-                                        startActivity(intent);
-                                        finish();
+                                        Toast.makeText(LoginActivity.this, "TIdak Berhasil Login, Mohon untuk dicek, apakah sudah daftar apa belum " , Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
                 }
             }
         });
+    }
+
+    private void SendUserToBerandaActivity() {
+        Intent mainIntent = new Intent(LoginActivity.this, KategoriKuisActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainIntent);
+        finish();
+
     }
 }
