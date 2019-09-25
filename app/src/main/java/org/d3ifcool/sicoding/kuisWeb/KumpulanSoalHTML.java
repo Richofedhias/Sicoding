@@ -4,23 +4,23 @@ public class KumpulanSoalHTML {
 
 
     private String textQuestions [] = {
-            "1. Apa warna bendera indonesia?",
-            "2. siapa presiden pertama indonesia?",
-            "3. siapa prseiden indonesia sekarang?",
-            "4. tahun berapa indonesia merdeka",
-            "5. Tahun berapa sekarang ?"
+            "1. Bagaimanakah perintah HTML agar muncul input type password",
+            "2. Untuk mengulangi pengisian pada form menggunakan perintah :",
+            "3. Type yang berfungsi untuk menerima masukan berupa teks dari pengguna adalah",
+            "4. Atribute ACTION digunakan untuk",
+            "5. Tag <SELECT> digunakan untuk ?"
     };
 
     // array of multiple choices for each question
     private String multipleChoice [][] = {
-            {"Merah - Putih", "putih merah", "kuning", "hijau"},
-            {"Soeharto", "Jokowi", "SBY", "Ir Soekarno"},
-            {"Megawati", "Prabowo", "Bj Habibi", "Jokowi"},
-            {"1999", "2018", "1945", "2000"},
-            {"1999", "2000", "2010", "2018"}
+            {"<td><input type=\"password\" name=\"alamat\"</td>", "<td><input type=\"name\" name=\"password\"</td>", "<td><input type=\"password\" password=\"alamat\"</td>", "<td><input type=\"word\" name=\"password\"</td>"},
+            {" <input type=”reset” value=”reset”>", "<input type=”submit value=”reset”>", "<input type=”checkbox” value=”reset”>", "<ol type=”circle” value=”reset”>"},
+            {"Checkbox ", "Submit", "File", "Text"},
+            {"Menentukan nama form", "Menetukan metode pengiriman yang dipakai", "Menentukan alamat halaman web yang akan memproses masukan dari Form.", "Menerima masukan berupa pilihan"},
+            {"memilih beberapa opsi", "menentukan ukuran", "menandai beberapa opsi", "menampilkan opsi pilihan"}
     };
 
-    private String mCorrectAnswers[] = {"Merah - Putih", "Ir Soekarno", "Jokowi", "1945", "2018"};
+    private String mCorrectAnswers[] = {"<td><input type=\"password\" name=\"alamat\"</td>", "<input type=”reset” value=”reset”>", "Text", "Menentukan alamat halaman web yang akan memproses masukan dari Form.", "menampilkan opsi pilihan"};
 
     public int getLength(){
         return textQuestions.length;
