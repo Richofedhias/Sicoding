@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ContohAdapter extends RecyclerView.Adapter<ContohAdapter.myViewHolder> {
+public class ContohAdapter extends RecyclerView.Adapter<ContohAdapter.mymyViewHolder> {
 
     private ArrayList<MenuMateri> menuMateriList;
 
@@ -22,16 +22,17 @@ public class ContohAdapter extends RecyclerView.Adapter<ContohAdapter.myViewHold
 
     @NonNull
     @Override
-    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public mymyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.list_contoh_item, parent, false);
-        return new ContohAdapter.myViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.activity_detail_latihan, parent, false);
+        return new ContohAdapter.mymyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        MenuMateri item = menuMateriList.get(position);
+    public void onBindViewHolder(@NonNull mymyViewHolder holder, int position) {
+        final MenuMateri item = menuMateriList.get(position);
         holder.judul.setText(item.getJudul());
+        holder.deskripsi.setText(item.getDesk());
     }
 
     @Override
@@ -39,13 +40,13 @@ public class ContohAdapter extends RecyclerView.Adapter<ContohAdapter.myViewHold
         return menuMateriList.size();
     }
 
-    public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView judul ;
+    public class mymyViewHolder extends RecyclerView.ViewHolder {
+        TextView judul, deskripsi;
 
-        public myViewHolder(@NonNull View itemView) {
+        public mymyViewHolder(@NonNull View itemView) {
             super(itemView);
-            judul = itemView.findViewById(R.id.tV_contoh);
-
+            judul = itemView.findViewById(R.id.tV_judulDetail);
+            deskripsi = itemView.findViewById(R.id.tV_description);
         }
     }
 }

@@ -7,38 +7,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.d3ifcool.sicoding.R;
 
-public class MenuMateriAdapter extends RecyclerView.Adapter<MenuMateriAdapter.myyViewHolder> {
+import java.util.ArrayList;
+
+public class LatihanAdapter extends RecyclerView.Adapter<LatihanAdapter.myyViewHolder> {
     public static final String EXTRA_MESSAGE = "org.d3ifcool.sicoding";
-    private ArrayList<MenuMateri> menuMateriList;
+    private ArrayList<MenuMateri> lists;
     private Context mContext;
 
-    public MenuMateriAdapter(ArrayList<MenuMateri> menuMateriList) {
-        this.menuMateriList = menuMateriList;
+    public LatihanAdapter(ArrayList<MenuMateri> lists) {
+        this.lists = lists;
     }
 
     @NonNull
     @Override
-    public myyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LatihanAdapter.myyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_menu_materi_item, parent, false);
-        return new myyViewHolder(view);
+        return new LatihanAdapter.myyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myyViewHolder holder, int position) {
-        final MenuMateri item = menuMateriList.get(position);
+    public void onBindViewHolder(@NonNull LatihanAdapter.myyViewHolder holder, int position) {
+        final MenuMateri item = lists.get(position);
         holder.judul.setText(item.getJudul());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DetailMateriActivity.class);
+                Intent intent = new Intent(view.getContext(), DetailLatihanActivity.class);
                 intent.putExtra("judul", item.getJudul());
                 intent.putExtra("penjelasan", item.getDesk());
                 view.getContext().startActivity(intent);
@@ -49,7 +49,7 @@ public class MenuMateriAdapter extends RecyclerView.Adapter<MenuMateriAdapter.my
 
     @Override
     public int getItemCount() {
-        return menuMateriList.size();
+        return lists.size();
     }
 
     public class myyViewHolder extends RecyclerView.ViewHolder {

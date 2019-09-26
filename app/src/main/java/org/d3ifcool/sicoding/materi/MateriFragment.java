@@ -29,13 +29,13 @@ public class MateriFragment extends Fragment {
 
     public MateriFragment() {
         // Required empty public constructor
-        list.add(new MenuMateri("Pengenalan HTML"));
-        list.add(new MenuMateri("Sejarah HTML"));
-        list.add(new MenuMateri("Pengenalan Tag Pada HTML"));
-        list.add(new MenuMateri("Pengenalan Element Pada HTML"));
-        list.add(new MenuMateri("Pengenalan Atribut Pada HTML"));
-        list.add(new MenuMateri("Materi Tentang Format Text Pada HTML"));
-        list.add(new MenuMateri("Materi Membuat Paragraf Pada HTML"));
+//        list.add(new MenuMateri("Pengenalan HTML"));
+//        list.add(new MenuMateri("Sejarah HTML"));
+//        list.add(new MenuMateri("Pengenalan Tag Pada HTML"));
+//        list.add(new MenuMateri("Pengenalan Element Pada HTML"));
+//        list.add(new MenuMateri("Pengenalan Atribut Pada HTML"));
+//        list.add(new MenuMateri("Materi Tentang Format Text Pada HTML"));
+//        list.add(new MenuMateri("Materi Membuat Paragraf Pada HTML"));
     }
 
 
@@ -46,6 +46,7 @@ public class MateriFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_materi, container, false);
         rV_list = v.findViewById(R.id.rV_materi);
 
+        list.addAll(DataMateri.getListData());
         LinearLayoutManager lm = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rV_list.setLayoutManager(lm);
         adapter = new MenuMateriAdapter(list);

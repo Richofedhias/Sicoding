@@ -33,6 +33,18 @@ public class HomeFragment extends Fragment {
         listWeb.add(new BerandaList("Bootstrap",R.drawable.ic_bootstrap));
 
         //Database
+        listDatabase.add(new BerandaList("JSON", R.drawable.logo_orange));
+        listDatabase.add(new BerandaList("JSON", R.drawable.logo_orange));
+        listDatabase.add(new BerandaList("JSON", R.drawable.logo_orange));
+        listDatabase.add(new BerandaList("JSON", R.drawable.logo_orange));
+        listDatabase.add(new BerandaList("JSON", R.drawable.logo_orange));
+
+        //
+        listAndroid.add(new BerandaList("Java",R.drawable.logo_biru_dongker));
+        listAndroid.add(new BerandaList("Java",R.drawable.logo_biru_dongker));
+        listAndroid.add(new BerandaList("Java",R.drawable.logo_biru_dongker));
+        listAndroid.add(new BerandaList("Java",R.drawable.logo_biru_dongker));
+        listAndroid.add(new BerandaList("Java",R.drawable.logo_biru_dongker));
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,18 +61,22 @@ public class HomeFragment extends Fragment {
 //        }
 
         rV_listWeb.setHasFixedSize(true);
-        rV_listDatabase.setHasFixedSize(true);
-        rV_listAndroid.setHasFixedSize(true);
         LinearLayoutManager lm = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         rV_listWeb.setLayoutManager(lm);
-//        rV_listDatabase.setLayoutManager(lm);
-//        rV_listAndroid.setLayoutManager(lm);
         adapter = new BerandaAdapter(listWeb,getContext());
-        adapter = new BerandaAdapter(listDatabase,getContext());
-        adapter = new BerandaAdapter(listAndroid,getContext());
         rV_listWeb.setAdapter(adapter);
-        rV_listDatabase.setAdapter(adapter);
-        rV_listAndroid.setAdapter(adapter);
+
+//        rV_listDatabase.setHasFixedSize(true);
+//        LinearLayoutManager lm1 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+//        rV_listDatabase.setLayoutManager(lm1);
+//        adapter = new BerandaAdapter(listDatabase,getContext());
+//        rV_listDatabase.setAdapter(adapter);
+//
+//        rV_listAndroid.setHasFixedSize(true);
+//        LinearLayoutManager lm2 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+//        rV_listAndroid.setLayoutManager(lm2);
+//        adapter = new BerandaAdapter(listAndroid,getContext());
+//        rV_listAndroid.setAdapter(adapter);
         return v;
     }
 

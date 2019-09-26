@@ -21,16 +21,16 @@ import java.util.ArrayList;
 public class ContohFragment extends Fragment {
 
     RecyclerView rV_list;
-    ContohAdapter adapter;
+    LatihanAdapter adapter;
     ArrayList<MenuMateri> list = new ArrayList<>();
 
     public ContohFragment() {
         // Required empty public constructor
-        list.add(new MenuMateri("Mengatur Tag Pada HTML"));
-        list.add(new MenuMateri("Membuat Title Pada HTML"));
-        list.add(new MenuMateri("Mengatur Heading Pada HTML"));
-        list.add(new MenuMateri("Membuat Format Text Pada HTML"));
-        list.add(new MenuMateri("Membuat Paragraf Pada HTML"));
+//        list.add(new MenuMateri("Mengatur Tag Pada HTML"));
+//        list.add(new MenuMateri("Membuat Title Pada HTML"));
+//        list.add(new MenuMateri("Mengatur Heading Pada HTML"));
+//        list.add(new MenuMateri("Membuat Format Text Pada HTML"));
+//        list.add(new MenuMateri("Membuat Paragraf Pada HTML"));
     }
 
     @Override
@@ -40,9 +40,10 @@ public class ContohFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_contoh, container, false);
         rV_list = v.findViewById(R.id.rV_contoh);
 
+        list.addAll(DataLatihan.getListData());
         LinearLayoutManager lm = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rV_list.setLayoutManager(lm);
-        adapter = new ContohAdapter(list);
+        adapter = new LatihanAdapter(list);
         rV_list.setAdapter(adapter);
         return v;
     }

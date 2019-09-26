@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListMateriActivity"></activity>
+        <activity android:name=".materi.DetailLatihanActivity"></activity>
+        <activity android:name=".materi.DetailMateriActivity" />
+        <activity android:name=".ListMateriActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".kuisWeb.ResultKuisWebActivity" />
         <activity android:name=".kuisWeb.KuisWebActivity" />

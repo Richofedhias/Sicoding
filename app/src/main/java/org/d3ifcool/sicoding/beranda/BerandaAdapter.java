@@ -46,10 +46,11 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.myViewHo
                 if (position == 0) {
                     intent = new Intent(view.getContext(), ListMateriActivity.class);
                     view.getContext().startActivity(intent);
-                } else if (position == 1) {
-                    intent = new Intent(view.getContext(), ListMateriActivity.class);
-                    view.getContext().startActivity(intent);
                 }
+//                else if (position == 1) {
+//                    intent = new Intent(view.getContext(), ListMateriActivity.class);
+//                    view.getContext().startActivity(intent);
+//                }
             }
         });
     }
