@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.d3ifcool.sicoding">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".materi.DetailLatihanActivity"></activity>
+        <activity android:name=".QnA.QnAActivity"></activity>
+        <activity android:name=".materi.DetailLatihanActivity" />
         <activity android:name=".materi.DetailMateriActivity" />
         <activity android:name=".ListMateriActivity" />
         <activity android:name=".ProfileActivity" />
@@ -37,5 +36,7 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".register.RegisterActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
