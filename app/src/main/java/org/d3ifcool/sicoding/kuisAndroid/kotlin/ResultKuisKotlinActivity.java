@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding.kuisWeb;
+package org.d3ifcool.sicoding.kuisAndroid.kotlin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,19 +6,30 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.d3ifcool.sicoding.R;
+import org.d3ifcool.sicoding.beranda.BerandaActivity;
 
-public class ResultKuisWebActivity extends AppCompatActivity {
+public class ResultKuisKotlinActivity extends AppCompatActivity {
+    private Button menuawal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result_kuis_web);
-
+        setContentView(R.layout.activity_result_kuis_kotlin);
         TextView txtScore =  findViewById(R.id.textScore);
         TextView txtHighScore = findViewById(R.id.textHighScore);
+        menuawal = findViewById(R.id.btn_menuAwal);
+
+        menuawal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ResultKuisKotlinActivity.this, BerandaActivity.class));
+                finish();
+            }
+        });
 
         Intent intent = getIntent();
         int score = intent.getIntExtra("score", 0);
@@ -38,8 +49,8 @@ public class ResultKuisWebActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent(ResultKuisWebActivity.this, KuisWebActivity.class);
+        Intent intent = new Intent(ResultKuisKotlinActivity.this, KuisKotlinActivity.class);
         startActivity(intent);
+        finish();
     }
-    }
-
+}

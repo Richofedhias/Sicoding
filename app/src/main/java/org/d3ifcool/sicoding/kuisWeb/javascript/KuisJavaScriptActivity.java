@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding.kuisWeb;
+package org.d3ifcool.sicoding.kuisWeb.javascript;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,8 @@ import android.widget.Toast;
 
 import org.d3ifcool.sicoding.R;
 
-public class KuisWebActivity extends AppCompatActivity {
-
-    private KumpulanSoalHTML mQuestionLibrary = new KumpulanSoalHTML();
+public class KuisJavaScriptActivity extends AppCompatActivity {
+    private KumpulanSoalJavaScript mQuestionLibrary = new KumpulanSoalJavaScript();
     private TextView mScoreView;   // Untuk menampilkan skor saat ini
     private TextView mQuestionView;  //menampilkan jawaban
     private Button mButtonChoice1; // jawaban 1
@@ -24,11 +23,10 @@ public class KuisWebActivity extends AppCompatActivity {
     private String mAnswer;  // untuk cek jawaban benar atau tidaknya
     private int mScore = 0;  // current total score
     private int mQuestionNumber = 0; //
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kuis_web);
+        setContentView(R.layout.activity_kuis_java_script);
         mScoreView = findViewById(R.id.score);
         mQuestionView = findViewById(R.id.question);
         mButtonChoice1 = findViewById(R.id.choice1);
@@ -54,8 +52,7 @@ public class KuisWebActivity extends AppCompatActivity {
             mQuestionNumber++;
         }
         else {
-            Toast.makeText(KuisWebActivity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(KuisWebActivity.this, ResultKuisWebActivity.class);
+            Intent intent = new Intent(KuisJavaScriptActivity.this, ResultKuisJavaScriptActivity.class);
             intent.putExtra("score", mScore); // pass the current score to the second screen
             startActivity(intent);
             finish();
@@ -72,11 +69,12 @@ public class KuisWebActivity extends AppCompatActivity {
         // if the answer is correct, increase the score
         if (answer.getText() == mAnswer){
             mScore = mScore + 1;
-            Toast.makeText(KuisWebActivity.this, "Benar!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(KuisJavaScriptActivity.this, "Benar!", Toast.LENGTH_SHORT).show();
         }else
-            Toast.makeText(KuisWebActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(KuisJavaScriptActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
 
         updateScore(mScore);
         updateQuestion();
     }
-}
+    }
+

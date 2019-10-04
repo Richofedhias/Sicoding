@@ -2,13 +2,20 @@ package org.d3ifcool.sicoding;
 
 import android.content.Context;
 
+import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
+import org.d3ifcool.sicoding.beranda.BerandaActivity;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.longClick;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
 /**
@@ -18,11 +25,26 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("org.d3ifcool.sicoding", appContext.getPackageName());
+    @Rule
+    public ActivityTestRule<BerandaActivity> intent =
+            new ActivityTestRule<>(BerandaActivity.class);
+
+    @Test
+    public void testkuis() throws InterruptedException {
+        onView(withId(R.id.nav_profile)).perform(click());
+        onView(withId(R.id.btn_kategoriKuisWeb)).perform(click());
+        onView(withId(R.id.btn_html)).perform(click());
+        onView(withId(R.id.choice1)).perform(click());
+        onView(withId(R.id.choice2)).perform(click());
+        onView(withId(R.id.choice3)).perform(click());
+        onView(withId(R.id.choice4)).perform(click());
+        onView(withId(R.id.choice1)).perform(click());
+        onView(withId(R.id.btn_menuAwal)).perform(click());
+        onView(withId(R.id.rV_listWeb)).perform(RecyclerViewActions.actionOnItemAtPosition(1,click()));
+        Thread.sleep(5000);
     }
+
+
+
 }

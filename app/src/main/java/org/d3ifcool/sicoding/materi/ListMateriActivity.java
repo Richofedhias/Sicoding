@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding;
+package org.d3ifcool.sicoding.materi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -6,8 +6,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.FirebaseDatabase;
 
-import org.d3ifcool.sicoding.materi.MateriViewPagerAdapter;
+import org.d3ifcool.sicoding.R;
 
 public class ListMateriActivity extends AppCompatActivity {
     TabLayout tabLayout;

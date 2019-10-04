@@ -27,6 +27,19 @@
     <!--    Penggunaan di Kuis Web-->
     <string name="title_HTML">HTML</string>
     <string name="title_PHP">PHP</string>
+    <string name="title_CSS">CSS</string>
+    <string name="title_JavaScript">JavaScript</string>
+    <string name="title_Boostrap">Boostrap</string>
+
+    <!--    Penggunaan di Kuis Database-->
+    <string name="title_MySQL">MySQL</string>
+    <string name="title_Json">JSON</string>
+    <string name="title_Firebase">Firebase</string>
+
+    <!--    Penggunaan di Kuis Android-->
+    <string name="title_java">Android with Java</string>
+    <string name="title_kotlin">Android with Kotlin</string>
+    <string name="title_flutter">Flutter</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

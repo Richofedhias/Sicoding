@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.d3ifcool.sicoding.ListMateriActivity;
+import org.d3ifcool.sicoding.materi.ListMateriActivity;
 import org.d3ifcool.sicoding.R;
 
 import java.util.ArrayList;

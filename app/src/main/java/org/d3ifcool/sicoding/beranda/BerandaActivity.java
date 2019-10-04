@@ -44,8 +44,9 @@ public class BerandaActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-                        Intent intent = new Intent(BerandaActivity.this, ProfileActivity.class);
+                        Intent intent = new Intent(BerandaActivity.this, KategoriKuisActivity.class);
                         startActivity(intent);
+                        finish();
                         Toast.makeText(BerandaActivity.this, "Berhasil ke Halaman Profil", Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -86,6 +87,7 @@ public class BerandaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BerandaActivity.this, KategoriKuisActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -94,6 +96,7 @@ public class BerandaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BerandaActivity.this, KategoriKuisActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
