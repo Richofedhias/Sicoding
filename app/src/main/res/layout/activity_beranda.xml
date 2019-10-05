@@ -39,14 +39,14 @@
             app:backgroundTint="@color/colorDaffodil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_white_24dp"
+            app:srcCompat="@drawable/ic_add_white_24dp"
             app:layout_anchor="@id/bottom_app_bar"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_white_24dp"
+            app:srcCompat="@drawable/ic_add_white_24dp"
             app:backgroundTint="@color/colorDaffodil"
             app:layout_anchor="@+id/fab_index"
             android:visibility="invisible"
@@ -56,7 +56,7 @@
             android:id="@+id/fab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_white_24dp"
+            app:srcCompat="@drawable/ic_add_white_24dp"
             app:backgroundTint="@color/colorDaffodil"
             app:layout_anchor="@+id/fab_index"
             android:visibility="invisible"

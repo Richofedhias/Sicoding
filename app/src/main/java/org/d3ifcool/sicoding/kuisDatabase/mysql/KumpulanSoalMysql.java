@@ -16,28 +16,79 @@ public class KumpulanSoalMysql {
 
     // array of multiple choices for each question
     private String multipleChoice[][] = {
-            {"HTML", "CSS", "Boostrap", "Javascript"},
-            {".table", ".table_striped", ".table_bordered", ".table_hover"},
-            {"img", "img_circle", "img_thumbnail", "img_rounded"},
-            {".btn_sm", ".btn", ".btn_md", ".btn_lg"}, {"Boostrap", "Img", "Jumbotron", "Container"},
-            {"Alert_info", "Alert_warning", "Alert_danger", "Alert"},
-            {"Col_lg-*", "Col_md-*", "Col_sm-*", "Col_xs-*"},
-            {"Show", "Carousel", "Form", "Grid"},
-            {"Panel_footer", "Panel_head", "Panel_body", "Panel_info"},
-            {"Pagination", "Breadcrumb", "Navigation", "Alert Boostrap"}
+            //1
+            {"Merupakan suatu format untuk mengedit data.",
+                    "Merupakan suatu project untuk aplikasi.",
+                    "Merupakan suatu variable untuk menyimpan data atau digunakan dalam sebuah proses pertukaran data.",
+                    "Merupakan suatu syntax atau format untuk menyimpan data atau digunakan dalam sebuah proses pertukaran data."},
+            //2
+            {"employeeName.setText(“Name: ” +name);",
+                    "JSONObject ob = new JSONObject(JSON_STRING);",
+                    "name = employee.getString(“name”);",
+                    "JSONObject employee = obj.getJSONObject(“employee”);"},
+            //3
+            {"Array",
+                    "Object",
+                    "Null",
+                    "Boolean"},
+            //4
+            {"JSON.obj()",
+                    "JSON.parse()",
+                    "JSON.adapter()",
+                    "JSON.parsing()"},
+            //5
+            {"Bill Gate",
+                    "Albert Einstein",
+                    "James Tamplin dan Andrew Lee",
+                    "Douglas Crockford"},
+            //6
+            {"Fungsi JSON",
+                    "Deskripsi JSON",
+                    "Macam JSON",
+                    "Sejarah JSON"},
+            //7
+            {"Untuk menghasilkan JSON dari Array Assosiatif",
+                    "Untuk mengubah JSON menjadi Array",
+                    "Untuk Mengubah Array menjadi JSON",
+                    "Untuk Menghasilkan JSON dari Object Assosiatif"},
+            //8
+            {"Untuk menghasilkan JSON dari Array Assosiatif",
+                    "Untuk mengubah JSON menjadi Array",
+                    "Untuk Mengubah Array menjadi JSON",
+                    "Untuk Menghasilkan JSON dari Object Assosiatif"},
+            //9
+            {"XML tidak perlu diurai dengan parse XML. JSON tidak harus diurai oleh parse JSON.",
+                    "XML dan JSON sama-sama terdapat parse.",
+                    "XML harus diurai dengan parser XML. JSON bisa diurai oleh fungsi JavaScript standar.",
+                    "XML harus diurai dengan fungsi JavaScript standar. JSON bisa diurai dengan parse JSON."},
+            //10
+            {"Java Script Online Notation",
+                    "Java Scholar Object Notation",
+                    "Java Script Object Notation",
+                    "Java Script Object Naration"}
     };
 
     private String mCorrectAnswers[] = {
-            "Boostrap",
-            ".table_striped",
-            "Img_rounded",
-            ".btn",
-            "Jumbotron",
-            "Alert_warning",
-            "Col_lg-*",
-            "Carousel",
-            "Panel_body",
-            "Pagination"
+            //1
+            "Merupakan suatu syntax atau format untuk menyimpan data atau digunakan dalam sebuah proses pertukaran data.",
+            //2
+            "JSONObject employee = obj.getJSONObject(“employee”);",
+            //3
+            "Array",
+            //4
+            "JSON.parse()",
+            //5
+            "Douglas Crockford",
+            //6
+            "Fungsi JSON",
+            //7
+            "Untuk menghasilkan JSON dari Array Assosiatif",
+            //8
+            "Untuk mengubah JSON menjadi Array",
+            //9
+            "XML harus diurai dengan parser XML. JSON bisa diurai oleh fungsi JavaScript standar.",
+            //10
+            "Java Script Object Notation"
     };
 
     public int getLength() {

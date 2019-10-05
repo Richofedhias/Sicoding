@@ -2,42 +2,124 @@ package org.d3ifcool.sicoding.kuisDatabase.json;
 
 public class KumpulanSoalJson {
     private String textQuestions[] = {
-        "1. Sebuah library framework css yang dibuat khusus untuk bagian pengembangan front-end website, disebut",
-        "2. Class tambahan untuk membuat table dengan menggunakan bootstrap , class ini berfungsi untuk membuat baris table yang bergaya belang-beling (strip) , merupakan fungsi dari:",
-        "3. Class ini digunakan untuk membuat gambar berbentuk round atau pada sisi sudut gambar memiliki bentuk melengkung, merupakan fungsi dari",
-        "4. Class bootstrap yang digunakan untuk membuat tombol dengan ukuran terkecil , sedang, maupun terbesar , adalah , kecuali",
-        "5. Semacam bentuk yang dibuat dengan tujuan membuat sejenis pengumuman , konten khusus atau informasi tentang halaman website , disebut",
-        "6. Membuat pesan alert yang berwarna kuning, biasanya digunakan untuk membuat pesan yang berupa peringatan, merupakan fungsi dari",
-        "7. Mengatur grid pada monitor computer yang berukuran besar, merupakan fungsi dari",
-        "8. Proses penampilan gambar yang diberi efek slide, dan biasanya diletakkan pada halaman depan sebuah website dengan design yang bermacam-macam , merupakan fungsi dari",
-        "9. Class yang disediakan bootstrap untuk membuat panel bagian badan , merupakan fungsi dari",
-        "10. Suatu metode untuk membagi suatu dokumen atau resource menjadi bagian-bagian lebih kecil yang saling terpisah, disebut"
+        "1. sebuah perangkat lunak sistem manajemen basis data SQL atau DBMS yang multialur, multipengguna, dengan sekitar 6 juta instalasi di seluruh dunia adalah pengertian dari ...",
+        "2. Pengembangan MySQL saat ini dipegang ...",
+        "3. $conn = new mysqli ($servername, $username, $password, $dbname);\n" +
+                "if ($conn->connect_error) {\n" +
+                " \tdie(“Connection failed: ” . $conn->connect_error);\n" +
+                "}\n" +
+                "Diatas adalah fungsi dari MySQL :",
+            "4. Siapakah pencipta MYSQL ?",
+        "5. Pada tahun berapa mysql diciptakan ?",
+        "6. Tamplikanlah seluruh field yang berada didalam tabel barang?",
+        "7. Buat lah barang dengan field kode_barang char(6),nama barang varchar2(25),satuan_barang varchar2(20) dan stok_barang number(4) primary key adalah kode barang ?",
+        "8. Ciri  dari Primary Key adalah ?",
+        "9. Cara menghapus tabel barang?",
+        "10. Buat lah user baru pada table karyawan dengan user = sofyan dan password = sosa?"
 };
 
     // array of multiple choices for each question
     private String multipleChoice[][] = {
-            {"HTML", "CSS", "Boostrap", "Javascript"},
-            {".table", ".table_striped", ".table_bordered", ".table_hover"},
-            {"img", "img_circle", "img_thumbnail", "img_rounded"},
-            {".btn_sm", ".btn", ".btn_md", ".btn_lg"}, {"Boostrap", "Img", "Jumbotron", "Container"},
-            {"Alert_info", "Alert_warning", "Alert_danger", "Alert"},
-            {"Col_lg-*", "Col_md-*", "Col_sm-*", "Col_xs-*"},
-            {"Show", "Carousel", "Form", "Grid"},
-            {"Panel_footer", "Panel_head", "Panel_body", "Panel_info"},
-            {"Pagination", "Breadcrumb", "Navigation", "Alert Boostrap"}
+            //1
+            {"SQLite",
+                    "MySQL",
+                    "MyLite",
+                    "MariaDB"},
+            //2
+            {"JAVA",
+                    "Google",
+                    "Microsoft",
+                    "Oracle"},
+            //3
+            {"Create table",
+                    "Connection database",
+                    "Diconnect database",
+                    "Update database"},
+            //4
+            {"Carles Cabbage",
+                    "Howard Akein",
+                    "Linus Torvald",
+                    "Michael \"Monty\" Widenius."},
+            //5
+            {"MySQL pada awalnya diciptakan pada tahun 1979",
+                    "MySQL pada awalnya diciptakan pada tahun 1997",
+                    "MySQL pada awalnya diciptakan pada tahun 1977",
+                    "MySQL pada awalnya diciptakan pada tahun 1987"},
+            //6
+            {"Select from barang;",
+                    "select * from barang;",
+                    "select * barang;",
+                    "select * from barang"},
+            //7
+            {"create table barang(\n" +
+                    "kode_barang char(6)\n" +
+                    "nama_barang varchar2(25)\n" +
+                    "satuan_barang varchar2(20)\n" +
+                    "stock_barang number(4)\n" +
+                    "constraint pk_barang primary key(kode_barang)\n" +
+                    ");\n",
+                    "create table barang(\n" +
+                    "kode_barang char(6),\n" +
+                    "nama_barang varchar2(25),\n" +
+                    "constraint pk_barang primary key(kode_barang)\n" +
+                    ");\n",
+                    "create table barang(\n" +
+                    "kode_barang char(6),\n" +
+                    "nama_barang varchar2(25),\n" +
+                    "satuan_barang varchar2(20),\n" +
+                    "stock_barang number(4),\n" +
+                    "constraint pk_barang primary key(kode_barang)\n" +
+                    ");\n",
+                    "create table barang(\n" +
+                    "kode_barang char(6),\n" +
+                    "nama_barang varchar2(25),\n" +
+                    "satuan_barang varchar2(20),\n" +
+                    "stock_barang number(4),\n" +
+                    "constraint pk_barang primary key(kode_barang)"},
+            //8
+            {"Bersifat unik,",
+                    "Bersifat umum",
+                    "Memiliki kesamaan data dengan",
+                    "Mudah dihapal"},
+            //9
+            {"drop table barang",
+                    "drop table barang;",
+                    "drop table_barang;",
+                    "drop table * barang;"},
+            //10
+            {"SQL create user sofyan identified by sosa;",
+                    "SQL> create user sofyan by sosa;",
+                    "SQL> create user sofyan identified by sosa;",
+                    "SQL> create user sofyan identified by sosa"}
     };
 
     private String mCorrectAnswers[] = {
-            "Boostrap",
-            ".table_striped",
-            "Img_rounded",
-            ".btn",
-            "Jumbotron",
-            "Alert_warning",
-            "Col_lg-*",
-            "Carousel",
-            "Panel_body",
-            "Pagination"
+            //1
+            "MySQL",
+            //2
+            "Oracle",
+            //3
+            "Connection database",
+            //4
+            "Michael \"Monty\" Widenius.",
+            //5
+            "MySQL pada awalnya diciptakan pada tahun 1979",
+            //6
+            "select * from barang;",
+            //7
+            "create table barang(\n" +
+                    "kode_barang char(6),\n" +
+                    "nama_barang varchar2(25),\n" +
+                    "satuan_barang varchar2(20),\n" +
+                    "stock_barang number(4),\n" +
+                    "constraint pk_barang primary key(kode_barang)\n" +
+                    ");",
+            //8
+            "Bersifat unik",
+            //9
+            "drop table * barang;",
+            //10
+            "SQL> create user sofyan identified by sosa;"
     };
 
     public int getLength() {
