@@ -1,8 +1,10 @@
 package org.d3ifcool.sicoding.materi;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.beranda.BerandaAdapter;
@@ -23,35 +33,90 @@ import java.util.ArrayList;
  */
 public class MateriFragment extends Fragment {
 
-    RecyclerView rV_list;
-    MenuMateriAdapter adapter;
-    ArrayList<MenuMateri> list = new ArrayList<>();
+    RecyclerView rv_list;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference reference;
+    private ArrayList<MenuMateri> data = new ArrayList<>();
 
     public MateriFragment() {
-        // Required empty public constructor
-//        list.add(new MenuMateri("Pengenalan HTML"));
-//        list.add(new MenuMateri("Sejarah HTML"));
-//        list.add(new MenuMateri("Pengenalan Tag Pada HTML"));
-//        list.add(new MenuMateri("Pengenalan Element Pada HTML"));
-//        list.add(new MenuMateri("Pengenalan Atribut Pada HTML"));
-//        list.add(new MenuMateri("Materi Tentang Format Text Pada HTML"));
-//        list.add(new MenuMateri("Materi Membuat Paragraf Pada HTML"));
-    }
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_materi, container, false);
-        rV_list = v.findViewById(R.id.rV_materi);
+        rv_list = v.findViewById(R.id.rV_materi);
+        rv_list.setHasFixedSize(true);
+        rv_list.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        list.addAll(DataMateri.getListData());
-        LinearLayoutManager lm = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        rV_list.setLayoutManager(lm);
-        adapter = new MenuMateriAdapter(list);
-        rV_list.setAdapter(adapter);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        reference = firebaseDatabase.getReference("web");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         return v;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseRecyclerAdapter<MenuMateri, MenuMateriAdapter> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<MenuMateri, MenuMateriAdapter>(
+                        MenuMateri.class,
+                        R.layout.list_menu_materi_item,
+                        MenuMateriAdapter.class,
+                        reference
+                ) {
+
+                    @Override
+                    protected void populateViewHolder(MenuMateriAdapter menuMateriAdapter, MenuMateri menuMateri, int i) {
+                        menuMateriAdapter.setDetail(getActivity().getApplicationContext(), menuMateri.getJudul(), menuMateri.getDesk());
+                    }
+
+
+
+                    @Override
+                    public MenuMateriAdapter onCreateViewHolder(ViewGroup parent, int viewType) {
+                        MenuMateriAdapter menuMateriAdapter = super.onCreateViewHolder(parent , viewType);
+
+                        menuMateriAdapter.setOnClickListener(new MenuMateriAdapter.ClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                TextView mTitle_tv = view.findViewById(R.id.tv_judulMateri) ;
+                                TextView mDesck_tv = view.findViewById(R.id.tv_deskMateri);
+
+                                //mengambil data
+                                String mTitle = mTitle_tv.getText().toString();
+                                String mDesk = mDesck_tv.getText().toString();
+
+                                //melewati data ini ke activity baru
+                                Intent intent = new Intent(view.getContext(), DetailMateriActivity.class);
+                                intent.putExtra("title" , mTitle);
+                                intent.putExtra("deskripsi", mDesk);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
+                        return menuMateriAdapter;
+                    }
+                };
+
+        rv_list.setAdapter(firebaseRecyclerAdapter);
+    }
 }

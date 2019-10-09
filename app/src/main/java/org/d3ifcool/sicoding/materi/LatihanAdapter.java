@@ -57,7 +57,7 @@ public class LatihanAdapter extends RecyclerView.Adapter<LatihanAdapter.myyViewH
 
         public myyViewHolder(@NonNull View itemView) {
             super(itemView);
-            judul = itemView.findViewById(R.id.tV_judulMateri);
+            judul = itemView.findViewById(R.id.tv_judulMateri);
 
         }
     }

@@ -14,51 +14,49 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.d3ifcool.sicoding.R;
 
-public class MenuMateriAdapter extends RecyclerView.Adapter<MenuMateriAdapter.myyViewHolder> {
-    public static final String EXTRA_MESSAGE = "org.d3ifcool.sicoding";
-    private ArrayList<MenuMateri> menuMateriList;
-    private Context mContext;
+public class MenuMateriAdapter extends RecyclerView.ViewHolder {
 
-    public MenuMateriAdapter(ArrayList<MenuMateri> menuMateriList) {
-        this.menuMateriList = menuMateriList;
-    }
+    View view;
 
-    @NonNull
-    @Override
-    public myyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.list_menu_materi_item, parent, false);
-        return new myyViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull myyViewHolder holder, int position) {
-        final MenuMateri item = menuMateriList.get(position);
-        holder.judul.setText(item.getJudul());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+    public MenuMateriAdapter(View itemView){
+        super(itemView);
+        view=  itemView;
+        itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DetailMateriActivity.class);
-                intent.putExtra("judul", item.getJudul());
-                intent.putExtra("penjelasan", item.getDesk());
-                view.getContext().startActivity(intent);
+                mClickListener.onItemClick(view, getAdapterPosition());
+            }
+        });
 
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                mClickListener.onItemLongClick(view, getAdapterPosition());
+                return true;
             }
         });
     }
 
-    @Override
-    public int getItemCount() {
-        return menuMateriList.size();
+
+    public void setDetail(Context context, String title , String desk){
+        TextView mTitle = view.findViewById(R.id.tv_judulMateri);
+        TextView mDesk = view.findViewById(R.id.tv_deskMateri);
+        mTitle.setText(title);
+        mDesk.setText(desk);
     }
 
-    public class myyViewHolder extends RecyclerView.ViewHolder {
-        TextView judul ;
+    public void setDetails(Context context, String title , String desk){
 
-        public myyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            judul = itemView.findViewById(R.id.tV_judulMateri);
+    }
 
-        }
+    private MenuMateriAdapter.ClickListener mClickListener;
+
+    public interface ClickListener{
+        void onItemClick(View view, int position);
+        void  onItemLongClick (View view , int position);
+    }
+
+    public void setOnClickListener(MenuMateriAdapter.ClickListener clickListener){
+        mClickListener = clickListener;
     }
 }
