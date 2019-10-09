@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -72,24 +73,23 @@ public class MateriFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<MenuMateri, MenuMateriAdapter> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<MenuMateri, MenuMateriAdapter>(
-                        MenuMateri.class,
-                        R.layout.list_menu_materi_item,
-                        MenuMateriAdapter.class,
-                        reference
-                ) {
+        FirebaseRecyclerOptions<MenuMateri> options =
+                new FirebaseRecyclerOptions.Builder<MenuMateri>()
+                        .setQuery(reference, MenuMateri.class)
+                        .build();
+
+        FirebaseRecyclerAdapter firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<MenuMateri, MenuMateriAdapter>(options) {
 
                     @Override
-                    protected void populateViewHolder(MenuMateriAdapter menuMateriAdapter, MenuMateri menuMateri, int i) {
+                    protected void onBindViewHolder(@NonNull MenuMateriAdapter menuMateriAdapter, int i, @NonNull MenuMateri menuMateri) {
                         menuMateriAdapter.setDetail(getActivity().getApplicationContext(), menuMateri.getJudul(), menuMateri.getDesk());
                     }
 
-
-
                     @Override
                     public MenuMateriAdapter onCreateViewHolder(ViewGroup parent, int viewType) {
-                        MenuMateriAdapter menuMateriAdapter = super.onCreateViewHolder(parent , viewType);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_menu_materi_item, parent, false);
+                        MenuMateriAdapter menuMateriAdapter = new MenuMateriAdapter(parent);
 
                         menuMateriAdapter.setOnClickListener(new MenuMateriAdapter.ClickListener() {
                             @Override

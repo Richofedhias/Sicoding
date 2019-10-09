@@ -3,7 +3,7 @@ package org.d3ifcool.sicoding.materi;
 import java.util.ArrayList;
 
 public class DataLatihan {
-    public static String[][] data = new String[][]{
+    public static String[][] data = new String[][] {
             {"Tag Pada HTML","<!DOCTYPE html>\n" +
                     "<html>\n" +
                     "<head>\n" +

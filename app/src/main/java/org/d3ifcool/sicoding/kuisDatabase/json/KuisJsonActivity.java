@@ -29,8 +29,16 @@ public class KuisJsonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kuis_json);
+        mScoreView = findViewById(R.id.score);
+        mQuestionView = findViewById(R.id.question);
+        mButtonChoice1 = findViewById(R.id.choice1);
+        mButtonChoice2 = findViewById(R.id.choice2);
+        mButtonChoice3 = findViewById(R.id.choice3);
+        mButtonChoice4 = findViewById(R.id.choice4);
+        updateQuestionJSON();
+        updateScoreJSON(mScore);
     }
-    private void updateQuestion(){
+    private void updateQuestionJSON(){
         if(mQuestionNumber<mQuestionLibrary.getLength() ){
 
 
@@ -52,7 +60,7 @@ public class KuisJsonActivity extends AppCompatActivity {
 
 
 
-    private void updateScore(int point) {
+    private void updateScoreJSON(int point) {
         mScoreView.setText("" + mScore+"/"+mQuestionLibrary.getLength());
     }
 
@@ -66,7 +74,7 @@ public class KuisJsonActivity extends AppCompatActivity {
         }else
             Toast.makeText(KuisJsonActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
 
-        updateScore(mScore);
-        updateQuestion();
+        updateScoreJSON(mScore);
+        updateQuestionJSON();
     }
 }

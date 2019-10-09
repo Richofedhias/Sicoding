@@ -13,7 +13,7 @@ public class KumpulanSoalHTML {
             "7. Berfungsi untuk menampilkan daftar list dalam bentuk huruf atau angka , disebut",
             "8. Bagaimanakah perintah menampilkan gambar pada HTML?",
             "9. Bagaimanakah perintah menghubungkan HTML dengan CSS?",
-            "10. Mendefinisikan sebuah anchor yang digunakan untuk saling manautkan antara satu dokumen", "HTML ke dokumen HTML yang lain, merupakan fungsi dari tag...."
+            "10. Mendefinisikan sebuah anchor yang digunakan untuk saling manautkan antara satu dokumen HTML ke dokumen HTML yang lain, merupakan fungsi dari tag...."
     };
 
     // array of multiple choices for each question

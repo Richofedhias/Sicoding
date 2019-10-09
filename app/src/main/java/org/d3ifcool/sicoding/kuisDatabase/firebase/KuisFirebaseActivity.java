@@ -28,8 +28,16 @@ public class KuisFirebaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kuis_firebase);
+        mScoreView = findViewById(R.id.score);
+        mQuestionView = findViewById(R.id.question);
+        mButtonChoice1 = findViewById(R.id.choice1);
+        mButtonChoice2 = findViewById(R.id.choice2);
+        mButtonChoice3 = findViewById(R.id.choice3);
+        mButtonChoice4 = findViewById(R.id.choice4);
+        updateQuestionFirebase();
+        updateScoreFirebase(mScore);
     }
-    private void updateQuestion(){
+    private void updateQuestionFirebase(){
         if(mQuestionNumber<mQuestionLibrary.getLength() ){
 
 
@@ -51,7 +59,7 @@ public class KuisFirebaseActivity extends AppCompatActivity {
 
 
 
-    private void updateScore(int point) {
+    private void updateScoreFirebase(int point) {
         mScoreView.setText("" + mScore+"/"+mQuestionLibrary.getLength());
     }
 
@@ -65,7 +73,7 @@ public class KuisFirebaseActivity extends AppCompatActivity {
         }else
             Toast.makeText(KuisFirebaseActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
 
-        updateScore(mScore);
-        updateQuestion();
+        updateScoreFirebase(mScore);
+        updateQuestionFirebase();
     }
 }

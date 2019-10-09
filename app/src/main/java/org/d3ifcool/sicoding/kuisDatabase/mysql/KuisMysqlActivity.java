@@ -27,8 +27,16 @@ public class KuisMysqlActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kuis_mysql);
+        mScoreView = findViewById(R.id.score);
+        mQuestionView = findViewById(R.id.question);
+        mButtonChoice1 = findViewById(R.id.choice1);
+        mButtonChoice2 = findViewById(R.id.choice2);
+        mButtonChoice3 = findViewById(R.id.choice3);
+        mButtonChoice4 = findViewById(R.id.choice4);
+        updateQuestionMySQL();
+        updateScoreMySQL(mScore);
     }
-    private void updateQuestion(){
+    private void updateQuestionMySQL(){
         if(mQuestionNumber<mQuestionLibrary.getLength() ){
 
 
@@ -50,7 +58,7 @@ public class KuisMysqlActivity extends AppCompatActivity {
 
 
 
-    private void updateScore(int point) {
+    private void updateScoreMySQL(int point) {
         mScoreView.setText("" + mScore+"/"+mQuestionLibrary.getLength());
     }
 
@@ -64,7 +72,7 @@ public class KuisMysqlActivity extends AppCompatActivity {
         }else
             Toast.makeText(KuisMysqlActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
 
-        updateScore(mScore);
-        updateQuestion();
+        updateScoreMySQL(mScore);
+        updateQuestionMySQL();
     }
 }

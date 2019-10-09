@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/iV_logoLanguage"
+        android:id="@+id/iV_logoDBLanguage"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="8dp"
@@ -20,14 +20,14 @@
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <TextView
-        android:id="@+id/tV_namaLanguage"
+        android:id="@+id/tV_namaDBLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/iV_logoLanguage"
-        app:layout_constraintStart_toStartOf="@+id/iV_logoLanguage"
-        app:layout_constraintTop_toBottomOf="@+id/iV_logoLanguage" />
+        app:layout_constraintEnd_toEndOf="@+id/iV_logoDBLanguage"
+        app:layout_constraintStart_toStartOf="@+id/iV_logoDBLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/iV_logoDBLanguage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

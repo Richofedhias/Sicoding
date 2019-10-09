@@ -2,124 +2,94 @@ package org.d3ifcool.sicoding.kuisDatabase.json;
 
 public class KumpulanSoalJson {
     private String textQuestions[] = {
-        "1. sebuah perangkat lunak sistem manajemen basis data SQL atau DBMS yang multialur, multipengguna, dengan sekitar 6 juta instalasi di seluruh dunia adalah pengertian dari ...",
-        "2. Pengembangan MySQL saat ini dipegang ...",
-        "3. $conn = new mysqli ($servername, $username, $password, $dbname);\n" +
-                "if ($conn->connect_error) {\n" +
-                " \tdie(“Connection failed: ” . $conn->connect_error);\n" +
-                "}\n" +
-                "Diatas adalah fungsi dari MySQL :",
-            "4. Siapakah pencipta MYSQL ?",
-        "5. Pada tahun berapa mysql diciptakan ?",
-        "6. Tamplikanlah seluruh field yang berada didalam tabel barang?",
-        "7. Buat lah barang dengan field kode_barang char(6),nama barang varchar2(25),satuan_barang varchar2(20) dan stok_barang number(4) primary key adalah kode barang ?",
-        "8. Ciri  dari Primary Key adalah ?",
-        "9. Cara menghapus tabel barang?",
-        "10. Buat lah user baru pada table karyawan dengan user = sofyan dan password = sosa?"
+            "1. Sebuah library framework css yang dibuat khusus untuk bagian pengembangan front-end website, disebut",
+            "2. Class tambahan untuk membuat table dengan menggunakan bootstrap , class ini berfungsi untuk membuat baris table yang bergaya belang-beling (strip) , merupakan fungsi dari:",
+            "3. Class ini digunakan untuk membuat gambar berbentuk round atau pada sisi sudut gambar memiliki bentuk melengkung, merupakan fungsi dari",
+            "4. Class bootstrap yang digunakan untuk membuat tombol dengan ukuran terkecil , sedang, maupun terbesar , adalah , kecuali",
+            "5. Semacam bentuk yang dibuat dengan tujuan membuat sejenis pengumuman , konten khusus atau informasi tentang halaman website , disebut",
+            "6. Membuat pesan alert yang berwarna kuning, biasanya digunakan untuk membuat pesan yang berupa peringatan, merupakan fungsi dari",
+            "7. Mengatur grid pada monitor computer yang berukuran besar, merupakan fungsi dari",
+            "8. Proses penampilan gambar yang diberi efek slide, dan biasanya diletakkan pada halaman depan sebuah website dengan design yang bermacam-macam , merupakan fungsi dari",
+            "9. Class yang disediakan bootstrap untuk membuat panel bagian badan , merupakan fungsi dari",
+            "10. Suatu metode untuk membagi suatu dokumen atau resource menjadi bagian-bagian lebih kecil yang saling terpisah, disebut"
 };
 
     // array of multiple choices for each question
     private String multipleChoice[][] = {
             //1
-            {"SQLite",
-                    "MySQL",
-                    "MyLite",
-                    "MariaDB"},
+
+            {"Merupakan suatu format untuk mengedit data.",
+                    "Merupakan suatu project untuk aplikasi.",
+                    "Merupakan suatu variable untuk menyimpan data atau digunakan dalam sebuah proses pertukaran data.",
+                    "Merupakan suatu syntax atau format untuk menyimpan data atau digunakan dalam sebuah proses pertukaran data."},
             //2
-            {"JAVA",
-                    "Google",
-                    "Microsoft",
-                    "Oracle"},
+            {"employeeName.setText(“Name: ” +name);",
+                    "JSONObject ob = new JSONObject(JSON_STRING);",
+                    "name = employee.getString(“name”);",
+                    "JSONObject employee = obj.getJSONObject(“employee”);"},
             //3
-            {"Create table",
-                    "Connection database",
-                    "Diconnect database",
-                    "Update database"},
+            {"Array",
+                    "Object",
+                    "Null",
+                    "Boolean"},
             //4
-            {"Carles Cabbage",
-                    "Howard Akein",
-                    "Linus Torvald",
-                    "Michael \"Monty\" Widenius."},
+            {"JSON.obj()",
+                    "JSON.parse()",
+                    "JSON.adapter()",
+                    "JSON.parsing()"},
             //5
-            {"MySQL pada awalnya diciptakan pada tahun 1979",
-                    "MySQL pada awalnya diciptakan pada tahun 1997",
-                    "MySQL pada awalnya diciptakan pada tahun 1977",
-                    "MySQL pada awalnya diciptakan pada tahun 1987"},
+            {"Bill Gate",
+                    "Albert Einstein",
+                    "James Tamplin dan Andrew Lee",
+                    "Douglas Crockford"},
             //6
-            {"Select from barang;",
-                    "select * from barang;",
-                    "select * barang;",
-                    "select * from barang"},
+            {"Fungsi JSON",
+                    "Deskripsi JSON",
+                    "Macam JSON",
+                    "Sejarah JSON"},
             //7
-            {"create table barang(\n" +
-                    "kode_barang char(6)\n" +
-                    "nama_barang varchar2(25)\n" +
-                    "satuan_barang varchar2(20)\n" +
-                    "stock_barang number(4)\n" +
-                    "constraint pk_barang primary key(kode_barang)\n" +
-                    ");\n",
-                    "create table barang(\n" +
-                    "kode_barang char(6),\n" +
-                    "nama_barang varchar2(25),\n" +
-                    "constraint pk_barang primary key(kode_barang)\n" +
-                    ");\n",
-                    "create table barang(\n" +
-                    "kode_barang char(6),\n" +
-                    "nama_barang varchar2(25),\n" +
-                    "satuan_barang varchar2(20),\n" +
-                    "stock_barang number(4),\n" +
-                    "constraint pk_barang primary key(kode_barang)\n" +
-                    ");\n",
-                    "create table barang(\n" +
-                    "kode_barang char(6),\n" +
-                    "nama_barang varchar2(25),\n" +
-                    "satuan_barang varchar2(20),\n" +
-                    "stock_barang number(4),\n" +
-                    "constraint pk_barang primary key(kode_barang)"},
+            {"Untuk menghasilkan JSON dari Array Assosiatif",
+                    "Untuk mengubah JSON menjadi Array",
+                    "Untuk Mengubah Array menjadi JSON",
+                    "Untuk Menghasilkan JSON dari Object Assosiatif"},
             //8
-            {"Bersifat unik,",
-                    "Bersifat umum",
-                    "Memiliki kesamaan data dengan",
-                    "Mudah dihapal"},
+            {"Untuk menghasilkan JSON dari Array Assosiatif",
+                    "Untuk mengubah JSON menjadi Array",
+                    "Untuk Mengubah Array menjadi JSON",
+                    "Untuk Menghasilkan JSON dari Object Assosiatif"},
             //9
-            {"drop table barang",
-                    "drop table barang;",
-                    "drop table_barang;",
-                    "drop table * barang;"},
+            {"XML tidak perlu diurai dengan parse XML. JSON tidak harus diurai oleh parse JSON.",
+                    "XML dan JSON sama-sama terdapat parse.",
+                    "XML harus diurai dengan parser XML. JSON bisa diurai oleh fungsi JavaScript standar.",
+                    "XML harus diurai dengan fungsi JavaScript standar. JSON bisa diurai dengan parse JSON."},
             //10
-            {"SQL create user sofyan identified by sosa;",
-                    "SQL> create user sofyan by sosa;",
-                    "SQL> create user sofyan identified by sosa;",
-                    "SQL> create user sofyan identified by sosa"}
+            {"Java Script Online Notation",
+                    "Java Scholar Object Notation",
+                    "Java Script Object Notation",
+                    "Java Script Object Naration"}
     };
 
     private String mCorrectAnswers[] = {
             //1
-            "MySQL",
+            "Merupakan suatu syntax atau format untuk menyimpan data atau digunakan dalam sebuah proses pertukaran data.",
             //2
-            "Oracle",
+            "JSONObject employee = obj.getJSONObject(“employee”);",
             //3
-            "Connection database",
+            "Array",
             //4
-            "Michael \"Monty\" Widenius.",
+            "JSON.parse()",
             //5
-            "MySQL pada awalnya diciptakan pada tahun 1979",
+            "Douglas Crockford",
             //6
-            "select * from barang;",
+            "Fungsi JSON",
             //7
-            "create table barang(\n" +
-                    "kode_barang char(6),\n" +
-                    "nama_barang varchar2(25),\n" +
-                    "satuan_barang varchar2(20),\n" +
-                    "stock_barang number(4),\n" +
-                    "constraint pk_barang primary key(kode_barang)\n" +
-                    ");",
+            "Untuk menghasilkan JSON dari Array Assosiatif",
             //8
-            "Bersifat unik",
+            "Untuk mengubah JSON menjadi Array",
             //9
-            "drop table * barang;",
+            "XML harus diurai dengan parser XML. JSON bisa diurai oleh fungsi JavaScript standar.",
             //10
-            "SQL> create user sofyan identified by sosa;"
+            "Java Script Object Notation"
     };
 
     public int getLength() {
