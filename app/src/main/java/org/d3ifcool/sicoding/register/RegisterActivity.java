@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +16,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.login.LoginActivity;
+
+import java.util.HashMap;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -27,6 +36,10 @@ public class RegisterActivity extends AppCompatActivity {
     private Button regist;
     private ProgressDialog mLoading;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference reference;
+    String namaUser;
+
+
 
 
     @Override
@@ -34,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         firebaseAuth = FirebaseAuth.getInstance();
+        reference = FirebaseDatabase.getInstance().getReference().child("User");
         nama = findViewById(R.id.tV_nama);
         email = findViewById(R.id.tV_email);
         password = findViewById(R.id.tV_password);
@@ -44,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String namaUser = nama.getText().toString().trim();
+                 namaUser = nama.getText().toString().trim();
                 String emailUser = email.getText().toString().trim();
                 String passwordUser = password.getText().toString().trim();
 
@@ -62,6 +76,9 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 } else {
                     mLoading.dismiss();
+//                    User user = new User(namaUser, emailUser, passwordUser);
+//                String key = reference.push().getKey();
+//                    reference.child(key).setValue(user);
 
                     firebaseAuth.createUserWithEmailAndPassword(emailUser, passwordUser)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -76,6 +93,23 @@ public class RegisterActivity extends AppCompatActivity {
                                         Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
+                                            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                            String emailmap = user.getEmail();
+                            String uid = user.getUid();
+
+                            HashMap hashMap = new HashMap();
+////Masih Proses
+                            hashMap.put("email", emailmap);
+                            hashMap.put("uid", uid);
+                            hashMap.put("nama", namaUser);
+                            hashMap.put("hobby", "");
+                            hashMap.put("motto", "Kosong Mottonya");
+                            hashMap.put("ketrampilan", "Kosonng pokoknya");
+                            hashMap.put("deskripsi", "Isi aja Dulu");
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference reference = database.getReference("User");
+                            reference.child(uid).setValue(hashMap);
                                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                         finish();
                                     }
