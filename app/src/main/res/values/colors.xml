@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#063852</color>
     <color name="colorPrimaryDark">#011A27</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#063852</color>
 
     <color name="colorDarkNavi">#011A27</color>
     <color name="colorBlueberry">#063852</color>

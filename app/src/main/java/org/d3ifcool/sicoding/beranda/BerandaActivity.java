@@ -44,7 +44,7 @@ public class BerandaActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_profile:
-                        Intent intent = new Intent(BerandaActivity.this, KategoriKuisActivity.class);
+                        Intent intent = new Intent(BerandaActivity.this, ProfileActivity.class);
                         startActivity(intent);
                         finish();
                         Toast.makeText(BerandaActivity.this, "Berhasil ke Halaman Profil", Toast.LENGTH_SHORT).show();

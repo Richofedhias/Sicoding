@@ -29,6 +29,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vF_slideshow" />
 
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="@+id/textv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textv"
+            app:layout_constraintTop_toTopOf="@+id/textv" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rV_listWeb"
             android:layout_width="0dp"
@@ -40,6 +53,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textv" />
+
+
 
         <TextView
             android:id="@+id/textv2"
@@ -53,6 +68,19 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rV_listWeb" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="@+id/textv2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textv2"
+            app:layout_constraintTop_toTopOf="@+id/textv2" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rV_listDatabase"
@@ -78,6 +106,19 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rV_listDatabase" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="@+id/textv3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textv3"
+            app:layout_constraintTop_toTopOf="@+id/textv3" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rV_listAndroid"

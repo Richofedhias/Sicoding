@@ -10,12 +10,25 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <!--    Edit Profile-->
+    <string-array name="edit">
+        <item>Ubah Gambar Profile</item>
+        <item>Ubah Gambar Cover Profile</item>
+        <item>Edit Nama</item>
+        <item>Edit Hobi</item>
+        <item>Edit Keterampilan</item>
+        <item>Edit Motto Hidup</item>
+    </string-array>
+
 
     <!--    Pengguna di Profile-->
-    <string name="title_about">About</string>
-    <string name="title_hobby">Hobby</string>
+    <string name="title_about">Tentang Saya</string>
+    <string name="title_hobby">Hobi</string>
     <string name="title_user">Nama User</string>
-    <string name="Lorem_ipsum">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</string>
+    <string name="title_keterampilan">Keterampilan</string>
+    <string name="title_motto">Motto Hidup</string>
+    <string name="title_email">Email Saya</string>
+    <string name="isi">Belum Ada Isinya</string>
 
 
     <!--    Penggunaan di Kategori Kuis-->
