@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.d3ifcool.sicoding.KategoriKuisActivity;
 import org.d3ifcool.sicoding.ProfileActivity;
+import org.d3ifcool.sicoding.QnA.QnAActivity;
 import org.d3ifcool.sicoding.R;
 
 public class BerandaActivity extends AppCompatActivity {
@@ -46,8 +47,6 @@ public class BerandaActivity extends AppCompatActivity {
                     case R.id.nav_profile:
                         Intent intent = new Intent(BerandaActivity.this, ProfileActivity.class);
                         startActivity(intent);
-                        finish();
-                        Toast.makeText(BerandaActivity.this, "Berhasil ke Halaman Profil", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return true;
@@ -57,7 +56,7 @@ public class BerandaActivity extends AppCompatActivity {
         bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(BerandaActivity.this, "Berhasil Beranda", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -87,16 +86,14 @@ public class BerandaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(BerandaActivity.this, KategoriKuisActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BerandaActivity.this, KategoriKuisActivity.class);
+                Intent intent = new Intent(BerandaActivity.this, QnAActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

@@ -1,5 +1,11 @@
 package org.d3ifcool.sicoding.materi;
 
+import android.graphics.Color;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+
+import java.net.ContentHandler;
 import java.util.ArrayList;
 
 public class DataLatihan {
@@ -20,15 +26,14 @@ public class DataLatihan {
                     "Tahun 1980, IBM memikirkan pembuatan suatu dokumen yang akan mengenali setiap elemen dari dokumen dengan suatu tanda tertentu. IBM kemudian mengembangkan suatu jenis bahasa yang menggabungkan teks dengan perintah-perintah pemformatan dokumen. Bahasa ini dinamakan Markup Language, sebuah bahasa yang menggunakan tanda-tanda sebagai basisnya. IBM menamakan sistemnya ini sebagai Generalized Markup Language atau GML."}
     };
 
-    public static ArrayList<MenuMateri> getListData(){
-        ArrayList<MenuMateri> list = new ArrayList<>();
+    public static ArrayList<MenuContoh> getListData(){
+        ArrayList<MenuContoh> list = new ArrayList<>();
         for (String[] aData :data){
-            MenuMateri menu = new MenuMateri();
+            MenuContoh menu = new MenuContoh();
             menu.setJudul(aData[0]);
             menu.setDesk(aData[1]);
             list.add(menu);
         }
-
         return list;
     }
 }

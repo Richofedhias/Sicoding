@@ -1,8 +1,22 @@
 package org.d3ifcool.sicoding.materi;
 
+import android.text.SpannableString;
+
 public class MenuContoh {
     String judul;
     String desk;
+    String images;
+    
+    public MenuContoh() {
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 
     public String getDesk() {
         return desk;
@@ -19,4 +33,5 @@ public class MenuContoh {
     public void setJudul(String judul) {
         this.judul = judul;
     }
+
 }

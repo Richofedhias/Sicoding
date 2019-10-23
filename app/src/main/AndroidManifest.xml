@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.d3ifcool.sicoding">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QnA.QnAActivity"></activity>
+        <activity android:name=".QnA.NewPostActivity"></activity>
+        <activity android:name=".QnA.QnAActivity" />
         <activity android:name=".materi.DetailLatihanActivity" />
         <activity android:name=".materi.DetailMateriActivity" />
-        <activity android:name=".kuisDatabase.mysql.ResultKuisMysqlActivity"></activity>
+        <activity android:name=".kuisDatabase.mysql.ResultKuisMysqlActivity" />
         <activity android:name=".kuisDatabase.mysql.KuisMysqlActivity" />
         <activity android:name=".kuisDatabase.json.ResultKuisJsonActivity" />
         <activity android:name=".kuisDatabase.json.KuisJsonActivity" />
@@ -31,7 +38,9 @@
         <activity android:name=".kuisWeb.css.ResultKuisCSSActivity" />
         <activity android:name=".kuisWeb.css.KuisCSSActivity" />
         <activity android:name=".materi.ListMateriActivity" />
-        <activity android:name=".ProfileActivity" android:label="Profile" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Profile" />
         <activity android:name=".kuisWeb.html.ResultKuisHTMLActivity" />
         <activity android:name=".kuisWeb.html.KuisHTMLActivity" />
         <activity android:name=".kuisWeb.boostrap.KuisBoostrapActivity" />
@@ -39,33 +48,32 @@
         <activity android:name=".kuisWeb.KategoriKuisWeb" />
         <activity android:name=".KategoriKuisActivity" />
         <activity android:name=".beranda.BerandaActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".WalkthroughActivity" />
-        <activity android:name=".SplashScreenActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".login.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WalkthroughActivity" />
+        <activity android:name=".SplashScreenActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".login.LoginActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity android:name=".register.RegisterActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
