@@ -76,9 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 } else {
                     mLoading.dismiss();
-//                    User user = new User(namaUser, emailUser, passwordUser);
-//                String key = reference.push().getKey();
-//                    reference.child(key).setValue(user);
 
                     firebaseAuth.createUserWithEmailAndPassword(emailUser, passwordUser)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -86,9 +83,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     Toast.makeText(RegisterActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                     mLoading.show();
-                                    // If sign in fails, display a message to the user. If sign in succeeds
-                                    // the auth state listener will be notified and logic to handle the
-                                    // signed in user can be handled in the listener.
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
@@ -104,9 +98,11 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("uid", uid);
                             hashMap.put("nama", namaUser);
                             hashMap.put("hobby", "");
-                            hashMap.put("motto", "Kosong Mottonya");
-                            hashMap.put("ketrampilan", "Kosonng pokoknya");
-                            hashMap.put("deskripsi", "Isi aja Dulu");
+                            hashMap.put("motto", "");
+                            hashMap.put("ketrampilan", "");
+                            hashMap.put("deskripsi", "");
+                            hashMap.put("image", "");
+                            hashMap.put("cover", "");
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference reference = database.getReference("User");
                             reference.child(uid).setValue(hashMap);
