@@ -20,7 +20,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.beranda.BerandaAdapter;
@@ -35,8 +38,13 @@ import java.util.ArrayList;
  */
 public class MateriFragment extends Fragment {
 
+    FirebaseDatabase firebaseDatabase;
+    StorageReference storageRef;
     RecyclerView rv_list;
-    private ArrayList<MenuMateri> data = new ArrayList<>();
+    DatabaseReference reference;
+    MenuMateriAdapter adapter;
+
+    ArrayList<MenuMateri> data = new ArrayList<>();
 
     public MateriFragment() {
 
@@ -51,6 +59,36 @@ public class MateriFragment extends Fragment {
         rv_list.setHasFixedSize(true);
         rv_list.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        reference = firebaseDatabase.getReference();
+        storageRef = FirebaseStorage.getInstance().getReference();
+
+        init();
         return v;
+    }
+
+    public void init() {
+        Query query = reference.child("web");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    MenuMateri materii = new MenuMateri();
+                    materii.setJudul(snapshot.child("judul_materi").getValue().toString());
+                    materii.setDesk(snapshot.child("isi_materi").getValue().toString());
+
+                    data.add(materii);
+                }
+                adapter = new MenuMateriAdapter(getContext(), data);
+                rv_list.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

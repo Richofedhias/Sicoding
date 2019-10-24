@@ -7,80 +7,68 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import org.d3ifcool.sicoding.R;
 
-public class MenuMateriAdapter extends RecyclerView.ViewHolder {
+public class MenuMateriAdapter extends RecyclerView.Adapter<MenuMateriAdapter.myViewholder> {
 
-    View view;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference reference;
+    public static final String EXTRA_MESSAGE = "org.d3ifcool.sicoding";
+    Context context;
+    ArrayList<MenuMateri> menuMateri;
 
-    public MenuMateriAdapter(View itemView){
-        super(itemView);
-        view=  itemView;
-        itemView.setOnClickListener(new View.OnClickListener() {
+
+    public MenuMateriAdapter(Context context, ArrayList<MenuMateri> menuMateri) {
+        this.context = context;
+        this.menuMateri = menuMateri;
+    }
+
+    @NonNull
+    @Override
+    public MenuMateriAdapter.myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.list_menu_materi_item,parent,false);
+        return new MenuMateriAdapter.myViewholder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MenuMateriAdapter.myViewholder holder, int position) {
+        final MenuMateri materi= menuMateri.get(position);
+
+        holder.judulMateri.setText(materi.getJudul());
+        holder.descMateri.setText(materi.getDesk());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mClickListener.onItemClick(view, getAdapterPosition());
-            }
-        });
-
-        itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                mClickListener.onItemLongClick(view, getAdapterPosition());
-                return true;
+                Intent intent = new Intent(view.getContext(), DetailMateriActivity.class);
+                intent.putExtra("judul", materi.getJudul());
+                intent.putExtra("deskripsi", materi.getDesk());
+                view.getContext().startActivity(intent);
             }
         });
     }
 
-
-//    public void setDetail(Context context, String title , String desk){
-//        TextView mTitle = view.findViewById(R.id.tv_judulMateri);
-//        TextView mDesk = view.findViewById(R.id.tv_deskMateri);
-//        mTitle.setText(title);
-//        mDesk.setText(desk);
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//        reference = firebaseDatabase.getReference();
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                MenuMateri menuMateri = dataSnapshot.getValue(MenuMateri.class);
-//                mAuthorView.setText(post.author);
-//                mTitleView.setText(post.title);
-//                mBodyView.setText(post.body);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
-
-    public void setDetails(Context context, String title , String desk){
-
+    @Override
+    public int getItemCount() {
+        return menuMateri.size();
     }
 
-    private MenuMateriAdapter.ClickListener mClickListener;
+    public class myViewholder extends RecyclerView.ViewHolder{
 
-    public interface ClickListener{
-        void onItemClick(View view, int position);
-        void  onItemLongClick (View view , int position);
-    }
+        TextView judulMateri, descMateri;
 
-    public void setOnClickListener(MenuMateriAdapter.ClickListener clickListener){
-        mClickListener = clickListener;
+        public myViewholder(@NonNull View itemView) {
+            super(itemView);
+            judulMateri = itemView.findViewById(R.id.tv_judulMateri);
+            descMateri = itemView.findViewById(R.id.tv_deskMateri);
+
+        }
+
     }
 }

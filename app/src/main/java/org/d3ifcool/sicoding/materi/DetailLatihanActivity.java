@@ -23,6 +23,9 @@ public class DetailLatihanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_latihan);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         judul = findViewById(R.id.tV_judulLatihan);
         deskripsi = findViewById(R.id.tV_descLatihan);
         hasil = findViewById(R.id.tV_hasilLatihan);

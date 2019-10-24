@@ -23,6 +23,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class LatihanAdapter extends RecyclerView.Adapter<LatihanAdapter.myyViewHolder> {
+
     public static final String EXTRA_MESSAGE = "org.d3ifcool.sicoding";
     private ArrayList<MenuContoh> lists;
     private Context mContext;
