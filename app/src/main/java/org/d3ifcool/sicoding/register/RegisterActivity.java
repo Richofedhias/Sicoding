@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -52,8 +55,33 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.tV_email);
         password = findViewById(R.id.tV_password);
         regist = findViewById(R.id.btn_Regist);
+        final ImageView showPass = findViewById(R.id.iv_showPass);
+        final ImageView hidePass = findViewById(R.id.iv_hidePass);
+        showPass.setVisibility(View.GONE);
+
+        hidePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                showPass.setVisibility(View.VISIBLE);
+                hidePass.setVisibility(View.GONE);
+            }
+        });
+
+        showPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                hidePass.setVisibility(View.VISIBLE);
+                showPass.setVisibility(View.GONE);
+            }
+        });
+
+
+
         mLoading = new ProgressDialog(this);
         mLoading.setMessage("Harap Tungguu");
+
 
         regist.setOnClickListener(new View.OnClickListener() {
             @Override

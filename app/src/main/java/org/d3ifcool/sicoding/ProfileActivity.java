@@ -234,7 +234,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void uploadProfileCoverPhoto(final Uri uri) {
-        progressDialog.show();
+//        progressDialog.show();
         //path and name of image to be stored in firebase Storage
         String filePathAndName = storagePath+""+ profileorCover + "_"+ user.getUid();
 
@@ -258,7 +258,7 @@ public class ProfileActivity extends AppCompatActivity {
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
-                                            progressDialog.dismiss();
+//                                            progressDialog.dismiss();
                                             Toast.makeText(ProfileActivity.this, "Image Updated..", Toast.LENGTH_SHORT).show();
                                         }
                                     })
@@ -272,7 +272,7 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                         else{
                             //errror
-                            progressDialog.dismiss();
+//                            progressDialog.dismiss();
                             Toast.makeText(ProfileActivity.this, "Erorr", Toast.LENGTH_SHORT).show();
                         }
 
@@ -282,7 +282,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
-                        progressDialog.dismiss();
+//                        progressDialog.dismiss();
                         Toast.makeText(ProfileActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -324,32 +324,32 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (i == 0) {
                             //edit gambar profile Klik
-                            progressDialog.setMessage("Update Foto Profile");
+//                            progressDialog.setMessage("Update Foto Profile");
                             profileorCover = "image";
                             showImageCoverEditDialog();
                         } else if (i == 1) {
                             //edit cover klik
-                            progressDialog.setMessage("Update Sampul Profile");
+//                            progressDialog.setMessage("Update Sampul Profile");
                             profileorCover = "cover";
                             showImageCoverEditDialog();
                         } else if (i == 2) {
                             //edit nama klik
-                            progressDialog.setMessage("Update Nama Profile");
+//                            progressDialog.setMessage("Update Nama Profile");
                             showNamaEditDialog();
                             showUpdate("nama");
                         } else if (i == 3) {
                             //edit hobbi klik
-                            progressDialog.setMessage("Update Hobby Profile");
+//                            progressDialog.setMessage("Update Hobby Profile");
                             showHobiEditDialog();
                             showUpdate("hobby");
                         } else if (i == 4) {
                             //edit ketrampilan klik
-                            progressDialog.setMessage("Update Ketrampilan Profile");
+//                            progressDialog.setMessage("Update Ketrampilan Profile");
                             showKeterampilanEditDialog();
                             showUpdate("ketrampilan");
                         } else if (i == 5) {
                             //edit motto klik
-                            progressDialog.setMessage("Update Motto Profile");
+//                            progressDialog.setMessage("Update Motto Profile");
                             showMottoEditDialog();
                             showUpdate("motto");
                         }
@@ -390,7 +390,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 String value = editText.getText().toString().trim();
                 if (!TextUtils.isEmpty(value)){
-                    progressDialog.show();
+//                    progressDialog.show();
                     HashMap<String, Object> result = new HashMap<>();
                     result.put(key,value);
 
@@ -404,7 +404,7 @@ public class ProfileActivity extends AppCompatActivity {
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    progressDialog.dismiss();
+//                                    progressDialog.dismiss();
                                     Toast.makeText(ProfileActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -598,6 +598,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //logout
         setMode(item.getItemId());
         return super.onOptionsItemSelected(item);
     }

@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QnA.NewPostActivity"></activity>
+        <activity android:name=".QnA.PostDetailActivity"></activity>
+        <activity android:name=".QnA.NewPostActivity" />
         <activity android:name=".QnA.QnAActivity" />
         <activity android:name=".materi.DetailLatihanActivity" />
         <activity android:name=".materi.DetailMateriActivity" />
@@ -48,11 +49,13 @@
         <activity android:name=".kuisWeb.KategoriKuisWeb" />
         <activity android:name=".KategoriKuisActivity" />
         <activity android:name=".beranda.BerandaActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".WalkthroughActivity" />
         <activity android:name=".SplashScreenActivity">
@@ -65,15 +68,23 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".register.RegisterActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.d3ifcool.sicoding"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/path" />
+        </provider>
     </application>
 
 </manifest>
