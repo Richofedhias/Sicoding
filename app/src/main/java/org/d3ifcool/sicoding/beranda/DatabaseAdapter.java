@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.d3ifcool.sicoding.R;
-import org.d3ifcool.sicoding.materi.ListMateriActivity;
+import org.d3ifcool.sicoding.materi.Firebase.ListMateriFireActivity;
+import org.d3ifcool.sicoding.materi.HTML.ListMateriActivity;
+import org.d3ifcool.sicoding.materi.JSON.ListMateriJSONActivity;
+import org.d3ifcool.sicoding.materi.mySQL.ListMateriMSYQLActivity;
 
 import java.util.ArrayList;
 
@@ -44,13 +47,17 @@ public class DatabaseAdapter extends RecyclerView.Adapter<DatabaseAdapter.myView
             public void onClick(View view) {
                 Intent intent;
                 if (position == 0) {
-                    intent = new Intent(view.getContext(), ListMateriActivity.class);
+                    intent = new Intent(view.getContext(), ListMateriJSONActivity.class);
                     view.getContext().startActivity(intent);
                 }
-//                else if (position == 1) {
-//                    intent = new Intent(view.getContext(), ListMateriActivity.class);
-//                    view.getContext().startActivity(intent);
-//                }
+                else if (position == 1) {
+                    intent = new Intent(view.getContext(), ListMateriFireActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                else if (position == 2) {
+                    intent = new Intent(view.getContext(), ListMateriMSYQLActivity.class);
+                    view.getContext().startActivity(intent);
+                }
             }
         });
     }

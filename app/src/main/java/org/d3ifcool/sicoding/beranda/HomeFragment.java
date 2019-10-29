@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
         listWeb.add(new BerandaList("HTML",R.drawable.ic_html));
         listWeb.add(new BerandaList("CSS",R.drawable.ic_css));
         listWeb.add(new BerandaList("PHP",R.drawable.ic_php));
-        listWeb.add(new BerandaList("Jquery",R.drawable.ic_jquery));
         listWeb.add(new BerandaList("JavaScript",R.drawable.ic_javascript));
         listWeb.add(new BerandaList("Bootstrap",R.drawable.ic_bootstrap));
 

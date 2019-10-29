@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.d3ifcool.sicoding.R;
-import org.d3ifcool.sicoding.materi.ListMateriActivity;
+import org.d3ifcool.sicoding.materi.AndroidJava.ListMateriAndroidJActivity;
+import org.d3ifcool.sicoding.materi.AndroidKotlin.ListMateriAndroidKActivity;
+import org.d3ifcool.sicoding.materi.HTML.ListMateriActivity;
 
 import java.util.ArrayList;
 
@@ -29,7 +31,7 @@ public class AndroidAdapter extends RecyclerView.Adapter<AndroidAdapter.myViewHo
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_android_language_item,        parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_android_language_item, parent,false);
         AndroidAdapter.myViewHolder viewHolder = new AndroidAdapter.myViewHolder(v);
         return viewHolder;
     }
@@ -44,13 +46,13 @@ public class AndroidAdapter extends RecyclerView.Adapter<AndroidAdapter.myViewHo
             public void onClick(View view) {
                 Intent intent;
                 if (position == 0) {
-                    intent = new Intent(view.getContext(), ListMateriActivity.class);
+                    intent = new Intent(view.getContext(), ListMateriAndroidJActivity.class);
                     view.getContext().startActivity(intent);
                 }
-//                else if (position == 1) {
-//                    intent = new Intent(view.getContext(), ListMateriActivity.class);
-//                    view.getContext().startActivity(intent);
-//                }
+                else if (position == 1) {
+                    intent = new Intent(view.getContext(), ListMateriAndroidKActivity.class);
+                    view.getContext().startActivity(intent);
+                }
             }
         });
     }

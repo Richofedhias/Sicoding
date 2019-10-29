@@ -24,10 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.d3ifcool.sicoding.KategoriKuisActivity;
 import org.d3ifcool.sicoding.R;
-import org.d3ifcool.sicoding.beranda.BerandaActivity;
-import org.d3ifcool.sicoding.materi.DataMateri;
-import org.d3ifcool.sicoding.materi.MenuMateri;
-import org.d3ifcool.sicoding.materi.MenuMateriAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,8 +96,8 @@ public class QnAActivity extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     QnAList model = ds.getValue(QnAList.class);
-                    if (model.getmTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
-                            model.getmDesc().toLowerCase().contains(searchQuery.toLowerCase())) {
+                    if (model.getpTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
+                            model.getpDesc().toLowerCase().contains(searchQuery.toLowerCase())) {
                         list.add(model);
                     }
                     adapter = new QnAAdapter(QnAActivity.this, list);

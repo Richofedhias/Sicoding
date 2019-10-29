@@ -10,16 +10,80 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QnA.PostDetailActivity"></activity>
+        <activity android:name=".materi.bootstrap.latihan.DetailLatihanBSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".materi.bootstrap.materi.DetailMateriBSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".materi.bootstrap.ListMateriBSActivity" />
+        <activity android:name=".materi.javascript.latihan.DetailLatihanJSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".materi.javascript.materi.DetailMateriJSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".materi.javascript.ListMateriJSActivity" />
+        <activity
+            android:name=".materi.AndroidKotlin.latihan.DetailLatihanAndKActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.AndroidKotlin.materi.DetailMateriAndKActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.AndroidKotlin.ListMateriAndroidKActivity" />
+        <activity
+            android:name=".materi.AndroidJava.latihan.DetailLatihanAndJActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.AndroidJava.materi.DetailMateriAndJActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.AndroidJava.ListMateriAndroidJActivity" />
+        <activity
+            android:name=".materi.mySQL.latihan.DetailLatihanMYSQLActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.mySQL.materi.DetailMateriMYSQLActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.mySQL.ListMateriMSYQLActivity" />
+        <activity
+            android:name=".materi.Firebase.latihan.DetailLatihanFireActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.Firebase.materi.DetailMateriFireActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.Firebase.ListMateriFireActivity" />
+        <activity
+            android:name=".materi.JSON.latihan.DetailLatihanJSONActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.JSON.materi.DetailMateriJSONActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.JSON.ListMateriJSONActivity" />
+        <activity
+            android:name=".materi.php.latihanPHP.DetailLatihanPHPActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.php.materiPHP.DetailMateriPHPActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.php.ListMateriPHPActivity" />
+        <activity
+            android:name=".materi.css.materiCSS.DetailMateriCSSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.css.latihanCSS.DetailLatihanCSSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.css.ListMateriCSSActivity" />
         <activity android:name=".QnA.NewPostActivity" />
         <activity android:name=".QnA.QnAActivity" />
-        <activity android:name=".materi.DetailLatihanActivity" />
-        <activity android:name=".materi.DetailMateriActivity" />
+        <activity android:name=".QnA.PostDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".materi.HTML.latihanHTML.DetailLatihanActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.HTML.materiHTML.DetailMateriActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".kuisDatabase.mysql.ResultKuisMysqlActivity" />
         <activity android:name=".kuisDatabase.mysql.KuisMysqlActivity" />
         <activity android:name=".kuisDatabase.json.ResultKuisJsonActivity" />
@@ -38,10 +102,11 @@
         <activity android:name=".kuisWeb.javascript.KuisJavaScriptActivity" />
         <activity android:name=".kuisWeb.css.ResultKuisCSSActivity" />
         <activity android:name=".kuisWeb.css.KuisCSSActivity" />
-        <activity android:name=".materi.ListMateriActivity" />
+        <activity android:name=".materi.HTML.ListMateriActivity" />
         <activity
             android:name=".ProfileActivity"
-            android:label="Profile" />
+            android:label="Profile"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".kuisWeb.html.ResultKuisHTMLActivity" />
         <activity android:name=".kuisWeb.html.KuisHTMLActivity" />
         <activity android:name=".kuisWeb.boostrap.KuisBoostrapActivity" />
@@ -59,6 +124,13 @@
         </activity>
         <activity android:name=".WalkthroughActivity" />
         <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".login.LoginActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -67,24 +139,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".register.RegisterActivity" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="org.d3ifcool.sicoding"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/path" />
-        </provider>
     </application>
 
 </manifest>

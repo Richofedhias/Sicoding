@@ -245,7 +245,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                         while(!uriTask.isSuccessful());
-                        Uri downloadUri = uriTask.getResult();
+                        final Uri downloadUri = uriTask.getResult();
 
                         //chechk if image is upload
                         if (uriTask.isSuccessful()){
@@ -269,6 +269,56 @@ public class ProfileActivity extends AppCompatActivity {
                                             Toast.makeText(ProfileActivity.this, "Error Updated..", Toast.LENGTH_SHORT).show();
                                         }
                                     });
+                            if (profileorCover.equals("image")) {
+                                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
+                                Query query = ref.orderByChild("uid").equalTo(user.getUid());
+                                query.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                            String child = ds.getKey();
+                                            dataSnapshot.getRef().child(child).child("uDp").setValue(downloadUri.toString());
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+                                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                            String child = ds.getKey();
+                                            if (dataSnapshot.child(child).hasChild("Comments")) {
+                                                String child1 = ""+dataSnapshot.child(child).getKey();
+                                                Query child2 = FirebaseDatabase.getInstance().getReference("Post").child(child1).child("Comments").orderByChild("uid").equalTo(user.getUid());
+                                                child2.addValueEventListener(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                                            String child = ds.getKey();
+                                                            dataSnapshot.getRef().child(child).child("uDp").setValue(downloadUri.toString());
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+                            }
                         }
                         else{
                             //errror
@@ -388,7 +438,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                String value = editText.getText().toString().trim();
+                final String value = editText.getText().toString().trim();
                 if (!TextUtils.isEmpty(value)){
 //                    progressDialog.show();
                     HashMap<String, Object> result = new HashMap<>();
@@ -408,7 +458,56 @@ public class ProfileActivity extends AppCompatActivity {
                                     Toast.makeText(ProfileActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
+                    if (key.equals("name")){
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
+                        Query query = ref.orderByChild("uid").equalTo(user.getUid());
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                    String child = ds.getKey();
+                                    dataSnapshot.getRef().child(child).child("uName").setValue(value);
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                    String child = ds.getKey();
+                                    if (dataSnapshot.child(child).hasChild("Comments")) {
+                                        String child1 = ""+dataSnapshot.child(child).getKey();
+                                        Query child2 = FirebaseDatabase.getInstance().getReference("Post").child(child1).child("Comments").orderByChild("uid").equalTo(user.getUid());
+                                        child2.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                                    String child = ds.getKey();
+                                                    dataSnapshot.getRef().child(child).child("uName").setValue(value);
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
                 }
                 else {
                     Toast.makeText(ProfileActivity.this, "Masukan Please", Toast.LENGTH_SHORT).show();

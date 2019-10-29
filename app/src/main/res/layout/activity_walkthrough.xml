@@ -24,6 +24,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="Next"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/btn_all"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -47,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Ayo Mulai"
+        android:background="@drawable/btn_all"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

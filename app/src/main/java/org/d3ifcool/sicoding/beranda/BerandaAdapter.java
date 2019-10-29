@@ -11,8 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.d3ifcool.sicoding.materi.ListMateriActivity;
+import org.d3ifcool.sicoding.materi.HTML.ListMateriActivity;
+import org.d3ifcool.sicoding.materi.bootstrap.ListMateriBSActivity;
+import org.d3ifcool.sicoding.materi.css.ListMateriCSSActivity;
 import org.d3ifcool.sicoding.R;
+import org.d3ifcool.sicoding.materi.javascript.ListMateriJSActivity;
+import org.d3ifcool.sicoding.materi.php.ListMateriPHPActivity;
 
 import java.util.ArrayList;
 
@@ -47,10 +51,22 @@ public class BerandaAdapter extends RecyclerView.Adapter<BerandaAdapter.myViewHo
                     intent = new Intent(view.getContext(), ListMateriActivity.class);
                     view.getContext().startActivity(intent);
                 }
-//                else if (position == 1) {
-//                    intent = new Intent(view.getContext(), ListMateriActivity.class);
-//                    view.getContext().startActivity(intent);
-//                }
+                else if (position == 1) {
+                    intent = new Intent(view.getContext(), ListMateriCSSActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                else if (position == 2) {
+                    intent = new Intent(view.getContext(), ListMateriPHPActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                else if (position == 3) {
+                    intent = new Intent(view.getContext(), ListMateriJSActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                else if (position == 4) {
+                    intent = new Intent(view.getContext(), ListMateriBSActivity.class);
+                    view.getContext().startActivity(intent);
+                }
             }
         });
     }

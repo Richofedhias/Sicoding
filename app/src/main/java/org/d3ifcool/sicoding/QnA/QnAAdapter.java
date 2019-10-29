@@ -21,9 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.sicoding.R;
-import org.d3ifcool.sicoding.materi.DetailMateriActivity;
-import org.d3ifcool.sicoding.materi.MenuMateri;
-import org.d3ifcool.sicoding.materi.MenuMateriAdapter;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -86,11 +83,12 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         String uName = QnAlist.get(position).getuName();
         String uPict = QnAlist.get(position).getuDp();
         final String pId = QnAlist.get(position).getpId();
-        final String pTitle = QnAlist.get(position).getmTitle();
-        final String pDesc = QnAlist.get(position).getmDesc();
+        final String pTitle = QnAlist.get(position).getpTitle();
+        final String pDesc = QnAlist.get(position).getpDesc();
         final String pImage = QnAlist.get(position).getpImage();
         String pTimeStamp = QnAlist.get(position).getpTime();
         String pLikes = QnAlist.get(position).getpLikes();
+        String pComments = QnAlist.get(position).getpComments();
 
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(pTimeStamp));
@@ -101,7 +99,8 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         holder.pTitleTv.setText(pTitle);
         holder.pDescrTv.setText(pDesc);
         holder.pLikeTv.setText(pLikes + "Like");
-        
+        holder.pCommentTv.setText(pComments + "Comment");
+
         setLikes(holder,pId);
 
         try {
@@ -365,7 +364,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikeTv;
+        TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikeTv, pCommentTv;
         ImageView uPictIv, pImageIv;
         ImageButton moreBtn, likeBtn, commentBtn, shareBtn;
 
@@ -376,6 +375,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
             pTitleTv = itemView.findViewById(R.id.tV_TitlePost);
             pDescrTv = itemView.findViewById(R.id.tV_descriptionPost);
             pLikeTv = itemView.findViewById(R.id.tv_Like);
+            pCommentTv = itemView.findViewById(R.id.tv_comment);
             uPictIv = itemView.findViewById(R.id.iV_avatar);
             pImageIv = itemView.findViewById(R.id.iV_imagePost);
             moreBtn = itemView.findViewById(R.id.moreBtn);

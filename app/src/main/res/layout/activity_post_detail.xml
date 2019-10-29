@@ -7,6 +7,8 @@
     tools:context=".QnA.PostDetailActivity">
 
     <androidx.core.widget.NestedScrollView
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/commentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -96,12 +98,29 @@
                         android:layout_height="200dp"
                         android:background="@color/colorWhite" />
 
-                    <TextView
-                        android:id="@+id/tv_Like"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1,2rb Suka"
-                        android:textColor="@color/colorBlack"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_Like"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1,2rb Suka"
+                            android:textColor="@color/colorBlack"/>
+                        <TextView
+                            android:id="@+id/tv_comment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="textEnd"
+                            android:text="1.2rb komentar"
+                            android:textColor="@color/colorBlack"
+                            android:gravity="end" />
+
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -114,7 +133,7 @@
                         android:orientation="horizontal"
                         android:gravity="center">
 
-                        <ImageButton
+                        <Button
                             android:id="@+id/btn_like"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -122,12 +141,11 @@
                             android:background="@color/colorWhite"
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"
-                            android:src="@drawable/ic_like"
+                            android:text="Like"
+                            android:drawableLeft="@drawable/ic_like"
                             />
 
-
-
-                        <ImageButton
+                        <Button
                             android:id="@+id/btn_share"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -135,7 +153,8 @@
                             android:background="@color/colorWhite"
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"
-                            android:src="@drawable/ic_share" />
+                            android:text="Share"
+                            android:drawableLeft="@drawable/ic_share"/>
 
                     </LinearLayout>
 
@@ -155,11 +174,26 @@
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comments"
+                android:drawablePadding="5dp"
+                android:padding="2dp"
+                android:drawableLeft="@drawable/ic_comment"
+                android:textColor="@color/colorBlack"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
+        android:id="@+id/commentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
@@ -179,7 +213,7 @@
             android:layout_toStartOf="@+id/sendBtn"
             android:background="@color/colorWhite"
             android:padding="10dp"
-            android:hint="Emter Comment..."
+            android:hint="Enter Comment..."
             android:inputType="textCapSentences|textMultiLine"
             android:layout_centerVertical="true"
             android:layout_margin="1dp"
