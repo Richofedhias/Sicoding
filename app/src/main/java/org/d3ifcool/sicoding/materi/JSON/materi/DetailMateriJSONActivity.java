@@ -27,4 +27,10 @@ public class DetailMateriJSONActivity extends AppCompatActivity {
         judul.setText(JudulMateri);
         deskripsi.setText(DescMateri);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

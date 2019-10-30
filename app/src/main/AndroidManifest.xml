@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.d3ifcool.sicoding">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -15,15 +9,20 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".materi.bootstrap.latihan.DetailLatihanBSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
-        <activity android:name=".materi.bootstrap.materi.DetailMateriBSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".AboutActivity"></activity>
+        <activity
+            android:name=".materi.bootstrap.latihan.DetailLatihanBSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.bootstrap.materi.DetailMateriBSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".materi.bootstrap.ListMateriBSActivity" />
-        <activity android:name=".materi.javascript.latihan.DetailLatihanJSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
-        <activity android:name=".materi.javascript.materi.DetailMateriJSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".materi.javascript.latihan.DetailLatihanJSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".materi.javascript.materi.DetailMateriJSActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".materi.javascript.ListMateriJSActivity" />
         <activity
             android:name=".materi.AndroidKotlin.latihan.DetailLatihanAndKActivity"
@@ -74,11 +73,13 @@
             android:name=".materi.css.latihanCSS.DetailLatihanCSSActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".materi.css.ListMateriCSSActivity" />
-        <activity android:name=".QnA.NewPostActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".QnA.NewPostActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".QnA.QnAActivity" />
-        <activity android:name=".QnA.PostDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".QnA.PostDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name=".materi.HTML.latihanHTML.DetailLatihanActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
@@ -142,5 +143,11 @@
         </activity>
         <activity android:name=".register.RegisterActivity" />
     </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

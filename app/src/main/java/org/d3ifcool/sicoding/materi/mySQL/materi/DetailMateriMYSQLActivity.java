@@ -29,4 +29,10 @@ public class DetailMateriMYSQLActivity extends AppCompatActivity {
         deskripsi.setText(DescMateri);
 
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

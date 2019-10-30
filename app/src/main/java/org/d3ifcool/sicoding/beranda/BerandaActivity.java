@@ -2,6 +2,7 @@ package org.d3ifcool.sicoding.beranda;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,6 +17,7 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.d3ifcool.sicoding.AboutActivity;
 import org.d3ifcool.sicoding.KategoriKuisActivity;
 import org.d3ifcool.sicoding.ProfileActivity;
 import org.d3ifcool.sicoding.QnA.QnAActivity;
@@ -56,7 +58,7 @@ public class BerandaActivity extends AppCompatActivity {
         bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(BerandaActivity.this, AboutActivity.class));
             }
         });
 

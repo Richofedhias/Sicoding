@@ -33,4 +33,10 @@ public class DetailLatihanJSONActivity extends AppCompatActivity {
             hasil.setText(Html.fromHtml(extrapenj, Html.FROM_HTML_MODE_COMPACT));
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

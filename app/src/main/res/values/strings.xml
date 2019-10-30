@@ -11,6 +11,44 @@
     <string name="title_notifications">Notifications</string>
 
     <!--    Edit Profile-->
+    <string name="title_about">Tentang Saya</string>
+
+
+    <!--    Pengguna di Profile-->
+    <string name="title_hobby">Hobi</string>
+    <string name="title_user">Nama User</string>
+    <string name="title_keterampilan">Keterampilan</string>
+    <string name="title_motto">Motto Hidup</string>
+    <string name="title_email">Email Saya</string>
+    <string name="isi">Belum Ada Isinya</string>
+    <string name="title_kategoriKuis">Kategori Kuis</string>
+
+
+    <!--    Penggunaan di Kategori Kuis-->
+    <string name="title_kategoriKuisWeb">Pemrograman Web</string>
+    <string name="title_kategoriKuisDatabase">Database</string>
+    <string name="title_kategoriKuisAndroid">Android</string>
+    <string name="title_HTML">HTML</string>
+
+    <!--    Penggunaan di Kuis Web-->
+    <string name="title_PHP">PHP</string>
+    <string name="title_CSS">CSS</string>
+    <string name="title_JavaScript">JavaScript</string>
+    <string name="title_Boostrap">Boostrap</string>
+    <string name="title_MySQL">MySQL</string>
+
+    <!--    Penggunaan di Kuis Database-->
+    <string name="title_Json">JSON</string>
+    <string name="title_Firebase">Firebase</string>
+    <string name="title_java">Android with Java</string>
+
+    <!--    Penggunaan di Kuis Android-->
+    <string name="title_kotlin">Android with Kotlin</string>
+    <string name="title_flutter">Flutter</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="edit">
         <item>Ubah Gambar Profile</item>
         <item>Ubah Gambar Cover Profile</item>
@@ -21,41 +59,23 @@
         <item>Edit Deskripsi</item>
     </string-array>
 
-
-    <!--    Pengguna di Profile-->
-    <string name="title_about">Tentang Saya</string>
-    <string name="title_hobby">Hobi</string>
-    <string name="title_user">Nama User</string>
-    <string name="title_keterampilan">Keterampilan</string>
-    <string name="title_motto">Motto Hidup</string>
-    <string name="title_email">Email Saya</string>
-    <string name="isi">Belum Ada Isinya</string>
-
-
-    <!--    Penggunaan di Kategori Kuis-->
-    <string name="title_kategoriKuis">Kategori Kuis</string>
-    <string name="title_kategoriKuisWeb">Pemrograman Web</string>
-    <string name="title_kategoriKuisDatabase">Database</string>
-    <string name="title_kategoriKuisAndroid">Android</string>
-
-    <!--    Penggunaan di Kuis Web-->
-    <string name="title_HTML">HTML</string>
-    <string name="title_PHP">PHP</string>
-    <string name="title_CSS">CSS</string>
-    <string name="title_JavaScript">JavaScript</string>
-    <string name="title_Boostrap">Boostrap</string>
-
-    <!--    Penggunaan di Kuis Database-->
-    <string name="title_MySQL">MySQL</string>
-    <string name="title_Json">JSON</string>
-    <string name="title_Firebase">Firebase</string>
-
-    <!--    Penggunaan di Kuis Android-->
-    <string name="title_java">Android with Java</string>
-    <string name="title_kotlin">Android with Kotlin</string>
-    <string name="title_flutter">Flutter</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="thankfor">
+        Circle Image - Copyright 2014 - 2019 Henning Dodenhof\n
+        Justified Textview - Copyright 2014 CodesGood\n
+        Picasso - Copyright 2013 Square, Inc.\n
+        Auto Image Slider - Copyright 2019 Ali Hosseini\n
+        Compound Icon Textview - Copyright (C) 2017 A.Akira
+        CSS Icon - Icon made by www.pngdownload.id\n
+        HTML Icon - Icon made by www.pngdownload.id\n
+        Java Script Icon - Icon made by www.pluspng.com\n
+        JSON Icon - Icon made by www.json.org\n
+        Bootstrap Icon - Icon made by www.dlpng.com\n
+        Firebase Icon - Icon made by www.firebase.google.com\n
+        Mysql Icon - Icon made by www.mysql.com\n
+        Android Icon - Icon made by www.stickpng.com\n
+        Java Icon - Icon made by www.dlpng.com\n
+        Kotlin Icon - Icon made by www.freebiesupply.com\n
+        Medal Icon - Icon made by www.flaticon.com\n
+        Art Icon - Icon made by www.freepik.com
+    </string>
 </resources>

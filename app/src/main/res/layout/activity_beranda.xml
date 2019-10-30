@@ -32,7 +32,7 @@
             android:paddingRight="32dp"
             app:fabAlignmentMode="center"
             app:fabCradleRoundedCornerRadius="100dp"
-            app:navigationIcon="@drawable/ic_home_black_24dp" />
+            app:navigationIcon="@drawable/ic_about" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_index"
