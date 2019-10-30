@@ -96,8 +96,8 @@ public class QnAActivity extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     QnAList model = ds.getValue(QnAList.class);
-                    if (model.getpTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
-                            model.getpDesc().toLowerCase().contains(searchQuery.toLowerCase())) {
+                    if (model.getmTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
+                            model.getmDesc().toLowerCase().contains(searchQuery.toLowerCase())) {
                         list.add(model);
                     }
                     adapter = new QnAAdapter(QnAActivity.this, list);

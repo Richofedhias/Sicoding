@@ -36,6 +36,7 @@ public class ContohFragment extends Fragment {
     StorageReference storageRef;
     LatihanAdapter adapter;
     ArrayList<MenuContoh> list = new ArrayList<>();
+    View v;
 
     public ContohFragment() {
         // Required empty public constructor
@@ -46,17 +47,19 @@ public class ContohFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_contoh, container, false);
-        rV_list = v.findViewById(R.id.rV_contoh);
-        rV_list.setHasFixedSize(true);
+        if (v == null) {
+            // Inflate the layout for this fragment
+            v = inflater.inflate(R.layout.fragment_materi, container, false);
+            rV_list = v.findViewById(R.id.rV_materi);
+            rV_list.setHasFixedSize(true);
+            rV_list.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        rV_list.setLayoutManager(new LinearLayoutManager(getContext()));
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            ref = firebaseDatabase.getReference();
+            storageRef = FirebaseStorage.getInstance().getReference();
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        ref = firebaseDatabase.getReference();
-        storageRef = FirebaseStorage.getInstance().getReference();
-
-        init();
+            init();
+        }
 
         return v;
     }

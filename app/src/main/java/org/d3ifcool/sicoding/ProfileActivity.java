@@ -47,6 +47,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import org.d3ifcool.sicoding.login.LoginActivity;
+
 import java.util.HashMap;
 
 import static com.google.firebase.storage.FirebaseStorage.getInstance;
@@ -129,18 +131,18 @@ public class ProfileActivity extends AppCompatActivity {
                     hobbyuser.setText(hobby);
                     mottouser.setText(motto);
                     ketrampilanuser.setText(ketrampilan);
-                    try {
-                        Picasso.get().load(image).into(profile);
-                    }
-                    catch (Exception e){
-                        Picasso.get().load(R.drawable.ic_launcher_background).into(profile);
-                    }
-                    try {
-                        Picasso.get().load(cover).into(sampul);
-                    }
-                    catch (Exception e){
-                        Picasso.get().load(R.drawable.wallpaper_contoh).into(sampul);
-                    }
+//                    try {
+//                        Picasso.get().load(image).into(profile);
+//                    }
+//                    catch (Exception e){
+//                        Picasso.get().load(R.drawable.ic_launcher_background).into(profile);
+//                    }
+//                    try {
+//                        Picasso.get().load(cover).into(sampul);
+//                    }
+//                    catch (Exception e){
+//                        Picasso.get().load(R.drawable.wallpaper_contoh).into(sampul);
+//                    }
                 }
             }
 
@@ -385,23 +387,25 @@ public class ProfileActivity extends AppCompatActivity {
                         } else if (i == 2) {
                             //edit nama klik
 //                            progressDialog.setMessage("Update Nama Profile");
-                            showNamaEditDialog();
+//                            showNamaEditDialog();
                             showUpdate("nama");
                         } else if (i == 3) {
                             //edit hobbi klik
 //                            progressDialog.setMessage("Update Hobby Profile");
-                            showHobiEditDialog();
+//                            showHobiEditDialog();
                             showUpdate("hobby");
                         } else if (i == 4) {
                             //edit ketrampilan klik
 //                            progressDialog.setMessage("Update Ketrampilan Profile");
-                            showKeterampilanEditDialog();
+//                            showKeterampilanEditDialog();
                             showUpdate("ketrampilan");
                         } else if (i == 5) {
                             //edit motto klik
 //                            progressDialog.setMessage("Update Motto Profile");
                             showMottoEditDialog();
                             showUpdate("motto");
+                        }else if (i == 6){
+                            showUpdate("deskripsi");
                         }
                     }
                 });
@@ -692,7 +696,7 @@ public class ProfileActivity extends AppCompatActivity {
     //Pake Menu diatas
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
         return super.onCreateOptionsMenu(menu);
     }
     @Override
@@ -703,8 +707,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public void setMode(int selectedMode) {
         switch (selectedMode) {
-            case R.id.nav_profile:
-
+            case R.id.action_logout:
+                firebaseAuth.signOut();
+                startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+                finish();
                 break;
         }
     }

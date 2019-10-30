@@ -57,9 +57,10 @@ public class WalkthroughActivity extends AppCompatActivity {
         tabIndicator = findViewById(R.id.tL_intro);
 
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Slide 1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", R.drawable.logo));
-        mList.add(new ScreenItem("Slide 2", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", R.drawable.logo));
-        mList.add(new ScreenItem("Slide 3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", R.drawable.logo));
+        mList.add(new ScreenItem("Materi", "Materi untuk mempelajari teori bahasa pemograman", R.drawable.logo));
+        mList.add(new ScreenItem("Q&A", "Q&A untuk sesi tanya jawab seputar bahasa pemograman ", R.drawable.logo));
+        mList.add(new ScreenItem("Contoh Codingan", "Contoh Codingan untuk membantu pengimplementasian bahasa pemograman", R.drawable.logo));
+        mList.add(new ScreenItem("Kuis", "Kuis untuk mengetahui seberapa dalam pemahaman tentang bahasa pemograman", R.drawable.logo));
 
         screenPager = findViewById(R.id.vP_intro);
         introViewPagerAdapter = new IntroViewPagerAdapter(this, mList);

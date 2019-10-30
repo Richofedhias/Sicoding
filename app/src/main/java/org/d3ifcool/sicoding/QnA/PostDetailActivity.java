@@ -119,7 +119,7 @@ public class PostDetailActivity extends AppCompatActivity {
         loadUserInfo();
 
         setLikes();
-        
+
         loadComments();
 
         actionBar.setSubtitle("Signed as :"+myEmail);
@@ -149,7 +149,7 @@ public class PostDetailActivity extends AppCompatActivity {
     }
 
     private void loadComments() {
-        LinearLayoutManager lm = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager lm = new LinearLayoutManager(getApplicationContext());
         rv_comment.setLayoutManager(lm);
 
         commentList = new ArrayList<>();
@@ -357,12 +357,12 @@ public class PostDetailActivity extends AppCompatActivity {
                 updateCommentCount();
             }
         })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                pd.dismiss();
-            }
-        });
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
+                    }
+                });
     }
 
 
@@ -373,8 +373,10 @@ public class PostDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (mProcessComment) {
-                    String comments = ""+ dataSnapshot.child("pComments").getValue();
-                    int newCommentVal = Integer.parseInt(comments) + 1;
+//                    final int pLikes = Integer.parseInt(QnAlist.get(position).getpLikes());
+//                    postRef.child(postIde).child("pLikes").setValue(""+(pLikes-1));
+                    String pComments = ""+ dataSnapshot.child("pComments").getValue();
+                    final int newCommentVal = Integer.parseInt((pComments+1) );
                     ref.child("pComments").setValue(""+newCommentVal);
                     mProcessComment = false;
                 }
@@ -393,7 +395,7 @@ public class PostDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
-                    myName = ""+ds.child("name").getValue();
+                    myName = ""+ds.child("nama").getValue();
                     myDp = ""+ds.child("image").getValue();
 
                     try {

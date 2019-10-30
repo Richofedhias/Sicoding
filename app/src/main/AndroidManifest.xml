@@ -74,7 +74,8 @@
             android:name=".materi.css.latihanCSS.DetailLatihanCSSActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".materi.css.ListMateriCSSActivity" />
-        <activity android:name=".QnA.NewPostActivity" />
+        <activity android:name=".QnA.NewPostActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity android:name=".QnA.QnAActivity" />
         <activity android:name=".QnA.PostDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>

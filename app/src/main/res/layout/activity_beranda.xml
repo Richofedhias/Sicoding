@@ -50,7 +50,7 @@
             android:visibility="invisible"
             app:backgroundTint="@color/colorDaffodil"
             app:layout_anchor="@+id/fab_index"
-            app:srcCompat="@drawable/ic_add_white_24dp" />
+            app:srcCompat="@drawable/ic_kuis" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab2"
@@ -61,7 +61,7 @@
             app:backgroundTint="@color/colorDaffodil"
             app:layout_anchor="@+id/fab_index"
             app:layout_anchorGravity="right"
-            app:srcCompat="@drawable/ic_add_white_24dp" />
+            app:srcCompat="@drawable/ic_qna" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -109,13 +109,15 @@ public class RegisterActivity extends AppCompatActivity {
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    Toast.makeText(RegisterActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegisterActivity.this, " " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                     mLoading.show();
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
+                                        Toast.makeText(RegisterActivity.this, "Gagal Buat Akun" + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
                                             FirebaseUser user = firebaseAuth.getCurrentUser();
+                                        Toast.makeText(RegisterActivity.this, "Berhasil Buat Akun", Toast.LENGTH_SHORT).show();
+                                        finish();
 
                             String emailmap = user.getEmail();
                             String uid = user.getUid();

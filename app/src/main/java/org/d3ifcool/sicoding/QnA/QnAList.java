@@ -1,15 +1,15 @@
 package org.d3ifcool.sicoding.QnA;
 
 public class QnAList {
-    String pId, pTitle, pDesc, pLikes, pComments, pImage, pTime, uid, uEmail, uDp, uName;
+    String pId, mTitle, mDesc, pLikes, pComments, pImage, pTime, uid, uEmail, uDp, uName;
 
     public QnAList() {
     }
 
-    public QnAList(String pId, String pTitle, String pDesc, String pLikes, String pComments, String pImage, String pTime, String uid, String uEmail, String uDp, String uName) {
+    public QnAList(String pId, String mTitle, String mDesc, String pLikes, String pComments, String pImage, String pTime, String uid, String uEmail, String uDp, String uName) {
         this.pId = pId;
-        this.pTitle = pTitle;
-        this.pDesc = pDesc;
+        this.mTitle = mTitle;
+        this.mDesc = mDesc;
         this.pLikes = pLikes;
         this.pComments = pComments;
         this.pImage = pImage;
@@ -28,20 +28,20 @@ public class QnAList {
         this.pId = pId;
     }
 
-    public String getpTitle() {
-        return pTitle;
+    public String getmTitle() {
+        return mTitle;
     }
 
-    public void setpTitle(String pTitle) {
-        this.pTitle = pTitle;
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
 
-    public String getpDesc() {
-        return pDesc;
+    public String getmDesc() {
+        return mDesc;
     }
 
-    public void setpDesc(String pDesc) {
-        this.pDesc = pDesc;
+    public void setmDesc(String mDesc) {
+        this.mDesc = mDesc;
     }
 
     public String getpLikes() {

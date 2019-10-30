@@ -83,8 +83,8 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         String uName = QnAlist.get(position).getuName();
         String uPict = QnAlist.get(position).getuDp();
         final String pId = QnAlist.get(position).getpId();
-        final String pTitle = QnAlist.get(position).getpTitle();
-        final String pDesc = QnAlist.get(position).getpDesc();
+        final String pTitle = QnAlist.get(position).getmTitle();
+        final String pDesc = QnAlist.get(position).getmDesc();
         final String pImage = QnAlist.get(position).getpImage();
         String pTimeStamp = QnAlist.get(position).getpTime();
         String pLikes = QnAlist.get(position).getpLikes();

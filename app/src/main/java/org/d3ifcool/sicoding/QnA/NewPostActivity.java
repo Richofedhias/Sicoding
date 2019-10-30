@@ -181,6 +181,7 @@ public class NewPostActivity extends AppCompatActivity {
                                 hashMap.put("pImage",downloadUri);
                                 hashMap.put("pTime",timeStamp);
                                 hashMap.put("pLikes","0");
+                                hashMap.put("pComments","0");
 
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
 
@@ -228,6 +229,7 @@ public class NewPostActivity extends AppCompatActivity {
             hashMap.put("pImage","noImage");
             hashMap.put("pTime",timeStamp);
             hashMap.put("pLikes","0");
+            hashMap.put("pComments","0");
 
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
 
