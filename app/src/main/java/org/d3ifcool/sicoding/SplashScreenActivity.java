@@ -9,13 +9,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import org.d3ifcool.sicoding.login.LoginActivity;
-
 public class SplashScreenActivity extends AppCompatActivity {
 
     ImageView top;
     Animation fromtop;
-    private static int SPLASH_TIME_OUT = 4000;
+    private static int SPLASH_TIME_OUT = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

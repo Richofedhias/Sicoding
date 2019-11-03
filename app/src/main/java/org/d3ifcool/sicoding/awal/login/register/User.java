@@ -1,4 +1,4 @@
-package org.d3ifcool.sicoding.register;
+package org.d3ifcool.sicoding.awal.login.register;
 
 public class User {
     private String namaUser;

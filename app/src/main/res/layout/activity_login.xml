@@ -1,137 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    android:background="@color/colorBlueberry"
+    tools:context=".awal.login.login.LoginActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="36dp"
-        android:background="@drawable/bg_login"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
-            android:background="@drawable/img_logo_login"
-            android:padding="8dp"
-            android:src="@drawable/logo" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eT_loginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:padding="16dp"
-            android:background="@drawable/bg_menu_login"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical">
+            android:layout_marginTop="24dp"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            app:errorEnabled="true"
+            android:textColorHint="@color/colorGrey"
+            android:theme="@style/Theme.App.Base"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-            <EditText
-                android:id="@+id/eT_loginEmail"
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:hint="Email"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="@color/colorGrey"
+                android:inputType="textEmailAddress"/>
 
-            <EditText
-                android:id="@+id/eT_loginPassword"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eT_loginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:textColorHint="@color/colorGrey"
+            android:theme="@style/Theme.App.Base"
+            app:layout_constraintTop_toBottomOf="@id/eT_loginEmail"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorGrey">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Password"
+                android:hint="Kata Sandi"
+                android:textColor="@color/colorGrey"
                 android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eT_loginEmail" />
+                android:textColorHint="@color/colorDaffodil" />
 
-            <ImageView
-                android:id="@+id/iv_visiblePass"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/img_logo_login"
+            android:padding="4dp"
+            android:src="@drawable/logo_biru_dongker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tV_forgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16sp"
+            android:text="Lupa Kata Sandi?"
+            android:textColor="@color/colorGrey"
+            android:textStyle="bold"
+            android:onClick="LupaPassword"
+            app:layout_constraintBottom_toBottomOf="@+id/cb_remember"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cb_remember" />
+
+        <CheckBox
+            android:id="@+id/cb_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorGrey"
+            android:text="Ingatkan Saya"
+            android:textColor="@color/colorGrey"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eT_loginPassword" />
+
+        <Button
+            android:id="@+id/btn_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_login"
+            android:text="Masuk"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/colorBlueberry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cb_remember" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_Login">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
-                app:layout_constraintEnd_toEndOf="@+id/eT_loginPassword"
-                app:layout_constraintTop_toTopOf="@+id/eT_loginPassword"
-                app:srcCompat="@drawable/ic_visibility_black_24dp" />
+                android:text="Akun Baru? "
+                android:textColor="@color/colorGrey" />
 
-            <ImageView
-                android:id="@+id/iv_invisiblePass"
+            <TextView
+                android:id="@+id/tV_registrasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
-                app:layout_constraintEnd_toEndOf="@+id/eT_loginPassword"
-                app:layout_constraintTop_toTopOf="@+id/eT_loginPassword"
-                app:srcCompat="@drawable/ic_visibility_off_black_24dp" />
+                android:text="Daftar disini"
+                android:textColor="@color/colorDaffodil"
+                android:onClick="Register"
+                android:textStyle="bold"/>
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/eT_loginPassword"
-                tools:layout_editor_absoluteX="16dp">
-
-                <Button
-                    android:id="@+id/btn_Login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/btn_all"
-                    android:layout_marginBottom="8dp"
-                    android:text="Login" />
-
-                <Button
-                    android:id="@+id/btn_registrasi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="end"
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/btn_all"
-                    android:layout_marginBottom="8dp"
-                    android:text="Register" />
-
-            </RelativeLayout>
-
-            <!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Atau"-->
-<!--                android:textSize="24sp"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                android:layout_gravity="center" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_googleLogin"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Login Menggunakan Google"-->
-<!--                android:drawableLeft="@drawable/ic_google_logo" />-->
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

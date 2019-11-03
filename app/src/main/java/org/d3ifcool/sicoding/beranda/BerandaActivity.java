@@ -16,12 +16,15 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.d3ifcool.sicoding.AboutActivity;
 import org.d3ifcool.sicoding.KategoriKuisActivity;
 import org.d3ifcool.sicoding.ProfileActivity;
 import org.d3ifcool.sicoding.QnA.QnAActivity;
 import org.d3ifcool.sicoding.R;
+import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
 
 public class BerandaActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton, fab1, fab2;
@@ -29,6 +32,7 @@ public class BerandaActivity extends AppCompatActivity {
     BottomAppBar bottomAppBar;
     ViewPager viewPager;
     boolean isOpen = false;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,4 +121,6 @@ public class BerandaActivity extends AppCompatActivity {
             isOpen = true;
         }
     }
+
+
 }

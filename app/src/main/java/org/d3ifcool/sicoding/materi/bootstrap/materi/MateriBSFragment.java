@@ -1,6 +1,7 @@
 package org.d3ifcool.sicoding.materi.bootstrap.materi;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class MateriBSFragment extends Fragment {
     DatabaseReference reference;
     MateriBSAdapter adapter;
     View v;
+    ProgressDialog pg;
 
     ArrayList<DataMateriBS> data = new ArrayList<>();
 
@@ -58,6 +60,9 @@ public class MateriBSFragment extends Fragment {
             firebaseDatabase = FirebaseDatabase.getInstance();
             reference = firebaseDatabase.getReference();
             storageRef = FirebaseStorage.getInstance().getReference();
+            pg = new ProgressDialog(getActivity());
+            pg.setMessage("Tunggu ...");
+            pg.show();
 
             init();
         }
@@ -75,6 +80,11 @@ public class MateriBSFragment extends Fragment {
                     materii.setDesk(snapshot.child("isi_materi_bs").getValue().toString());
 
                     data.add(materii);
+                    if (materii == null){
+                        pg.show();
+                    }else{
+                        pg.dismiss();
+                    }
                 }
                 adapter = new MateriBSAdapter(getContext(), data);
                 rv_list.setAdapter(adapter);

@@ -199,9 +199,9 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_STREAM,uri);
         intent.putExtra(Intent.EXTRA_TEXT,shareBody);
-        intent.putExtra(Intent.EXTRA_SUBJECT,"Subject Here");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Subject");
         intent.setType("image/png");
-        mContext.startActivity(Intent.createChooser(intent,"Share Via"));
+        mContext.startActivity(Intent.createChooser(intent,"Kirim Lewat"));
     }
 
     private Uri saveImageToShare(Bitmap bitmap) {
@@ -241,7 +241,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.child(postKey).hasChild(myUid)){
 
-                    holder.likeBtn.setImageResource(R.drawable.ic_liked);
+                    holder.likeBtn.setImageResource(R.drawable.ic_suka);
                     //setText
                 }
                 else{
@@ -264,10 +264,10 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
 
         if (uid.equals(myUid)) {
 
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, "Delete");
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, "Menghapus");
 
         }
-        popupMenu.getMenu().add(Menu.NONE, 1, 0, "View Detail");
+        popupMenu.getMenu().add(Menu.NONE, 1, 0, "Lihat Lebih Jelas");
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
@@ -301,7 +301,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
     private void deleteWithImage(final String pId, String pImage) {
 
         final ProgressDialog pd = new ProgressDialog(mContext);
-        pd.setMessage("Deleting...");
+        pd.setMessage("Menghapus...");
 
         StorageReference pickRef = FirebaseStorage.getInstance().getReferenceFromUrl(pImage);
         pickRef.delete()
@@ -316,7 +316,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
                                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                                     ds.getRef().removeValue();
                                 }
-                                Toast.makeText(mContext, "Delete Sukses", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Menghapus Sukses", Toast.LENGTH_SHORT).show();
                                 pd.dismiss();
                             }
 

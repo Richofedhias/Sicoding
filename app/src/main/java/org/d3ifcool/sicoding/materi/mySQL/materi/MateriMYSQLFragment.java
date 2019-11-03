@@ -1,6 +1,7 @@
 package org.d3ifcool.sicoding.materi.mySQL.materi;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,7 @@ public class MateriMYSQLFragment extends Fragment {
     DatabaseReference reference;
     MateriMYSQLAdapter adapter;
     View v;
-
+    ProgressDialog pg;
     ArrayList<DataMateriMYSQL> data = new ArrayList<>();
 
     public MateriMYSQLFragment() {
@@ -58,6 +59,9 @@ public class MateriMYSQLFragment extends Fragment {
             firebaseDatabase = FirebaseDatabase.getInstance();
             reference = firebaseDatabase.getReference();
             storageRef = FirebaseStorage.getInstance().getReference();
+            pg = new ProgressDialog(getActivity());
+            pg.setMessage("Tunguu...");
+            pg.show();
 
             init();
         }
@@ -75,6 +79,12 @@ public class MateriMYSQLFragment extends Fragment {
                     materii.setDesk(snapshot.child("isi_materi_mysql").getValue().toString());
 
                     data.add(materii);
+                    data.add(materii);
+                    if (materii == null){
+                        pg.show();
+                    }else{
+                        pg.dismiss();
+                    }
                 }
                 adapter = new MateriMYSQLAdapter(getContext(), data);
                 rv_list.setAdapter(adapter);

@@ -6,6 +6,7 @@ import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -34,7 +35,8 @@ public class QnAActivity extends AppCompatActivity {
     QnAAdapter adapter;
     List<QnAList> list;
     FloatingActionButton fab1;
-
+    ProgressDialog pg;
+    private Boolean a = false;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -49,10 +51,14 @@ public class QnAActivity extends AppCompatActivity {
         lm.setReverseLayout(true);
         list = new ArrayList<>();
         rV_list.setLayoutManager(lm);
+        pg = new ProgressDialog(this);
+        pg.setMessage("Tunggu");
+            loadPosts();
+            floatingbutton();
+
 //        adapter = new QnAAdapter(list);
 //        rV_list.setAdapter(adapter);
-        loadPosts();
-        floatingbutton();
+        pg.show();
     }
 
     public void floatingbutton() {
@@ -78,6 +84,11 @@ public class QnAActivity extends AppCompatActivity {
                     list.add(model);
                     adapter = new QnAAdapter(QnAActivity.this, list);
                     rV_list.setAdapter(adapter);
+                    if (model == null){
+                        pg.show();
+                    }else{
+                        pg.dismiss();
+                    }
                 }
             }
 

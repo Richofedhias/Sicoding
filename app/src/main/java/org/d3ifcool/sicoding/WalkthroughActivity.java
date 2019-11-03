@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
-import org.d3ifcool.sicoding.login.LoginActivity;
+import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -48,7 +48,7 @@ public class WalkthroughActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found, showing tutorial");
+            System.out.println("File Tidak Ditemukan");
         }
 
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.btn_intro_anim);

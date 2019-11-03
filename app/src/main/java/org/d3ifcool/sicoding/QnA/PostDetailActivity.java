@@ -62,7 +62,6 @@ public class PostDetailActivity extends AppCompatActivity {
     TextView nameTv,pTimeTv,pTitleTv,pDescTv,pLikesTv, pCommentsTv;
     ImageButton morebtn;
     Button likebtn,sharebtn;
-    LinearLayout profileLayout;
 
     RecyclerView rv_comment;
 
@@ -70,6 +69,9 @@ public class PostDetailActivity extends AppCompatActivity {
     CommentAdapter adapter;
 
     ProgressDialog pd;
+    String pTitle;
+    String pDesc;
+
 
     //add comment view
     EditText commentEt;
@@ -83,13 +85,14 @@ public class PostDetailActivity extends AppCompatActivity {
 
         //ActionBar
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Post Detail");
+        actionBar.setTitle("Komentar");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         //get id
         Intent intent = getIntent();
         postId = intent.getStringExtra("postId");
+
 
 
 
@@ -122,7 +125,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
         loadComments();
 
-        actionBar.setSubtitle("Signed as :"+myEmail);
+        actionBar.setSubtitle(myEmail);
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +140,14 @@ public class PostDetailActivity extends AppCompatActivity {
                 likePost();
             }
         });
+
+        sharebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shareTexOnly(pTitle,pDesc);
+            }
+        });
+
 
         morebtn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -163,7 +174,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     ModelComment model = ds.getValue(ModelComment.class);
 
                     commentList.add(model);
-                    adapter = new CommentAdapter(getApplicationContext(), commentList);
+                    adapter = new CommentAdapter(getApplicationContext(), commentList,myUid,postId);
                     rv_comment.setAdapter(adapter);
                 }
             }
@@ -175,14 +186,13 @@ public class PostDetailActivity extends AppCompatActivity {
         });
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showMoreOptions() {
         PopupMenu popupMenu = new PopupMenu(this, morebtn, Gravity.END);
 
         if (hisUid.equals(myUid)) {
-
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, "Delete");
-
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, "Hapus");
         }
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
@@ -215,7 +225,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
     private void deleteWithImage() {
         final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Deleting...");
+        pd.setMessage("Menghapus");
 
         StorageReference pickRef = FirebaseStorage.getInstance().getReferenceFromUrl(pImage);
         pickRef.delete()
@@ -230,7 +240,9 @@ public class PostDetailActivity extends AppCompatActivity {
                                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                                     ds.getRef().removeValue();
                                 }
-                                Toast.makeText(PostDetailActivity.this, "Delete Sukses", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PostDetailActivity.this, "Menghapus Sukses", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(PostDetailActivity.this,QnAActivity.class));
+                                finish();
                                 pd.dismiss();
                             }
 
@@ -262,6 +274,8 @@ public class PostDetailActivity extends AppCompatActivity {
                     ds.getRef().removeValue();
                 }
                 Toast.makeText(PostDetailActivity.this, "Delete Sukses", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(PostDetailActivity.this,QnAActivity.class));
+                finish();
                 pd.dismiss();
             }
 
@@ -279,12 +293,12 @@ public class PostDetailActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.child(postId).hasChild(myUid)){
 
-                    likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_liked,0,0,0);
-                    likebtn.setText("Like");
+                    likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_suka,0,0,0);
+                    likebtn.setText("Suka");
                 }
                 else{
                     likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like,0,0,0);
-                    likebtn.setText("Liked");
+                    likebtn.setText("Suka");
 
                 }
             }
@@ -313,7 +327,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     }
                     else{
                         postRef.child(postId).child("pLikes").setValue(""+(Integer.parseInt(pLikes)+1));
-                        likesRef.child(postId).child(myUid).setValue("Liked");
+                        likesRef.child(postId).child(myUid).setValue("Suka");
                         mProcessLike = false;
 
                     }
@@ -329,11 +343,11 @@ public class PostDetailActivity extends AppCompatActivity {
 
     private void postComment() {
         pd = new ProgressDialog(this);
-        pd.setMessage("Adding Comment...");
+        pd.setMessage("Komentar ditambahkan");
 
         String comment = commentEt.getText().toString().trim();
         if (TextUtils.isEmpty(comment)){
-            Toast.makeText(this, "Comment kosong ...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Kolom Komentar Kosong", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -365,7 +379,6 @@ public class PostDetailActivity extends AppCompatActivity {
                 });
     }
 
-
     private void updateCommentCount() {
         mProcessComment = true;
         final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post").child(postId);
@@ -373,10 +386,8 @@ public class PostDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (mProcessComment) {
-//                    final int pLikes = Integer.parseInt(QnAlist.get(position).getpLikes());
-//                    postRef.child(postIde).child("pLikes").setValue(""+(pLikes-1));
                     String pComments = ""+ dataSnapshot.child("pComments").getValue();
-                    final int newCommentVal = Integer.parseInt((pComments+1) );
+                    final int newCommentVal = Integer.parseInt(pComments)+ 1;
                     ref.child("pComments").setValue(""+newCommentVal);
                     mProcessComment = false;
                 }
@@ -387,6 +398,17 @@ public class PostDetailActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void shareTexOnly(String pTitle, String pDesc) {
+
+        String shareBody = pTitle +"\n" + pDesc;
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here");
+        intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+        this.startActivity(Intent.createChooser(intent, "Kirim Lewat"));
     }
 
     private void loadUserInfo() {
@@ -422,8 +444,8 @@ public class PostDetailActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
 
-                    String pTitle = ""+ds.child("mTitle").getValue();
-                    String pDesc = ""+ds.child("mDesc").getValue();
+                     pTitle = ""+ds.child("mTitle").getValue();
+                     pDesc = ""+ds.child("mDesc").getValue();
                     pLikes = ""+ds.child("pLikes").getValue();
                     String pTimeStamp = ""+ds.child("pTime").getValue();
                     pImage = ""+ds.child("pImage").getValue();
@@ -436,12 +458,16 @@ public class PostDetailActivity extends AppCompatActivity {
                     calendar.setTimeInMillis(Long.parseLong(pTimeStamp));
                     final String pTime = DateFormat.format("dd/MM/yyyy hh:mm:aa", calendar).toString();
 
+                    if (!hisUid.equals(myUid)){
+                        morebtn.setVisibility(View.GONE);
+                    }
+
                     //set data
                     pTitleTv.setText(pTime);
                     pDescTv.setText(pDesc);
-                    pLikesTv.setText(pLikes + " Likes");
+                    pLikesTv.setText(pLikes + " Suka");
                     pTimeTv.setText(pTime);
-                    pCommentsTv.setText(commentCount + " Comments");
+                    pCommentsTv.setText(commentCount + " Komentar");
 
                     nameTv.setText(hisName);
 

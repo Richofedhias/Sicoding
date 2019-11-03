@@ -1,6 +1,7 @@
 package org.d3ifcool.sicoding.materi.HTML.materiHTML;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class MateriFragment extends Fragment {
     DatabaseReference reference;
     MenuMateriAdapter adapter;
     View v;
+    ProgressDialog pg;
 
     ArrayList<MenuMateri> data = new ArrayList<>();
 
@@ -48,6 +50,7 @@ public class MateriFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         if (v == null) {
             v = inflater.inflate(R.layout.fragment_materi, container, false);
@@ -58,6 +61,9 @@ public class MateriFragment extends Fragment {
             firebaseDatabase = FirebaseDatabase.getInstance();
             reference = firebaseDatabase.getReference();
             storageRef = FirebaseStorage.getInstance().getReference();
+            pg = new ProgressDialog(getActivity());
+            pg.setMessage("Tunggu..");
+            pg.show();
 
             init();
         }
@@ -75,6 +81,11 @@ public class MateriFragment extends Fragment {
                     materii.setDesk(snapshot.child("isi_materi").getValue().toString());
 
                     data.add(materii);
+                    if (materii == null){
+                        pg.show();
+                    }else{
+                        pg.dismiss();
+                    }
                 }
                 adapter = new MenuMateriAdapter(getContext(), data);
                 rv_list.setAdapter(adapter);

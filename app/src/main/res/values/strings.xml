@@ -13,6 +13,12 @@
     <!--    Edit Profile-->
     <string name="title_about">Tentang Saya</string>
 
+    <style name="Theme.App.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="colorControlActivated">@color/colorDaffodil</item>
+        <item name="colorControlHighlight">@color/colorDaffodil</item>
+    </style>
+
 
     <!--    Pengguna di Profile-->
     <string name="title_hobby">Hobi</string>

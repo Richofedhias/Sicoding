@@ -1,6 +1,8 @@
 package org.d3ifcool.sicoding.QnA;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.sicoding.R;
@@ -22,10 +29,13 @@ import java.util.Locale;
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.myViewHolder> {
     Context context;
     List<ModelComment> commentList;
+    String myUid,postId;
 
-    public CommentAdapter(Context context, List<ModelComment> commentList) {
+    public CommentAdapter(Context context, List<ModelComment> commentList, String myUid, String postId) {
         this.context = context;
         this.commentList = commentList;
+        this.myUid = myUid;
+        this.postId = postId;
     }
 
     @NonNull
@@ -37,11 +47,11 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.myViewHo
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        String uid = commentList.get(position).getUid();
+        final String uid = commentList.get(position).getUid();
         String name = commentList.get(position).getuName();
         String email = commentList.get(position).getuEmail();
         String image = commentList.get(position).getuDp();
-        String cid = commentList.get(position).getcId();
+        final String cid = commentList.get(position).getcId();
         String comment = commentList.get(position).getComment();
         String timestamp = commentList.get(position).getTimestamp();
 
@@ -58,6 +68,51 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.myViewHo
         } catch (Exception e) {
 
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (myUid.equals(uid)){
+                    //comentku
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+                    builder.setTitle("Hapus");
+                    builder.setMessage("Yakin untuk menghapus comment?");
+                    builder.setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            deleteComment(cid);
+                        }
+                    });
+                    builder.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.create().show();
+                }else{
+                    //bukan komen
+                }
+            }
+        });
+    }
+
+    private void deleteComment(String cid) {
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post").child(postId);
+        ref.child("Comments").child(cid).removeValue();
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String pComments = ""+ dataSnapshot.child("pComments").getValue();
+                final int newCommentVal = Integer.parseInt(pComments)- 1;
+                ref.child("pComments").setValue(""+newCommentVal);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

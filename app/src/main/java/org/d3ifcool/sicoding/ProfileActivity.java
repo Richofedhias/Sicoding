@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -13,6 +12,7 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -24,7 +24,6 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,9 +44,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
-import org.d3ifcool.sicoding.login.LoginActivity;
+import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
 
 import java.util.HashMap;
 
@@ -111,53 +109,22 @@ public class ProfileActivity extends AppCompatActivity {
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
-                    String name = ""+ ds.child("nama").getValue();
-                    String email = ""+ds.child("email").getValue();
-                    String deskripsi = ""+ds.child("deskripsi").getValue();
-                    String ketrampilan =""+ds.child("ketrampilan").getValue();
-                    String motto = ""+ds.child("motto").getValue();
-                    String hobby = ""+ds.child("hobby").getValue();
-                    String image = ""+ds.child("image").getValue();
-                    String cover = ""+ds.child("cover").getValue();
 
-                    namauser.setText(name);
-                    emailuser.setText(email);
-                    deskripsiuser.setText(deskripsi);
-                    hobbyuser.setText(hobby);
-                    mottouser.setText(motto);
-                    ketrampilanuser.setText(ketrampilan);
-//                    try {
-//                        Picasso.get().load(image).into(profile);
-//                    }
-//                    catch (Exception e){
-//                        Picasso.get().load(R.drawable.ic_launcher_background).into(profile);
-//                    }
-//                    try {
-//                        Picasso.get().load(cover).into(sampul);
-//                    }
-//                    catch (Exception e){
-//                        Picasso.get().load(R.drawable.wallpaper_contoh).into(sampul);
-//                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         getSupportActionBar().setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
         getSupportActionBar().setHomeButtonEnabled(true);
 
         listItems = getResources().getStringArray(R.array.edit);
 
-        showDialogEditProfile();
+        //baru
+
+        floatingActionButton = findViewById(R.id.fab_edit);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this,EditProfileActivity.class));
+            }
+        });
 
     }
 
@@ -237,7 +204,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadProfileCoverPhoto(final Uri uri) {
 //        progressDialog.show();
-        //path and name of image to be stored in firebase Storage
+        //paths and name of image to be stored in firebase Storage
         String filePathAndName = storagePath+""+ profileorCover + "_"+ user.getUid();
 
         StorageReference storageReference2nd = storageReference.child(filePathAndName);
@@ -364,64 +331,60 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     //Pake FloatingButton
-    public void showDialogEditProfile() {
-        floatingActionButton = findViewById(R.id.fab_edit);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(ProfileActivity.this);
-                mBuilder.setTitle("Pilih Salah Satu Untuk Mengedit");
-                mBuilder.setItems(listItems, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (i == 0) {
-                            //edit gambar profile Klik
-//                            progressDialog.setMessage("Update Foto Profile");
-                            profileorCover = "image";
-                            showImageCoverEditDialog();
-                        } else if (i == 1) {
-                            //edit cover klik
-//                            progressDialog.setMessage("Update Sampul Profile");
-                            profileorCover = "cover";
-                            showImageCoverEditDialog();
-                        } else if (i == 2) {
-                            //edit nama klik
-//                            progressDialog.setMessage("Update Nama Profile");
-//                            showNamaEditDialog();
-                            showUpdate("nama");
-                        } else if (i == 3) {
-                            //edit hobbi klik
-//                            progressDialog.setMessage("Update Hobby Profile");
-//                            showHobiEditDialog();
-                            showUpdate("hobby");
-                        } else if (i == 4) {
-                            //edit ketrampilan klik
-//                            progressDialog.setMessage("Update Ketrampilan Profile");
-//                            showKeterampilanEditDialog();
-                            showUpdate("ketrampilan");
-                        } else if (i == 5) {
-                            //edit motto klik
-//                            progressDialog.setMessage("Update Motto Profile");
-                            showMottoEditDialog();
-                            showUpdate("motto");
-                        }else if (i == 6){
-                            showUpdate("deskripsi");
-                        }
-                    }
-                });
-//                        .setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+//    public void showDialogEditProfile() {
+//                AlertDialog.Builder mBuilder = new AlertDialog.Builder(ProfileActivity.this);
+//                mBuilder.setTitle("Pilih Salah Satu Untuk Mengedit");
+//                mBuilder.setItems(listItems, new DialogInterface.OnClickListener() {
 //                    @Override
 //                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        mResult.setText(listItems[i]);
-//                        dialogInterface.dismiss();
+//                        if (i == 0) {
+//                            //edit gambar profile Klik
+////                            progressDialog.setMessage("Update Foto Profile");
+//                            profileorCover = "image";
+//                            showImageCoverEditDialog();
+//                        } else if (i == 1) {
+//                            //edit cover klik
+////                            progressDialog.setMessage("Update Sampul Profile");
+//                            profileorCover = "cover";
+//                            showImageCoverEditDialog();
+//                        } else if (i == 2) {
+//                            //edit nama klik
+////                            progressDialog.setMessage("Update Nama Profile");
+////                            showNamaEditDialog();
+//                            showUpdate("nama");
+//                        } else if (i == 3) {
+//                            //edit hobbi klik
+////                            progressDialog.setMessage("Update Hobby Profile");
+////                            showHobiEditDialog();
+//                            showUpdate("hobby");
+//                        } else if (i == 4) {
+//                            //edit ketrampilan klik
+////                            progressDialog.setMessage("Update Ketrampilan Profile");
+////                            showKeterampilanEditDialog();
+//                            showUpdate("ketrampilan");
+//                        } else if (i == 5) {
+//                            //edit motto klik
+////                            progressDialog.setMessage("Update Motto Profile");
+//                            showMottoEditDialog();
+//                            showUpdate("motto");
+//                        }else if (i == 6){
+//                            showUpdate("deskripsi");
+//                        }
 //                    }
 //                });
-
-                AlertDialog mDialog = mBuilder.create();
-                mDialog.show();
-            }
-        });
-    }
+////                        .setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
+////                    @Override
+////                    public void onClick(DialogInterface dialogInterface, int i) {
+////                        mResult.setText(listItems[i]);
+////                        dialogInterface.dismiss();
+////                    }
+////                });
+//
+//                AlertDialog mDialog = mBuilder.create();
+//                mDialog.show();
+//            }
+//        });
+//    }
 
     private void showUpdate(final String key) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
@@ -709,9 +672,61 @@ public class ProfileActivity extends AppCompatActivity {
         switch (selectedMode) {
             case R.id.action_logout:
                 firebaseAuth.signOut();
+//                SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putString("remember","false");
                 startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
                 finish();
                 break;
         }
+    }
+    private void checkUserStatus(){
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user != null){
+            Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()){
+                        String name = ""+ ds.child("nama").getValue();
+                        String email = ""+ds.child("email").getValue();
+                        String deskripsi = ""+ds.child("deskripsi").getValue();
+                        String ketrampilan =""+ds.child("ketrampilan").getValue();
+                        String motto = ""+ds.child("motto").getValue();
+                        String hobby = ""+ds.child("hobby").getValue();
+                        String image = ""+ds.child("image").getValue();
+                        String cover = ""+ds.child("cover").getValue();
+
+                        namauser.setText(name);
+                        emailuser.setText(email);
+                        deskripsiuser.setText(deskripsi);
+                        hobbyuser.setText(hobby);
+                        mottouser.setText(motto);
+                        ketrampilanuser.setText(ketrampilan);
+
+//                    try {
+//                        Picasso.get().load(cover).into(sampul);
+//                    }
+//                    catch (Exception e){
+//                        Picasso.get().load(R.drawable.wallpaper_contoh).into(sampul);
+//                    }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }else{
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+            finish();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        checkUserStatus();
+        super.onStart();
     }
 }

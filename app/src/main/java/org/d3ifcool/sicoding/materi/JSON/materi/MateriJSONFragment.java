@@ -1,6 +1,7 @@
 package org.d3ifcool.sicoding.materi.JSON.materi;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class MateriJSONFragment extends Fragment {
     DatabaseReference reference;
     MateriJSONAdapter adapter;
     View v;
+    ProgressDialog pg;
 
     ArrayList<DataMateriJSON> data = new ArrayList<>();
 
@@ -59,7 +61,9 @@ public class MateriJSONFragment extends Fragment {
             firebaseDatabase = FirebaseDatabase.getInstance();
             reference = firebaseDatabase.getReference();
             storageRef = FirebaseStorage.getInstance().getReference();
-
+            pg = new ProgressDialog(getActivity());
+            pg.setMessage("Tunguu...");
+            pg.show();
             init();
         }
         return v;
@@ -76,6 +80,12 @@ public class MateriJSONFragment extends Fragment {
                     materii.setDesk(snapshot.child("isi_materi_json").getValue().toString());
 
                     data.add(materii);
+                    data.add(materii);
+                    if (materii == null){
+                        pg.show();
+                    }else{
+                        pg.dismiss();
+                    }
                 }
                 adapter = new MateriJSONAdapter(getContext(), data);
                 rv_list.setAdapter(adapter);

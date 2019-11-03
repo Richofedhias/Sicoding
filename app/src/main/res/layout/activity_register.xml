@@ -1,124 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.RegisterActivity">
+    android:background="@color/colorBlueberry"
+    tools:context=".awal.login.register.RegisterActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="36dp"
-        android:padding="8dp"
-        android:background="@drawable/bg_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
-            android:background="@drawable/img_logo_login"
-            android:padding="8dp"
-            android:src="@drawable/logo" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tV_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:padding="16dp"
-            android:background="@drawable/bg_menu_login"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical">
+            android:layout_marginTop="24dp"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            app:errorEnabled="true"
+            android:textColorHint="@color/colorGrey"
+            android:theme="@style/Theme.App.Base"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageVi_regis">
 
-            <EditText
-                android:id="@+id/tV_nama"
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/nama_regist"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:hint="Nama"
+                android:textColor="@color/colorGrey"
+                android:inputType="text"/>
 
-            <EditText
-                android:id="@+id/tV_email"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tV_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            app:errorEnabled="true"
+            android:textColorHint="@color/colorGrey"
+            android:theme="@style/Theme.App.Base"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tV_nama">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/email_regist"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tV_nama" />
+                android:hint="Email"
+                android:textColor="@color/colorGrey"
+                android:inputType="textEmailAddress"/>
 
-            <EditText
-                android:id="@+id/tV_password"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tV_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:textColorHint="@color/colorGrey"
+            android:theme="@style/Theme.App.Base"
+            app:layout_constraintTop_toBottomOf="@id/tV_email"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorGrey">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/password_regist"
+                android:hint="Kata Sandi"
                 android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tV_email" />
+                android:textColorHint="@color/colorDaffodil"
+                android:textColor="@color/colorGrey"/>
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tV_password">
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/btn_Regist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="end"
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/btn_all"
-                    android:layout_marginBottom="8dp"
-                    android:text="Register" />
+        <ImageView
+            android:id="@+id/imageVi_regis"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/img_logo_login"
+            android:padding="4dp"
+            android:src="@drawable/logo_biru_dongker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            </RelativeLayout>
+        <Button
+            android:id="@+id/btn_Regist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_login"
+            android:text="Daftar"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/colorBlueberry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tV_password" />
 
-            <ImageView
-                android:id="@+id/iv_showPass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
-                app:layout_constraintEnd_toEndOf="@+id/tV_password"
-                app:layout_constraintTop_toTopOf="@+id/tV_password"
-                app:layout_constraintVertical_bias="0.523"
-                app:srcCompat="@drawable/ic_visibility_black_24dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/iv_hidePass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
-                app:layout_constraintEnd_toEndOf="@+id/tV_password"
-                app:layout_constraintTop_toTopOf="@+id/tV_password"
-                app:srcCompat="@drawable/ic_visibility_off_black_24dp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

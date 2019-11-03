@@ -1,6 +1,7 @@
 package org.d3ifcool.sicoding.materi.php.materiPHP;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,7 @@ public class MateriPHPFragment extends Fragment {
     DatabaseReference reference;
     MateriPHPAdapter adapter;
     View v;
-
+    ProgressDialog pg;
     ArrayList<DataMateriPHP> data = new ArrayList<>();
 
     public MateriPHPFragment() {
@@ -58,7 +59,9 @@ public class MateriPHPFragment extends Fragment {
             firebaseDatabase = FirebaseDatabase.getInstance();
             reference = firebaseDatabase.getReference();
             storageRef = FirebaseStorage.getInstance().getReference();
-
+            pg = new ProgressDialog(getActivity());
+            pg.setMessage("Tunguu...");
+            pg.show();
             init();
         }
         return v;
@@ -75,6 +78,12 @@ public class MateriPHPFragment extends Fragment {
                     materii.setDesk(snapshot.child("isi_materi_php").getValue().toString());
 
                     data.add(materii);
+                    data.add(materii);
+                    if (materii == null){
+                        pg.show();
+                    }else{
+                        pg.dismiss();
+                    }
                 }
                 adapter = new MateriPHPAdapter(getContext(), data);
                 rv_list.setAdapter(adapter);
