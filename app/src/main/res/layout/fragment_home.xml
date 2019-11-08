@@ -8,13 +8,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/vF_slideshow"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderCircularHandlerEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="6"
+                app:sliderStartAutoCycle="true" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textv"
@@ -27,7 +50,7 @@
             android:textColor="#000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vF_slideshow" />
+            app:layout_constraintTop_toBottomOf="@+id/cv" />
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="0dp"

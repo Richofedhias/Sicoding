@@ -73,6 +73,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference("User");
                 reference.child(user.getUid()).setValue(result);
+
+                startActivity(new Intent(EditProfileActivity.this, ProfileActivity.class));
             }
         });
 

@@ -98,8 +98,8 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         holder.pTimeTv.setText(pTime);
         holder.pTitleTv.setText(pTitle);
         holder.pDescrTv.setText(pDesc);
-        holder.pLikeTv.setText(pLikes + "Like");
-        holder.pCommentTv.setText(pComments + "Comment");
+        holder.pLikeTv.setText(pLikes + " Suka");
+        holder.pCommentTv.setText(pComments + " Komentar");
 
         setLikes(holder,pId);
 
