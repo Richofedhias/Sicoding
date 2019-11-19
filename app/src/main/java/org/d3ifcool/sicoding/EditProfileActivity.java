@@ -134,8 +134,12 @@ public class EditProfileActivity extends AppCompatActivity {
                 DatabaseReference reference = database.getReference("User");
                 reference.child(user.getUid()).setValue(result);
 
+
+                startActivity(new Intent(EditProfileActivity.this, ProfileActivity.class));
             }
         });
+
+
     }
 
 
@@ -407,6 +411,5 @@ public class EditProfileActivity extends AppCompatActivity {
                 updateProfile(image_uri);
             }
         }
-
     }
 }
