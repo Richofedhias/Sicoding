@@ -60,6 +60,7 @@ public class MateriJSFragment extends Fragment {
             rv_list.setLayoutManager(new LinearLayoutManager(getContext()));
             pg = new ProgressDialog(getActivity());
             pg.setMessage("Tunggu..");
+            pg.show();
 
             firebaseDatabase = FirebaseDatabase.getInstance();
             reference = firebaseDatabase.getReference();
@@ -79,8 +80,6 @@ public class MateriJSFragment extends Fragment {
                     DataMateriJS materii = new DataMateriJS();
                     materii.setJudul(snapshot.child("judul_materi_js").getValue().toString());
                     materii.setDesk(snapshot.child("isi_materi_js").getValue().toString());
-
-                    data.add(materii);
 
                     data.add(materii);
                     if (materii == null){

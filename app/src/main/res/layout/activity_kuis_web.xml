@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Score"
+            android:text="Skor"
             android:textColor="#ffff"
             android:textSize="20dp"
             android:textStyle="bold" />

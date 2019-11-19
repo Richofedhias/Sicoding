@@ -10,10 +10,11 @@
         android:id="@+id/tabs_materi_fire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabBackground="@color/colorBlueberry"
-        app:tabIndicatorColor="@color/colorWhite"
-        tools:layout_editor_absoluteX="8dp"/>
+        app:tabIndicatorColor="@color/colorWhite" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager_Materi_fire"

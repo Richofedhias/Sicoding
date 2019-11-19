@@ -22,7 +22,7 @@ public class KumpulanSoalPHP {
     // array of multiple choices for each question
     private String multipleChoice[][] = {
             {"Hypertext Preprocessor", "PostgreSQL", "Hyperlink Prepocessor", "Hypermedia Pocessor"},
-            {"MySQL", " XAMPP", "PHP", "Captcha"},
+            {"MySQL", "XAMPP", "PHP", "Captcha"},
             {"<?php\n" +
                     "$nama;\n" +
                     "?>",

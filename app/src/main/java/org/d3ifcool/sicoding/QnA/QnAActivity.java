@@ -39,6 +39,7 @@ public class QnAActivity extends AppCompatActivity {
     private Boolean a = false;
     FirebaseAuth firebaseAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,14 @@ public class QnAActivity extends AppCompatActivity {
 //        adapter = new QnAAdapter(list);
 //        rV_list.setAdapter(adapter);
         pg.show();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public void floatingbutton() {
@@ -74,6 +83,7 @@ public class QnAActivity extends AppCompatActivity {
     }
 
     public void loadPosts() {
+        final View emptyView = findViewById(R.id.empty_view);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -82,12 +92,14 @@ public class QnAActivity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     QnAList model = ds.getValue(QnAList.class);
                     list.add(model);
-                    adapter = new QnAAdapter(QnAActivity.this, list);
+                    adapter = new QnAAdapter(QnAActivity.this, list, emptyView);
                     rV_list.setAdapter(adapter);
                     if (model == null){
                         pg.show();
+                        adapter.updateEmptyView();
                     }else{
                         pg.dismiss();
+                        adapter.updateEmptyView();
                     }
                 }
             }
@@ -100,6 +112,7 @@ public class QnAActivity extends AppCompatActivity {
     }
 
     public void searchPost(final String searchQuery) {
+        final View emptyView = findViewById(R.id.empty_view);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -111,7 +124,7 @@ public class QnAActivity extends AppCompatActivity {
                             model.getmDesc().toLowerCase().contains(searchQuery.toLowerCase())) {
                         list.add(model);
                     }
-                    adapter = new QnAAdapter(QnAActivity.this, list);
+                    adapter = new QnAAdapter(QnAActivity.this,list,emptyView);
                     rV_list.setAdapter(adapter);
                 }
             }

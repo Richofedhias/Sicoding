@@ -6,37 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_editProfile"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/iv_editProfile"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:src="@mipmap/ic_launcher"-->
+<!--        android:background="@color/colorGrey"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageView
-        android:id="@+id/et_editProfile"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/bg_menu_login"
-        android:padding="4dp"
-        android:src="@drawable/ic_photo_camera"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_editProfile"
-        app:layout_constraintEnd_toEndOf="@+id/iv_editProfile" />
+<!--    <ImageView-->
+<!--        android:id="@+id/et_editProfile"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:background="@drawable/bg_menu_login"-->
+<!--        android:padding="4dp"-->
+<!--        android:src="@drawable/ic_photo_camera"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/iv_editProfile"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/iv_editProfile" />-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/eT_editNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:paddingLeft="16sp"
         android:paddingRight="16sp"
         app:errorEnabled="true"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_editProfile">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

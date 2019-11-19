@@ -8,7 +8,6 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/commentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -141,7 +140,7 @@
                             android:background="@color/colorWhite"
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"
-                            android:text="Like"
+                            android:text="Suka"
                             android:drawableLeft="@drawable/ic_like"
                             />
 
@@ -153,7 +152,7 @@
                             android:background="@color/colorWhite"
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"
-                            android:text="Share"
+                            android:text="Bagikan"
                             android:drawableLeft="@drawable/ic_share"/>
 
                     </LinearLayout>

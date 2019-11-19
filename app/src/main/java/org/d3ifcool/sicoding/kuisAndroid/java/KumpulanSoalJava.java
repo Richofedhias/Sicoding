@@ -30,15 +30,15 @@ public class KumpulanSoalJava {
 
     private String mCorrectAnswers[] = {
             "Bundles",
-            "Edit Text",
             "2",
             "Image View",
+            "Edit Text",
             "Explicit dan Implicit",
             "Styles.xml",
             "RecyclerView lebih powerful dan fleksibel daripada ListView",
             "Piccaso",
             "Sebuah reuseable class yang mengimplement beberapa fitur sebuah Activity.",
-            "dipanggil saat sebuah fragment terhubung ke activity"
+            "dipanggil saat sebuah fragment terhubung ke activity."
     };
 
     public int getLength() {

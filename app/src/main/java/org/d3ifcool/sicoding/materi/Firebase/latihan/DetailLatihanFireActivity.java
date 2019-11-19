@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import org.d3ifcool.sicoding.R;
 
-public class DetailLatihanFireActivity extends AppCompatActivity {
+import thereisnospon.codeview.CodeView;
 
-    TextView deskripsi, judul, hasil;
+public class DetailLatihanFireActivity extends AppCompatActivity {
+    CodeView deskripsi;
+    TextView judul, hasil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class DetailLatihanFireActivity extends AppCompatActivity {
         String extrapenj = getIntent().getStringExtra("penjelasan");
 
         judul.setText(extraname);
-        deskripsi.setText(extrapenj);
+        deskripsi.showCode(extrapenj);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             hasil.setText(Html.fromHtml(extrapenj, Html.FROM_HTML_MODE_COMPACT));
         }

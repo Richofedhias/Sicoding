@@ -27,6 +27,14 @@ public class ListMateriPHPActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_materi_php);
 
         viewPager_tabLayout();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void viewPager_tabLayout(){

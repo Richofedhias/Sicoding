@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,13 +25,10 @@ import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
 
 import java.util.HashMap;
-import java.util.regex.Pattern;
 
 
 public class RegisterActivity extends AppCompatActivity {
-    private TextInputLayout nama;
-    private TextInputLayout email;
-    private TextInputLayout password;
+    private TextInputLayout nama, email, password;
     private Button regist;
     private ProgressDialog mLoading;
     private FirebaseAuth firebaseAuth;
@@ -52,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         regist = findViewById(R.id.btn_Regist);
 
         mLoading = new ProgressDialog(this);
-        mLoading.setMessage("Harap Tungguu");
+        mLoading.setMessage("Harap Tunggu");
 
 
         regist.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(String emailUser, String passwordUser) {
-        mLoading.show();
+//        mLoading.show();
 
         firebaseAuth.createUserWithEmailAndPassword(emailUser, passwordUser)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -119,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             mLoading.dismiss();
-                            Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                            Toast.makeText(RegisterActivity.this, "Otentikasi Gagal.",
                                     Toast.LENGTH_SHORT).show();
 
                         }

@@ -37,7 +37,7 @@
             android:layout_below="@+id/nameTv"
             android:layout_toEndOf="@+id/avatarIv"
             android:layout_toRightOf="@+id/avatarIv"
-            android:text="Comentar"
+            android:text="Komentar"
             android:textColor="@color/colorBlack" />
 
         <TextView

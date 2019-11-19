@@ -1,22 +1,28 @@
 package org.d3ifcool.sicoding.beranda;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+
 import org.d3ifcool.sicoding.R;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
-    ViewFlipper vF_slideShow;
+    SliderView sliderView;
+
     RecyclerView rV_listWeb, rV_listDatabase, rV_listAndroid;
     BerandaAdapter adapter;
     DatabaseAdapter DBAdapter;
@@ -24,6 +30,7 @@ public class HomeFragment extends Fragment {
     ArrayList<BerandaList> listWeb = new ArrayList<>();
     ArrayList<DatabaseList> listDatabase = new ArrayList<>();
     ArrayList<AndroidList> listAndroid = new ArrayList<>();
+    View v;
 
     public HomeFragment() {
         //Web
@@ -38,7 +45,7 @@ public class HomeFragment extends Fragment {
         listDatabase.add(new DatabaseList("Firebase", R.drawable.ic_firebase));
         listDatabase.add(new DatabaseList("MySQL", R.drawable.ic_mysql));
 
-        //
+        //Android
         listAndroid.add(new AndroidList("Java",R.drawable.ic_androidjava));
         listAndroid.add(new AndroidList("Kotlin",R.drawable.ic_kotlin));
     }
@@ -51,10 +58,27 @@ public class HomeFragment extends Fragment {
         rV_listAndroid = v.findViewById(R.id.rV_listAndroid);
 
         //SlideShow
-//        int images[] = {R.drawable.slide_1, R.drawable.slide_2, R.drawable.slide_3};
-//        for (int i = 0; i < images.length; i++) {
-//            slideShow(images[i]);
-//        }
+        sliderView = v.findViewById(R.id.imageSlider);
+
+        final SliderAdapter slideAdapter = new SliderAdapter(getActivity().getApplicationContext());
+        slideAdapter.setCount(2);
+
+        sliderView.setSliderAdapter(slideAdapter);
+
+        //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setIndicatorAnimation(IndicatorAnimations.WORM);
+        sliderView.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
+        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        sliderView.setIndicatorSelectedColor(Color.WHITE);
+        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+        sliderView.startAutoCycle();
+
+        sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
+            @Override
+            public void onIndicatorClicked(int position) {
+                sliderView.setCurrentPagePosition(position);
+            }
+        });
 
         rV_listWeb.setHasFixedSize(true);
         rV_listDatabase.setHasFixedSize(true);
@@ -74,15 +98,4 @@ public class HomeFragment extends Fragment {
 
         return v;
     }
-
-//    private void slideShow(int image) {
-//        ImageView imageView = new ImageView(getContext());
-//        imageView.setBackgroundResource(image);
-//        vF_slideShow.addView(imageView);
-//        vF_slideShow.setFlipInterval(4000);
-//        vF_slideShow.setAutoStart(true);
-//
-//        vF_slideShow.setInAnimation(getActivity(),android.R.anim.slide_in_left);
-//        vF_slideShow.setOutAnimation(getActivity(),android.R.anim.slide_out_right);
-//    }
 }

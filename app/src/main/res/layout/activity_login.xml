@@ -12,6 +12,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        <EditText-->
+<!--            android:id="@+id/eT_loginEmail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:paddingLeft="16sp"-->
+<!--            android:paddingRight="16sp"-->
+<!--            app:errorEnabled="true"-->
+<!--            android:textColorHint="@color/colorGrey"-->
+<!--            android:theme="@style/Theme.App.Base"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView"-->
+<!--            android:hint="Email"-->
+<!--            android:textColor="@color/colorGrey"-->
+<!--            android:inputType="textEmailAddress"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/eT_loginPassword"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:errorEnabled="true"-->
+<!--            android:paddingLeft="16sp"-->
+<!--            android:paddingRight="16sp"-->
+<!--            android:textColorHint="@color/colorGrey"-->
+<!--            android:theme="@style/Theme.App.Base"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/eT_loginEmail"-->
+<!--            app:passwordToggleEnabled="true"-->
+<!--            app:passwordToggleTint="@color/colorGrey"-->
+<!--            android:hint="Kata Sandi"-->
+<!--            android:textColor="@color/colorGrey"-->
+<!--            android:inputType="textPassword" />-->
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/eT_loginEmail"
             android:layout_width="match_parent"
@@ -74,24 +107,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16sp"
+            android:onClick="LupaPassword"
             android:text="Lupa Kata Sandi?"
             android:textColor="@color/colorGrey"
+            android:layout_marginTop="8dp"
             android:textStyle="bold"
-            android:onClick="LupaPassword"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_remember"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cb_remember" />
+            app:layout_constraintTop_toBottomOf="@id/eT_loginPassword" />
 
-        <CheckBox
-            android:id="@+id/cb_remember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/colorGrey"
-            android:text="Ingatkan Saya"
-            android:textColor="@color/colorGrey"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eT_loginPassword" />
 
         <Button
             android:id="@+id/btn_Login"
@@ -108,7 +131,7 @@
             android:textColor="@color/colorBlueberry"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_remember" />
+            app:layout_constraintTop_toBottomOf="@+id/tV_forgot" />
 
 
         <LinearLayout

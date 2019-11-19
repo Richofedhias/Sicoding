@@ -7,12 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.Gravity;
@@ -23,7 +21,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -273,7 +270,7 @@ public class PostDetailActivity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     ds.getRef().removeValue();
                 }
-                Toast.makeText(PostDetailActivity.this, "Delete Sukses", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostDetailActivity.this, "Menghapus Berhasil", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(PostDetailActivity.this,QnAActivity.class));
                 finish();
                 pd.dismiss();
@@ -294,7 +291,7 @@ public class PostDetailActivity extends AppCompatActivity {
                 if (dataSnapshot.child(postId).hasChild(myUid)){
 
                     likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_suka,0,0,0);
-                    likebtn.setText("Suka");
+                    likebtn.setText("Disukai");
                 }
                 else{
                     likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like,0,0,0);

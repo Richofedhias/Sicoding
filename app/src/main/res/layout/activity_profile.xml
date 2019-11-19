@@ -29,27 +29,27 @@
             <ImageView
                 android:id="@+id/iV_cover"
                 android:layout_width="0dp"
-                android:layout_height="250dp"
+                android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 android:src="@color/colorBlueberry"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iV_profile"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:src="@mipmap/ic_launcher"
-                app:civ_border_color="@color/colorDaffodil"
-                app:civ_border_width="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/tVNama"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/iV_profile"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginLeft="8dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginRight="8dp"-->
+<!--                android:src="@mipmap/ic_launcher"-->
+<!--                app:civ_border_color="@color/colorDaffodil"-->
+<!--                app:civ_border_width="3dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/tVNama"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
 
             <TextView
                 android:id="@+id/tVNama"
@@ -65,7 +65,8 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/tVEmailProfile"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tVEmailProfile"
@@ -159,44 +160,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tVHobby" />
 
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView11"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/ic_keterampilan" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/title_keterampilan"
-                android:textColor="@color/colorBlueberry"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toBottomOf="@+id/tVPenjelasan_hobby" />
-
-            <TextView
-                android:id="@+id/tVPenjelasan_art"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/isi"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-            <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
@@ -217,7 +180,7 @@
                 android:textColor="@color/colorBlueberry"
                 android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
-                app:layout_constraintTop_toBottomOf="@+id/tVPenjelasan_art" />
+                app:layout_constraintTop_toBottomOf="@+id/tVPenjelasan_hobby" />
 
             <TextView
                 android:id="@+id/tVPenjelasan_motto"

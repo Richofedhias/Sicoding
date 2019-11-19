@@ -35,6 +35,23 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--        <EditText-->
+<!--            android:id="@+id/tV_nama"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Nama"-->
+<!--            android:textColor="@color/colorGrey"-->
+<!--            android:inputType="text"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:paddingLeft="16sp"-->
+<!--            android:paddingRight="16sp"-->
+<!--            app:errorEnabled="true"-->
+<!--            android:textColorHint="@color/colorGrey"-->
+<!--            android:theme="@style/Theme.App.Base"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageVi_regis" />-->
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tV_email"
             android:layout_width="match_parent"
@@ -56,6 +73,22 @@
                 android:inputType="textEmailAddress"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:id="@+id/tV_email"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingLeft="16sp"-->
+<!--            android:paddingRight="16sp"-->
+<!--            app:errorEnabled="true"-->
+<!--            android:textColorHint="@color/colorGrey"-->
+<!--            android:theme="@style/Theme.App.Base"-->
+<!--            android:hint="Email"-->
+<!--            android:textColor="@color/colorGrey"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tV_nama"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tV_password"
@@ -79,6 +112,18 @@
                 android:textColor="@color/colorGrey"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:id="@+id/tV_password"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingLeft="16sp"-->
+<!--            android:paddingRight="16sp"-->
+<!--            android:hint="Kata Sandi"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:textColorHint="@color/colorGrey"-->
+<!--            android:theme="@style/Theme.App.Base"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tV_email" />-->
 
         <ImageView
             android:id="@+id/imageVi_regis"

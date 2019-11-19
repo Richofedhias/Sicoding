@@ -29,17 +29,20 @@ public class KumpulanSoalJavaScript {
                     "document.getElementById(\"nama\").innerHTML = nama;\n" +
                     "document.getElementById(\"alamat\").innerHTML = alamat;\n" +
                     "\n" +
-                    "</script>", "<script>\n" +
+                    "</script>",
+                    "<script>\n" +
                     "Var nama = “siCoding”;\n" +
                     "Var alamat = “bandung”;\n" +
                     "document.getElement(\"nama\").innerHTML = nama;\n" +
                     "document.getElement(\"alamat\").innerHTML = alamat;\n" +
-                    "</script>", "<script>\n" +
+                    "</script>",
+                    "<script>\n" +
                     "Var nama = “siCoding”;\n" +
                     "Var alamat = “bandung”;\n" +
                     "document.getElementById(\"nama\") = nama;\n" +
                     "document.getElementById(\"alamat\")= alamat;\n" +
-                    "</script>", "<script>\n" +
+                    "</script>",
+                    "<script>\n" +
                     "Var nama = “siCoding”;\n" +
                     "Var alamat = “bandung”;\n" +
                     "getElementById(\"nama\").innerHTML = nama;\n" +
@@ -73,11 +76,13 @@ public class KumpulanSoalJavaScript {
             "String",
             "switch case",
             "Array",
-            "<Script>\n" +
-                    "Var nama = “siCoding”;\n" +
-                    "Var alamat = “bandung”;\n" +
+            "<Script>\\n\" +\n" +
+                    "Var nama = \"siCoding\";\n" +
+                    "Var alamat = \"bandung\";\n" +
                     "document.getElementById(\"nama\").innerHTML = nama;\n" +
-                    "document.getElementById(\"alamat\").innerHTML = alamat;",
+                    "document.getElementById(\"alamat\").innerHTML = alamat;\n" +
+                    "\n" +
+                    "</script>",
             "Substring()",
             "<script>\n" +
                     "\n" +

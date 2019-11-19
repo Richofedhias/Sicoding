@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.materi.Firebase.ListMateriFireActivity;
-import org.d3ifcool.sicoding.materi.HTML.ListMateriActivity;
 import org.d3ifcool.sicoding.materi.JSON.ListMateriJSONActivity;
 import org.d3ifcool.sicoding.materi.mySQL.ListMateriMSYQLActivity;
 

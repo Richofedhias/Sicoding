@@ -33,14 +33,14 @@ public class ResultKuisFirebaseActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int score = intent.getIntExtra("score", 0);
-        txtScore.setText("Your score: " + score);
+        txtScore.setText("Skormu: " + score);
 
         SharedPreferences mypref = getPreferences(MODE_PRIVATE);
         int highscore = mypref.getInt("highscore", 0);
         if (highscore >= score)
-            txtHighScore.setText("High score: " + highscore);
+            txtHighScore.setText("Skor Tertinggi: " + highscore);
         else {
-            txtHighScore.setText("New highscore: " + score);
+            txtHighScore.setText("Skor Baru Tertinggi: " + score);
             SharedPreferences.Editor editor = mypref.edit();
             editor.putInt("highscore", score);
             editor.commit();

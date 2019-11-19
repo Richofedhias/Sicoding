@@ -79,7 +79,6 @@ public class MateriMYSQLFragment extends Fragment {
                     materii.setDesk(snapshot.child("isi_materi_mysql").getValue().toString());
 
                     data.add(materii);
-                    data.add(materii);
                     if (materii == null){
                         pg.show();
                     }else{

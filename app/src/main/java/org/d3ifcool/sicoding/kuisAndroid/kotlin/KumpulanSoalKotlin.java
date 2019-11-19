@@ -2,8 +2,8 @@ package org.d3ifcool.sicoding.kuisAndroid.kotlin;
 
 public class KumpulanSoalKotlin {
     private String textQuestions[] = {
-            "1. Fungsi apa yang untuk menampilkan teks apa adanya.",
-            "2. Fungsi apa yang untuk menampilkan teks dalam satu baris.? ",
+            "1. Fungsi apa yang untuk menampilkan teks apa adanya?",
+            "2. Fungsi apa yang untuk menampilkan teks dalam satu baris?",
             "3. Simbol Dollar digunakan untuk?",
             "4. Ada berapa Variabel di Kotlin?",
             "5. Apa yang dimaksud dengan Variabel Imutable?",
@@ -18,7 +18,7 @@ public class KumpulanSoalKotlin {
     private String multipleChoice[][] = {
             {"println()", "print()", "readLine()", "Scanner"},
             {"println()", "print()", "readLine()", "Scanner"},
-            {"Berpindah Halaman","mengambil nilai dari variabel dan menampilkannya ke dalam teks.","Memasukan Data","Untuk menampilkan teks dalam satu baris"},
+            {"Berpindah Halaman","mengambil nilai dari variabel dan menampilkannya ke dalam teks","Memasukan Data","Untuk menampilkan teks dalam satu baris"},
             {"3","2","4","5"},
             {"variabel yang bisa diisi lagi nilainya","variabel yang hanya bisa sekali pakai","Yang hanya bisa digunakan Tipe Data Int","Yang hanya bisa digunakan Tipe Data String"},
             {"variabel yang bisa diisi lagi nilainya","variabel yang hanya bisa sekali pakai","Yang hanya bisa digunakan Tipe Data Int","Yang hanya bisa digunakan Tipe Data String"},

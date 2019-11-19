@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.sicoding.R;
 
@@ -50,7 +52,9 @@ public class NewPostActivity extends AppCompatActivity {
     DatabaseReference reference;
     EditText title, desc;
     ImageView images;
-    Button btn_post, btn_images;
+    Button btn_post;
+
+    ImageButton btn_images;
 
     ProgressDialog pd;
 
@@ -82,7 +86,7 @@ public class NewPostActivity extends AppCompatActivity {
         btn_post = findViewById(R.id.btn_post);
         btn_images = findViewById(R.id.btn_Images);
 
-        getSupportActionBar().setTitle("Tambahkan Post");
+        getSupportActionBar().setTitle("Tambahkan Posting");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -132,7 +136,7 @@ public class NewPostActivity extends AppCompatActivity {
                 String mDesc = desc.getText().toString().trim();
 
                 if (TextUtils.isEmpty(mTitle)) {
-                    Toast.makeText(NewPostActivity.this, "Masukan Title", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewPostActivity.this, "Masukkan Judul", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(mDesc)) {
@@ -145,6 +149,8 @@ public class NewPostActivity extends AppCompatActivity {
                 } else {
                     uploadData(mTitle, mDesc, String.valueOf(image_rui));
                 }
+
+                startActivity(new Intent(NewPostActivity.this, QnAActivity.class));
             }
         });
     }
@@ -152,8 +158,8 @@ public class NewPostActivity extends AppCompatActivity {
 
     //benar
     private void uploadData(final String mTitle, final String mDesc, String uri) {
-//        pd.setMessage("Mengirim Post");
-//        pd.show();
+        pd.setMessage("Mengirim Posting");
+        pd.show();
 
         final String timeStamp = String.valueOf(System.currentTimeMillis());
 
@@ -166,7 +172,7 @@ public class NewPostActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                            while (!uriTask.isSuccessful()) ;
+                            while (!uriTask.isSuccessful());
 
                             String downloadUri = uriTask.getResult().toString();
 
@@ -191,8 +197,8 @@ public class NewPostActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-//                                                pd.dismiss();
-                                                Toast.makeText(NewPostActivity.this, "Post Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
+                                                pd.dismiss();
+                                                Toast.makeText(NewPostActivity.this, "Posting Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
 
                                                 title.setText("");
                                                 desc.setText("");
@@ -203,7 +209,7 @@ public class NewPostActivity extends AppCompatActivity {
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-//                                                pd.dismiss();
+                                                pd.dismiss();
                                                 Toast.makeText(NewPostActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         });
@@ -213,7 +219,7 @@ public class NewPostActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-//                            pd.dismiss();
+                            pd.dismiss();
                             Toast.makeText(NewPostActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -239,7 +245,7 @@ public class NewPostActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             pd.dismiss();
-                            Toast.makeText(NewPostActivity.this, "Post Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewPostActivity.this, "Posting Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(NewPostActivity.this, QnAActivity.class);
                             startActivity(intent);
                             title.setText("");
@@ -261,7 +267,7 @@ public class NewPostActivity extends AppCompatActivity {
 
     //benar
     private void showImagePickDialog() {
-        String[] options = {"Camera", "Gallery"};
+        String[] options = {"Kamera", "Galeri"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pilih Gambar Dari");
@@ -408,7 +414,7 @@ public class NewPostActivity extends AppCompatActivity {
                     if (cameraAccepted && storageAccepted) {
                         pickFromCamera();
                     } else {
-                        Toast.makeText(this, "Camera & Storage both permissions are neccesary . . .", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Kamera dan Penyimpanan membutuhkan izin", Toast.LENGTH_SHORT).show();
                     }
                 } else {
 
@@ -421,7 +427,7 @@ public class NewPostActivity extends AppCompatActivity {
                     if (storageAccepted) {
                         pickFromGallery();
                     } else {
-                        Toast.makeText(this, "Storage Permission necessary", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Izin penyimpanan yang diperlukan", Toast.LENGTH_SHORT).show();
                     }
                 } else {
 

@@ -19,25 +19,25 @@ public class KumpulanSoalHTML {
     // array of multiple choices for each question
     private String multipleChoice[][] = {
             {"<td><input type=\"password\" name=\"password\"</td>", "<td><input type=\"name\" name=\"password\"</td>", "<td><input type=\"password\" password=\"alamat\"</td>", "<td><input type=\"word\" name=\"password\"</td>"},
-            {" <input type=”reset” value=”reset”>", "<input type=”submit value=”reset”>", "<input type=”checkbox” value=”reset”>", "<ol type=”circle” value=”reset”>"},
+            {"<input type=\"reset\" value=\"reset\">", "<input type=\"submit\" value=\"reset\">", "<input type=\"checkbox\" value=\"reset\">", "<ol type=\"circle\" value=\"reset\">"},
             {"Checkbox ", "Submit", "File", "Text"},
             {"Menentukan nama form", "Menetukan metode pengiriman yang dipakai", "Menentukan alamat halaman web yang akan memproses masukan dari Form.", "Menerima masukan berupa pilihan"},
             {"memilih beberapa opsi", "menentukan ukuran", "menandai beberapa opsi", "menampilkan opsi pilihan"},
             {"<a href=\"sicoding.com\">klik disini</a>", "<href=\"sicoding.com\">klik disini</a>", "<td><a href=\"sicoding.com\">klik disini</td>", "<li>sicoding.com</li>", ""},
-            {"List", "Unordered list", " Ordered list", "Head"},
-            {"<img scr=\"malasngoding.png\">", "<img src=\"malasngoding.png\">", "<a href src=\"malasngoding.png\">", "<a href =\"malasngoding.png\"></a>"},
+            {"List", "Unordered list", "Ordered list", "Head"},
+            {"<img scr=\"sicoding.png\">", "<img src=\"sicoding.png\">", "<a href src=\"sicoding.png\">", "<a href =\"sicoding.png\"></a>"},
             {"<link rel=\"stylesheet\" type=\"text/css\" href=\"style.html\">", "<a href =\"stylesheet\" type=\"text/css\" href=\"style.css\"></a>", "<link href=\"stylesheet\" type=\"text/css\" href=\"style.css\">", "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">"},
-            {"<b>", " <a>\n", "<script>", "<td>"}
+            {"<b>", "<a>", "<script>", "<td>"}
     };
 
     private String mCorrectAnswers[] = {"<td><input type=\"password\" name=\"password\"</td>",
-            "<input type=”reset” value=”reset”>",
+            "<input type=\"reset\" value=\"reset\">",
             "Text",
             "Menentukan alamat halaman web yang akan memproses masukan dari Form.",
             "menampilkan opsi pilihan",
             "<a href=\"sicoding.com\">klik disini</a>",
             "Ordered list",
-            "<img src=\"malasngoding.png\">",
+            "<img src=\"sicoding.png\">",
             "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">",
             "<a>"};
 

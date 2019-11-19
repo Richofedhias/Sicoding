@@ -45,7 +45,6 @@ public class MateriPHPFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,7 +59,7 @@ public class MateriPHPFragment extends Fragment {
             reference = firebaseDatabase.getReference();
             storageRef = FirebaseStorage.getInstance().getReference();
             pg = new ProgressDialog(getActivity());
-            pg.setMessage("Tunguu...");
+            pg.setMessage("Tunggu ...");
             pg.show();
             init();
         }
@@ -77,7 +76,6 @@ public class MateriPHPFragment extends Fragment {
                     materii.setJudul(snapshot.child("judul_materi_php").getValue().toString());
                     materii.setDesk(snapshot.child("isi_materi_php").getValue().toString());
 
-                    data.add(materii);
                     data.add(materii);
                     if (materii == null){
                         pg.show();

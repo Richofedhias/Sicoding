@@ -30,7 +30,7 @@ public class KumpulanSoalBoostrap {
     private String mCorrectAnswers[] = {
             "Boostrap",
             ".table_striped",
-            "Img_rounded",
+            "img_rounded",
             ".btn",
             "Jumbotron",
             "Alert_warning",

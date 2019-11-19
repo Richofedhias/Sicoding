@@ -12,7 +12,6 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -44,6 +43,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
 
@@ -78,6 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
     String[] cameraPermissions;
     String[] storagePermissions;
 
+
     Uri image_uri;
 
     String profileorCover;
@@ -93,8 +94,8 @@ public class ProfileActivity extends AppCompatActivity {
         deskripsiuser = findViewById(R.id.tVPenjelasan_about);
         hobbyuser = findViewById(R.id.tVPenjelasan_hobby);
         mottouser = findViewById(R.id.tVPenjelasan_motto);
-        ketrampilanuser = findViewById(R.id.tVPenjelasan_art);
-        profile = findViewById(R.id.iV_profile);
+//        ketrampilanuser = findViewById(R.id.tVPenjelasan_art);
+//        profile = findViewById(R.id.iV_profile);
         sampul = findViewById(R.id.iV_cover);
         progressDialog = new ProgressDialog(this);
 
@@ -125,7 +126,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this,EditProfileActivity.class));
             }
         });
-
     }
 
     private boolean checkStoragePermission(){
@@ -170,7 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
             break;
             case STORAGE_REQUEST_CODE:{
                 if (grantResults.length > 0){
-                    boolean writeStorageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                    boolean writeStorageAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     if (writeStorageAccepted){
                         pickFromGallery();
                     }
@@ -228,17 +228,17 @@ public class ProfileActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void aVoid) {
 //                                            progressDialog.dismiss();
-                                            Toast.makeText(ProfileActivity.this, "Image Updated..", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ProfileActivity.this, "Gambar Diperbarui..", Toast.LENGTH_SHORT).show();
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
                                         progressDialog.dismiss();
-                                            Toast.makeText(ProfileActivity.this, "Error Updated..", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ProfileActivity.this, "Gagal Memperbarui..", Toast.LENGTH_SHORT).show();
                                         }
                                     });
-                            if (profileorCover.equals("image")) {
+                            if (profileorCover.equals("images")) {
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Post");
                                 Query query = ref.orderByChild("uid").equalTo(user.getUid());
                                 query.addValueEventListener(new ValueEventListener() {
@@ -292,7 +292,7 @@ public class ProfileActivity extends AppCompatActivity {
                         else{
                             //errror
 //                            progressDialog.dismiss();
-                            Toast.makeText(ProfileActivity.this, "Erorr", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfileActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -668,18 +668,20 @@ public class ProfileActivity extends AppCompatActivity {
         setMode(item.getItemId());
         return super.onOptionsItemSelected(item);
     }
+
     public void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.action_logout:
-                firebaseAuth.signOut();
+                FirebaseAuth.getInstance().signOut();
 //                SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
 //                SharedPreferences.Editor editor = sharedPreferences.edit();
 //                editor.putString("remember","false");
-                startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
-                finish();
+                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
         }
     }
+
     private void checkUserStatus(){
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null){
@@ -702,14 +704,14 @@ public class ProfileActivity extends AppCompatActivity {
                         deskripsiuser.setText(deskripsi);
                         hobbyuser.setText(hobby);
                         mottouser.setText(motto);
-                        ketrampilanuser.setText(ketrampilan);
+//                        ketrampilanuser.setText(ketrampilan);
 
-//                    try {
-//                        Picasso.get().load(cover).into(sampul);
-//                    }
-//                    catch (Exception e){
-//                        Picasso.get().load(R.drawable.wallpaper_contoh).into(sampul);
-//                    }
+                    try {
+                        Picasso.get().load(image).into(profile);
+                    }
+                    catch (Exception e){
+//                        Picasso.get().load(R.mipmap.ic_launcher).into(profile);
+                    }
                     }
                 }
 

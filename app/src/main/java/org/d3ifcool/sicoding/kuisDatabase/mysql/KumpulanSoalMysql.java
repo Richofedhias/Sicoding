@@ -77,7 +77,7 @@ public class KumpulanSoalMysql {
                             "stock_barang number(4),\n" +
                             "constraint pk_barang primary key(kode_barang)"},
             //8
-            {"Bersifat unik,",
+            {"Bersifat unik",
                     "Bersifat umum",
                     "Memiliki kesamaan data dengan",
                     "Mudah dihapal"},

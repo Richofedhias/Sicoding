@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +22,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import org.d3ifcool.sicoding.ProfileActivity;
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.awal.login.forgotPassword.ForgotPasswordActivity;
 import org.d3ifcool.sicoding.awal.login.register.RegisterActivity;
@@ -31,6 +30,7 @@ import org.d3ifcool.sicoding.beranda.BerandaActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login;
+//    private EditText email, password;
     private TextInputLayout email, password;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog mLoading;
@@ -44,10 +44,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.eT_loginEmail);
         password = findViewById(R.id.eT_loginPassword);
-        remember = findViewById(R.id.cb_remember);
+//        remember = findViewById(R.id.cb_remember);
         login = findViewById(R.id.btn_Login);
         mLoading = new ProgressDialog(this);
-        mLoading.setMessage("Harap Tungguu");
+        mLoading.setMessage("Harap Tunggu");
         firebaseAuth = FirebaseAuth.getInstance();
 //        if (firebaseAuth.getCurrentUser() != null) {
 //            startActivity(new Intent(LoginActivity.this, BerandaActivity.class));
@@ -58,27 +58,27 @@ public class LoginActivity extends AppCompatActivity {
 //        String checkbox = sharedPreferences.getString("remember","");
 //
 //        if (checkbox.equals("true")){
-////            startActivity(new Intent(LoginActivity.this, BerandaActivity.class));
+//            startActivity(new Intent(LoginActivity.this, BerandaActivity.class));
 //        }else if (checkbox.equals("false")){
 //
 //        }
 
 
-        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()){
-                    SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("remember","true");
-                    editor.apply();
-                }else if (!compoundButton.isChecked()){
-                    SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("remember","false");
-                }
-            }
-        });
+//        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (compoundButton.isChecked()){
+//                    SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putString("remember","true");
+//                    editor.apply();
+//                }else if (!compoundButton.isChecked()){
+//                    SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putString("remember","false");
+//                }
+//            }
+//        });
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -113,12 +113,15 @@ public class LoginActivity extends AppCompatActivity {
                             mLoading.dismiss();
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            startActivity(new Intent(LoginActivity.this,BerandaActivity.class));
+                            Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
                             mLoading.dismiss();
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Otentikasi Gagal.",
                                     Toast.LENGTH_SHORT).show();
 
                         }

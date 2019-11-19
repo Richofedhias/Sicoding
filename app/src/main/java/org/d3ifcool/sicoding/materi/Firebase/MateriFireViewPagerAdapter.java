@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import org.d3ifcool.sicoding.materi.Firebase.latihan.LatihanFireFragment;
 import org.d3ifcool.sicoding.materi.Firebase.materi.MateriFireFragment;
 import org.d3ifcool.sicoding.materi.HTML.PraktekFragment;
 import org.d3ifcool.sicoding.materi.php.latihanPHP.LatihanPHPFragment;
@@ -25,7 +26,7 @@ public class MateriFireViewPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return new MateriFireFragment();
         } else {
-            return new MateriFireFragment();
+            return new LatihanFireFragment();
         }
     }
 

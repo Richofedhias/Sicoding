@@ -9,8 +9,11 @@ import android.widget.TextView;
 
 import org.d3ifcool.sicoding.R;
 
+import thereisnospon.codeview.CodeView;
+
 public class DetailLatihanJSONActivity extends AppCompatActivity {
-    TextView deskripsi, judul, hasil;
+    CodeView deskripsi;
+    TextView judul, hasil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class DetailLatihanJSONActivity extends AppCompatActivity {
         String extrapenj = getIntent().getStringExtra("penjelasan");
 
         judul.setText(extraname);
-        deskripsi.setText(extrapenj);
+        deskripsi.showCode(extrapenj);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             hasil.setText(Html.fromHtml(extrapenj, Html.FROM_HTML_MODE_COMPACT));
         }

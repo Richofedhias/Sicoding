@@ -75,7 +75,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.myViewHo
                     //comentku
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
                     builder.setTitle("Hapus");
-                    builder.setMessage("Yakin untuk menghapus comment?");
+                    builder.setMessage("Yakin untuk menghapus komentar?");
                     builder.setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

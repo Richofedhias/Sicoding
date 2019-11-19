@@ -24,9 +24,9 @@ public class KumpulanSoalCSS {
 
     // array of multiple choices for each question
     private String multipleChoice[][] = {
-            {"Cascading Style Sheets", "Cascading Style Sheets", "Cascading Sheets Style", "HyperText Markup Language"},
+            {"Cascading Style Sheets", "Cascading Style Shots", "Cascading Sheets Style", "HyperText Markup Language"},
             {"link", "visited", "hover", "transform"},
-            {"float", " float: left;", " float: right;", " float: none;"},
+            {"float", "float: left;", " float: right;", " float: none;"},
             {"Relative", "Fixed", "Absolute", "Toasts"},
             {"Text-color", "Text-decoration", "Text-indent", "Text-height"},
             {"Margin", "Padding", "Border", "Prev"},

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.d3ifcool.sicoding.R;
 import org.d3ifcool.sicoding.materi.AndroidJava.ListMateriAndroidJActivity;
 import org.d3ifcool.sicoding.materi.AndroidKotlin.ListMateriAndroidKActivity;
-import org.d3ifcool.sicoding.materi.HTML.ListMateriActivity;
 
 import java.util.ArrayList;
 

@@ -15,85 +15,49 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditProfileActivity"></activity>
-        <activity android:name=".awal.login.forgotPassword.ForgotPasswordActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity
-            android:name=".materi.bootstrap.latihan.DetailLatihanBSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.bootstrap.materi.DetailMateriBSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".EditProfileActivity"
+            android:theme="@style/AppTheme2"/>
+
+        <activity android:name=".awal.login.forgotPassword.ForgotPasswordActivity"
+            android:theme="@style/AppTheme2"/>
+
+        <activity android:name=".AboutActivity"
+            android:theme="@style/AppTheme2" />
+
+        <activity android:name=".materi.bootstrap.latihan.DetailLatihanBSActivity" />
+        <activity android:name=".materi.bootstrap.materi.DetailMateriBSActivity" />
         <activity android:name=".materi.bootstrap.ListMateriBSActivity" />
-        <activity
-            android:name=".materi.javascript.latihan.DetailLatihanJSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.javascript.materi.DetailMateriJSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.javascript.latihan.DetailLatihanJSActivity" />
+        <activity android:name=".materi.javascript.materi.DetailMateriJSActivity" />
         <activity android:name=".materi.javascript.ListMateriJSActivity" />
-        <activity
-            android:name=".materi.AndroidKotlin.latihan.DetailLatihanAndKActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.AndroidKotlin.materi.DetailMateriAndKActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.AndroidKotlin.latihan.DetailLatihanAndKActivity" />
+        <activity android:name=".materi.AndroidKotlin.materi.DetailMateriAndKActivity" />
         <activity android:name=".materi.AndroidKotlin.ListMateriAndroidKActivity" />
-        <activity
-            android:name=".materi.AndroidJava.latihan.DetailLatihanAndJActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.AndroidJava.materi.DetailMateriAndJActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.AndroidJava.latihan.DetailLatihanAndJActivity" />
+        <activity android:name=".materi.AndroidJava.materi.DetailMateriAndJActivity" />
         <activity android:name=".materi.AndroidJava.ListMateriAndroidJActivity" />
-        <activity
-            android:name=".materi.mySQL.latihan.DetailLatihanMYSQLActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.mySQL.materi.DetailMateriMYSQLActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.mySQL.latihan.DetailLatihanMYSQLActivity" />
+        <activity android:name=".materi.mySQL.materi.DetailMateriMYSQLActivity" />
         <activity android:name=".materi.mySQL.ListMateriMSYQLActivity" />
-        <activity
-            android:name=".materi.Firebase.latihan.DetailLatihanFireActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.Firebase.materi.DetailMateriFireActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.Firebase.latihan.DetailLatihanFireActivity" />
+        <activity android:name=".materi.Firebase.materi.DetailMateriFireActivity" />
         <activity android:name=".materi.Firebase.ListMateriFireActivity" />
-        <activity
-            android:name=".materi.JSON.latihan.DetailLatihanJSONActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.JSON.materi.DetailMateriJSONActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.JSON.latihan.DetailLatihanJSONActivity" />
+        <activity android:name=".materi.JSON.materi.DetailMateriJSONActivity" />
         <activity android:name=".materi.JSON.ListMateriJSONActivity" />
-        <activity
-            android:name=".materi.php.latihanPHP.DetailLatihanPHPActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.php.materiPHP.DetailMateriPHPActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.php.latihanPHP.DetailLatihanPHPActivity" />
+        <activity android:name=".materi.php.materiPHP.DetailMateriPHPActivity" />
         <activity android:name=".materi.php.ListMateriPHPActivity" />
-        <activity
-            android:name=".materi.css.materiCSS.DetailMateriCSSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.css.latihanCSS.DetailLatihanCSSActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".materi.css.materiCSS.DetailMateriCSSActivity" />
+        <activity android:name=".materi.css.latihanCSS.DetailLatihanCSSActivity" />
         <activity android:name=".materi.css.ListMateriCSSActivity" />
-        <activity
-            android:name=".QnA.NewPostActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity android:name=".QnA.QnAActivity" />
-        <activity
-            android:name=".QnA.PostDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.HTML.latihanHTML.DetailLatihanActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity
-            android:name=".materi.HTML.materiHTML.DetailMateriActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".QnA.NewPostActivity"
+            android:label="Post Baru" />
+        <activity android:name=".QnA.QnAActivity"
+            android:label="Forum" />
+        <activity android:name=".QnA.PostDetailActivity" />
+        <activity android:name=".materi.HTML.latihanHTML.DetailLatihanActivity" />
+        <activity android:name=".materi.HTML.materiHTML.DetailMateriActivity" />
         <activity android:name=".kuisDatabase.mysql.ResultKuisMysqlActivity" />
         <activity android:name=".kuisDatabase.mysql.KuisMysqlActivity" />
         <activity android:name=".kuisDatabase.json.ResultKuisJsonActivity" />
@@ -115,32 +79,42 @@
         <activity android:name=".materi.HTML.ListMateriActivity" />
         <activity
             android:name=".ProfileActivity"
-            android:label="Profile"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity android:name=".kuisWeb.html.ResultKuisHTMLActivity" />
-        <activity android:name=".kuisWeb.html.KuisHTMLActivity" />
-        <activity android:name=".kuisWeb.boostrap.KuisBoostrapActivity" />
-        <activity android:name=".kuisWeb.boostrap.ResultKuisBoostrapActivity" />
-        <activity android:name=".kuisWeb.KategoriKuisWeb" />
-        <activity android:name=".KategoriKuisActivity" />
-        <activity android:name=".beranda.BerandaActivity">
-
-
+            android:label="Profile" />
+        <activity android:name=".kuisWeb.html.ResultKuisHTMLActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".kuisWeb.html.KuisHTMLActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".kuisWeb.boostrap.KuisBoostrapActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".kuisWeb.boostrap.ResultKuisBoostrapActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".kuisWeb.KategoriKuisWeb"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".KategoriKuisActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".beranda.BerandaActivity"
+            android:theme="@style/AppTheme2">
         </activity>
-        <activity android:name=".WalkthroughActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".WalkthroughActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme2" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".awal.login.login.LoginActivity">
+        <activity android:name=".awal.login.login.LoginActivity"
+            android:theme="@style/AppTheme2" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
-        <activity android:name=".awal.login.register.RegisterActivity" />
-
-        
+        <activity android:name=".awal.login.register.RegisterActivity"
+            android:theme="@style/AppTheme2"/>
         <provider
             android:authorities="org.d3ifcool.sicoding.fileprovider"
             android:name="androidx.core.content.FileProvider"

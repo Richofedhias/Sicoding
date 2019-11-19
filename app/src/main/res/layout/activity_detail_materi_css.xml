@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.codesgood.views.JustifiedTextView
             android:id="@+id/tV_description_css"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

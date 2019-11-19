@@ -34,6 +34,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,6 +53,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
     private Context mContext;
     private List<QnAList> QnAlist;
+    private View mEmptyView;
 
     String myUid;
 
@@ -60,12 +62,20 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
 
     boolean mProccesLike = false;
 
-    public QnAAdapter(Context mContext, List<QnAList> qnAlist) {
+    public QnAAdapter(Context mContext, List<QnAList> qnAlist, View mEmptyView) {
         this.mContext = mContext;
         QnAlist = qnAlist;
+        this.mEmptyView = mEmptyView;
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");
         postRef = FirebaseDatabase.getInstance().getReference().child("Post");
+    }
+
+    public void updateEmptyView() {
+        if (QnAlist.size() == 0)
+            mEmptyView.setVisibility(View.VISIBLE);
+        else
+            mEmptyView.setVisibility(View.GONE);
     }
 
     @NonNull
@@ -98,13 +108,13 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         holder.pTimeTv.setText(pTime);
         holder.pTitleTv.setText(pTitle);
         holder.pDescrTv.setText(pDesc);
-        holder.pLikeTv.setText(pLikes + "Like");
-        holder.pCommentTv.setText(pComments + "Comment");
+        holder.pLikeTv.setText(pLikes + " Suka");
+        holder.pCommentTv.setText(pComments + " Komentar");
 
         setLikes(holder,pId);
 
         try {
-            Picasso.get().load(uPict).placeholder(R.mipmap.ic_launcher).into(holder.uPictIv);
+            Picasso.get().load(uPict).into(holder.uPictIv);
         } catch (Exception e) {
 
         }
@@ -232,7 +242,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here");
         intent.putExtra(Intent.EXTRA_TEXT, shareBody);
-        mContext.startActivity(Intent.createChooser(intent, "Share Via"));
+        mContext.startActivity(Intent.createChooser(intent, "Berbagi Lewat"));
     }
 
     private void setLikes(final myViewHolder holder, final String postKey) {
@@ -267,7 +277,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
             popupMenu.getMenu().add(Menu.NONE, 0, 0, "Menghapus");
 
         }
-        popupMenu.getMenu().add(Menu.NONE, 1, 0, "Lihat Lebih Jelas");
+        popupMenu.getMenu().add(Menu.NONE, 1, 0, "Lihat Lebih Detail");
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
@@ -316,7 +326,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
                                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                                     ds.getRef().removeValue();
                                 }
-                                Toast.makeText(mContext, "Menghapus Sukses", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Menghapus Berhasil", Toast.LENGTH_SHORT).show();
                                 pd.dismiss();
                             }
 
@@ -338,7 +348,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
 
     private void deleteWithoutImage(String pId) {
         final ProgressDialog pd = new ProgressDialog(mContext);
-        pd.setMessage("Deleting...");
+        pd.setMessage("Menghapus...");
 
         Query fquery = FirebaseDatabase.getInstance().getReference("Post").orderByChild("pId").equalTo(pId);
         fquery.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -347,7 +357,7 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     ds.getRef().removeValue();
                 }
-                Toast.makeText(mContext, "Delete Sukses", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Menghapus Berhasil", Toast.LENGTH_SHORT).show();
                 pd.dismiss();
             }
 
