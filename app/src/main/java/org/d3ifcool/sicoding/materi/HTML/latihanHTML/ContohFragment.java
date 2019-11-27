@@ -71,7 +71,7 @@ public class ContohFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     MenuContoh contoh = new MenuContoh();
-                    contoh.setImages(snapshot.child("image").getValue().toString());
+                    contoh.setImages(snapshot.child("gambar").getValue().toString());
                     contoh.setJudul(snapshot.child("judul").getValue().toString());
                     contoh.setDesk(snapshot.child("description").getValue().toString());
 

@@ -70,7 +70,7 @@ public class LatihanMYSQLFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DataLatihanMYSQL contoh = new DataLatihanMYSQL();
-                    contoh.setImages(snapshot.child("").getValue().toString());
+                    contoh.setImages(snapshot.child("gambar").getValue().toString());
                     contoh.setJudul(snapshot.child("judul_latihan_mysql").getValue().toString());
                     contoh.setDesk(snapshot.child("isi_latihan_mysql").getValue().toString());
 

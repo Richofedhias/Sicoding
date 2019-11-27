@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import thereisnospon.codeview.CodeView;
 
 
 import com.squareup.picasso.Picasso;
@@ -39,19 +40,19 @@ public class LatihanPHPAdapter extends RecyclerView.Adapter<LatihanPHPAdapter.my
     public void onBindViewHolder(@NonNull myyViewHolder holder, int position) {
         final DataLatihanPHP item = lists.get(position);
         holder.judul.setText(item.getJudul());
-        holder.desk.setText(item.getDesk());
+        holder.desk.showCode(item.getDesk());
 
         Picasso.get().load(lists.get(position).getImages()).into(holder.images);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DetailLatihanPHPActivity.class);
-                intent.putExtra("judul", item.getJudul());
-                intent.putExtra("penjelasan", item.getDesk());
-                view.getContext().startActivity(intent);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), DetailLatihanPHPActivity.class);
+//                intent.putExtra("judul", item.getJudul());
+//                intent.putExtra("penjelasan", item.getDesk());
+//                view.getContext().startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -60,13 +61,14 @@ public class LatihanPHPAdapter extends RecyclerView.Adapter<LatihanPHPAdapter.my
     }
 
     public class myyViewHolder extends RecyclerView.ViewHolder {
-        TextView judul, desk;
+        TextView judul;
+        CodeView desk;
         ImageView images;
 
         public myyViewHolder(@NonNull View itemView) {
             super(itemView);
             judul = itemView.findViewById(R.id.tV_contoh_php);
-            desk = itemView.findViewById(R.id.tV_deskContoh_php);
+            desk = itemView.findViewById(R.id.tV_Latihan_php);
             images = itemView.findViewById(R.id.iV_contoh_php);
         }
     }

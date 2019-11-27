@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import thereisnospon.codeview.CodeView;
 
 import com.squareup.picasso.Picasso;
 
@@ -41,19 +42,19 @@ public class LatihanBSAdapter extends RecyclerView.Adapter<LatihanBSAdapter.myyV
     public void onBindViewHolder(@NonNull myyViewHolder holder, int position) {
         final DataLatihanBS item = lists.get(position);
         holder.judul.setText(item.getJudul());
-        holder.desk.setText(item.getDesk());
+        holder.desk.showCode(item.getDesk());
 
         Picasso.get().load(lists.get(position).getImages()).into(holder.images);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DetailLatihanBSActivity.class);
-                intent.putExtra("judul", item.getJudul());
-                intent.putExtra("penjelasan", item.getDesk());
-                view.getContext().startActivity(intent);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), DetailLatihanBSActivity.class);
+//                intent.putExtra("judul", item.getJudul());
+//                intent.putExtra("penjelasan", item.getDesk());
+//                view.getContext().startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -62,13 +63,14 @@ public class LatihanBSAdapter extends RecyclerView.Adapter<LatihanBSAdapter.myyV
     }
 
     public class myyViewHolder extends RecyclerView.ViewHolder {
-        TextView judul, desk;
+        TextView judul;
+        CodeView desk;
         ImageView images;
 
         public myyViewHolder(@NonNull View itemView) {
             super(itemView);
             judul = itemView.findViewById(R.id.tV_contoh_bs);
-            desk = itemView.findViewById(R.id.tV_deskContoh_bs);
+            desk = itemView.findViewById(R.id.tV_Latihan_bs);
             images = itemView.findViewById(R.id.iV_contoh_bs);
         }
     }

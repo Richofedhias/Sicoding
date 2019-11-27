@@ -68,7 +68,7 @@ public class LatihanAndKFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DataLatihanAndK contoh = new DataLatihanAndK();
-                    contoh.setImages(snapshot.child("").getValue().toString());
+                    contoh.setImages(snapshot.child("gambar").getValue().toString());
                     contoh.setJudul(snapshot.child("judul_latihan_kotlin").getValue().toString());
                     contoh.setDesk(snapshot.child("isi_latihan_kotlin").getValue().toString());
 

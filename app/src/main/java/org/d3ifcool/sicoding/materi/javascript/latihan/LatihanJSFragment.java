@@ -69,7 +69,7 @@ public class LatihanJSFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DataLatihanJS contoh = new DataLatihanJS();
-                    contoh.setImages(snapshot.child("").getValue().toString());
+                    contoh.setImages(snapshot.child("gambar").getValue().toString());
                     contoh.setJudul(snapshot.child("judul_latihan_js").getValue().toString());
                     contoh.setDesk(snapshot.child("isi_latihan_js").getValue().toString());
 
