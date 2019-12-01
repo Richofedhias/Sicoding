@@ -18,9 +18,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.d3ifcool.sicoding.AboutActivity;
 import org.d3ifcool.sicoding.KategoriKuisActivity;
+import org.d3ifcool.sicoding.MainActivity;
 import org.d3ifcool.sicoding.ProfileActivity;
 import org.d3ifcool.sicoding.QnA.QnAActivity;
 import org.d3ifcool.sicoding.R;
+import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
 
 public class BerandaActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton, fab1, fab2;
@@ -35,6 +37,7 @@ public class BerandaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         viewPager = (ViewPager) findViewById(R.id.vP_beranda);
         IsiBerandaAdapter utangAdapter = new IsiBerandaAdapter(BerandaActivity.this, getSupportFragmentManager());
@@ -96,8 +99,14 @@ public class BerandaActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BerandaActivity.this, QnAActivity.class);
-                startActivity(intent);
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null){
+                    startActivity(new Intent(BerandaActivity.this, LoginActivity.class));
+                } else {
+                    Intent intent = new Intent(BerandaActivity.this, QnAActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
     }

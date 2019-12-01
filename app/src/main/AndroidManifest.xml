@@ -76,7 +76,9 @@
         <activity android:name=".kuisWeb.javascript.KuisJavaScriptActivity" />
         <activity android:name=".kuisWeb.css.ResultKuisCSSActivity" />
         <activity android:name=".kuisWeb.css.KuisCSSActivity" />
-        <activity android:name=".materi.HTML.ListMateriActivity" />
+        <activity android:name=".materi.HTML.ListMateriActivity" >
+
+        </activity>
         <activity
             android:name=".ProfileActivity"
             android:label="Profile" />

@@ -12,10 +12,8 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-
 import com.google.android.material.tabs.TabLayout;
-
-import org.d3ifcool.sicoding.awal.login.login.LoginActivity;
+import org.d3ifcool.sicoding.beranda.BerandaActivity;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -36,7 +34,8 @@ public class WalkthroughActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (restorePrefData()) {
-            Intent intent = new Intent(WalkthroughActivity.this, LoginActivity.class);
+            //disini ganti jadi beranda
+            Intent intent = new Intent(WalkthroughActivity.this, BerandaActivity.class);
             startActivity(intent);
             finish();
         }
@@ -44,7 +43,7 @@ public class WalkthroughActivity extends AppCompatActivity {
         setContentView(R.layout.activity_walkthrough);
         try {
             InputStream inputStream = WalkthroughActivity.this.openFileInput("confirm.txt");
-            Intent intent = new Intent(WalkthroughActivity.this, LoginActivity.class);
+            Intent intent = new Intent(WalkthroughActivity.this, BerandaActivity.class);
             startActivity(intent);
             finish();
         } catch (FileNotFoundException e) {
@@ -105,7 +104,7 @@ public class WalkthroughActivity extends AppCompatActivity {
         btn_getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WalkthroughActivity.this, LoginActivity.class);
+                Intent intent = new Intent(WalkthroughActivity.this, BerandaActivity.class);
                 startActivity(intent);
 
                 savePrefsData();
