@@ -5,13 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,7 +27,6 @@ import org.d3ifcool.sicoding.beranda.BerandaActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login;
-//    private EditText email, password;
     private TextInputLayout email, password;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog mLoading;
@@ -44,41 +40,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.eT_loginEmail);
         password = findViewById(R.id.eT_loginPassword);
-//        remember = findViewById(R.id.cb_remember);
+
         login = findViewById(R.id.btn_Login);
         mLoading = new ProgressDialog(this);
         mLoading.setMessage("Harap Tunggu");
         firebaseAuth = FirebaseAuth.getInstance();
-//        if (firebaseAuth.getCurrentUser() != null) {
-//            startActivity(new Intent(LoginActivity.this, BerandaActivity.class));
-////        }
- //Pengerjaan Remember
-
-//        SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-//        String checkbox = sharedPreferences.getString("remember","");
-//
-//        if (checkbox.equals("true")){
-//            startActivity(new Intent(LoginActivity.this, BerandaActivity.class));
-//        }else if (checkbox.equals("false")){
-//
-//        }
-
-
-//        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (compoundButton.isChecked()){
-//                    SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putString("remember","true");
-//                    editor.apply();
-//                }else if (!compoundButton.isChecked()){
-//                    SharedPreferences sharedPreferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putString("remember","false");
-//                }
-//            }
-//        });
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -96,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (!email_user.matches(emailPattern)) {
                     email.setError("Masukan Email yang Valid");
                     email.setFocusable(true);
-                }else{
-                    loginUser(email_user,password_user);
+                } else {
+                    loginUser(email_user, password_user);
                 }
             }
         });
@@ -131,11 +97,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 mLoading.dismiss();
-                Toast.makeText(LoginActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
 
     @Override

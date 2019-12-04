@@ -94,7 +94,6 @@ public class PostDetailActivity extends AppCompatActivity {
 
 
         //init
-        uPictureIv = findViewById(R.id.iV_avatar);
         pImageIv = findViewById(R.id.iV_imagePost);
         nameTv = findViewById(R.id.tV_userQ);
         pTimeTv = findViewById(R.id.tV_TimeQ);

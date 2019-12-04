@@ -23,15 +23,13 @@ public class MateriViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0) {
             return new MateriFragment();
-        } else if (position == 1){
+        } else{
             return new ContohFragment();
-        } else {
-            return new PraktekFragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }

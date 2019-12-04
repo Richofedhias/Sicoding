@@ -386,7 +386,6 @@ public class QnAAdapter extends RecyclerView.Adapter<QnAAdapter.myViewHolder> {
             pDescrTv = itemView.findViewById(R.id.tV_descriptionPost);
             pLikeTv = itemView.findViewById(R.id.tv_Like);
             pCommentTv = itemView.findViewById(R.id.tv_comment);
-            uPictIv = itemView.findViewById(R.id.iV_avatar);
             pImageIv = itemView.findViewById(R.id.iV_imagePost);
             moreBtn = itemView.findViewById(R.id.moreBtn);
             likeBtn = itemView.findViewById(R.id.btn_like);

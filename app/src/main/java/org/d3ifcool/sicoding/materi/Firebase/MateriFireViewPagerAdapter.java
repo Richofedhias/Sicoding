@@ -9,9 +9,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.sicoding.materi.Firebase.latihan.LatihanFireFragment;
 import org.d3ifcool.sicoding.materi.Firebase.materi.MateriFireFragment;
-import org.d3ifcool.sicoding.materi.HTML.PraktekFragment;
-import org.d3ifcool.sicoding.materi.php.latihanPHP.LatihanPHPFragment;
-import org.d3ifcool.sicoding.materi.php.materiPHP.MateriPHPFragment;
 
 public class MateriFireViewPagerAdapter extends FragmentPagerAdapter {
     Context mContext;
