@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void registerUser(String emailUser, String passwordUser) {
+     private void registerUser(String emailUser, String passwordUser) {
 //        mLoading.show();
 
         firebaseAuth.createUserWithEmailAndPassword(emailUser, passwordUser)
